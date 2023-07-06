@@ -1,0 +1,21 @@
+{
+  "folders": 
+  [
+    {
+      "path": "."
+    }
+	],
+	"settings": 
+  {
+    "editor.formatOnSaveMode": "file",
+		"editor.formatOnSave": true,
+		"workbench.colorCustomizations": 
+    {
+			"titleBar.activeBackground": "#3873E6"
+		},
+    "python.analysis.typeCheckingMode": "basic",
+		"python.formatting.provider": "black",
+		"python.linting.pylintEnabled": true,
+		"python.linting.enabled": true
+  },
+}
