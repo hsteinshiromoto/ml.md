@@ -1,3 +1,13 @@
+---
+alias: 
+tags: 
+title: A Gentle Introduction to Statistical Hypothesis Testing
+date created: 2023-07-24 09:46:20
+date modified: 2023-07-24 09:52:06
+---
+
+# A Gentle Introduction to Statistical Hypothesis Testing
+
 Last Updated on April 10, 2020
 
 Data must be interpreted in order to add meaning.
@@ -10,34 +20,34 @@ In this tutorial, you will discover statistical hypothesis testing and how to in
 
 After completing this tutorial, you will know:
 
--   Statistical hypothesis tests are important for quantifying answers to questions about samples of data.
--   The interpretation of a statistical hypothesis test requires a correct understanding of p-values and critical values.
--   Regardless of the significance level, the finding of hypothesis tests may still contain errors.
+- Statistical hypothesis tests are important for quantifying answers to questions about samples of data.
+- The interpretation of a statistical hypothesis test requires a correct understanding of p-values and critical values.
+- Regardless of the significance level, the finding of hypothesis tests may still contain errors.
 
 **Kick-start your project** with my new book [Statistics for Machine Learning](https://machinelearningmastery.com/statistics_for_machine_learning/), including _step-by-step tutorials_ and the _Python source code_ files for all examples.
 
 Let’s get started.
 
--   **Update May/2018**: Added note about “reject” vs “failure to reject”, improved language on this issue.
--   **Update Jun/2018**: Fixed typo in the explanation of type I and type II errors.
--   **Update Jun/2019**: Added examples of tests and links to Python tutorials.
+- **Update May/2018**: Added note about “reject” vs “failure to reject”, improved language on this issue.
+- **Update Jun/2018**: Fixed typo in the explanation of type I and type II errors.
+- **Update Jun/2019**: Added examples of tests and links to Python tutorials.
 
 ![A Gentle Introduction to Statistical Hypothesis Tests](https://machinelearningmastery.com/wp-content/uploads/2018/05/A-Gentle-Introduction-to-Statistical-Hypothesis-Tests.jpg)
 
-A Gentle Introduction to Statistical Hypothesis Tests  
+A Gentle Introduction to Statistical Hypothesis Tests
 Photo by [Kevin Verbeem](https://www.flickr.com/photos/kevinverbeem/33597498581/), some rights reserved.
 
 ## Tutorial Overview
 
 This tutorial is divided into five parts; they are:
 
-1.  Statistical Hypothesis Testing
-2.  Statistical Test Interpretation
-3.  Errors in Statistical Tests
-4.  Examples of Hypothesis Tests
-5.  Python Tutorials
+1. Statistical Hypothesis Testing
+2. Statistical Test Interpretation
+3. Errors in Statistical Tests
+4. Examples of Hypothesis Tests
+5. Python Tutorials
 
-### Need help with Statistics for Machine Learning?
+### Need Help with Statistics for Machine Learning?
 
 Take my free 7-day email crash course now (with sample code).
 
@@ -55,15 +65,15 @@ In statistics, a hypothesis test calculates some quantity under a given assumpti
 
 Two concrete examples that we will use a lot in machine learning are:
 
--   A test that assumes that data has a normal distribution.
--   A test that assumes that two samples were drawn from the same underlying population distribution.
+- A test that assumes that data has a normal distribution.
+- A test that assumes that two samples were drawn from the same underlying population distribution.
 
 The assumption of a statistical test is called the null hypothesis, or hypothesis 0 (H0 for short). It is often called the default assumption, or the assumption that nothing has changed.
 
 A violation of the test’s assumption is often called the first hypothesis, hypothesis 1 or H1 for short. H1 is really a short hand for “_some other hypothesis_,” as all we know is that the evidence suggests that the H0 can be rejected.
 
--   **Hypothesis 0 (H0)**: Assumption of the test holds and is failed to be rejected at some level of significance.
--   **Hypothesis 1 (H1)**: Assumption of the test does not hold and is rejected at some level of significance.
+- **Hypothesis 0 (H0)**: Assumption of the test holds and is failed to be rejected at some level of significance.
+- **Hypothesis 1 (H1)**: Assumption of the test does not hold and is rejected at some level of significance.
 
 Before we can reject or fail to reject the null hypothesis, we must interpret the result of the test.
 
@@ -75,7 +85,7 @@ This is a point that may cause a lot of confusion for beginners and experienced 
 
 There are two common forms that a result from a statistical hypothesis test may take, and they must be interpreted in different ways. They are the p-value and [critical values](https://machinelearningmastery.com/critical-values-for-statistical-hypothesis-testing/).
 
-### Interpret the p-value
+### Interpret the P-value
 
 We describe a finding as statistically significant by interpreting the p-value.
 
@@ -89,8 +99,8 @@ A common value used for alpha is 5% or 0.05. A smaller alpha value suggests a mo
 
 The p-value is compared to the pre-chosen alpha value. A result is statistically significant when the p-value is less than alpha. This signifies a change was detected: that the default hypothesis can be rejected.
 
--   **If p-value > alpha**: Fail to reject the null hypothesis (i.e. not significant result).
--   **If p-value <= alpha**: Reject the null hypothesis (i.e. significant result).
+- **If p-value > alpha**: Fail to reject the null hypothesis (i.e. not significant result).
+- **If p-value <= alpha**: Reject the null hypothesis (i.e. significant result).
 
 For example, if we were performing a test of whether a data sample was normal and we calculated a p-value of .07, we could state something like:
 
@@ -104,7 +114,7 @@ Therefore, statements such as the following can also be made:
 
 > The test found that the data was normal, failing to reject the null hypothesis at a 95% confidence level.
 
-### “Reject” vs “Failure to Reject”
+### “Reject” Vs “Failure to Reject”
 
 The p-value is probabilistic.
 
@@ -116,7 +126,7 @@ We may think about the statistical test in terms of the dichotomy of rejecting a
 
 When reading “_reject_” vs “_fail to reject_” for the first time, it is confusing to beginners. You can think of it as “_reject_” vs “_accept_” in your mind, as long as you remind yourself that the result is probabilistic and that even an “_accepted_” null hypothesis still has a small probability of being wrong.
 
-### Common p-value Misinterpretations
+### Common P-value Misinterpretations
 
 This section highlights some [common misinterpretations of the p-value](https://en.wikipedia.org/wiki/Misunderstandings_of_p-values) in the results of statistical tests.
 
@@ -128,7 +138,7 @@ It does mean that we have chosen to reject or fail to reject the null hypothesis
 
 You are limited to making probabilistic claims, not crisp binary or true/false claims about the result.
 
-#### p-value as Probability
+#### P-value as Probability
 
 A common misunderstanding is that the p-value is a probability of the null hypothesis being true or false given the data.
 
@@ -164,8 +174,8 @@ The choice of returning a p-value or a list of critical values is really an impl
 
 The results are interpreted in a similar way. Instead of comparing a single p-value to a pre-specified significance level, the test statistic is compared to the critical value at a chosen significance level.
 
--   **If test statistic < critical value**: Fail to reject the null hypothesis.
--   **If test statistic >= critical value**: Reject the null hypothesis.
+- **If test statistic < critical value**: Fail to reject the null hypothesis.
+- **If test statistic >= critical value**: Reject the null hypothesis.
 
 Again, the meaning of the result is similar in that the chosen significance level is a probabilistic decision on rejection or fail to reject the base assumption of the test given the data.
 
@@ -191,8 +201,8 @@ Alternately, given a large p-value (fail to reject the null hypothesis), it may 
 
 Each of these two types of error has a specific name.
 
--   **Type I Error**: The incorrect rejection of a true null hypothesis or a false positive.
--   **Type II Error**: The incorrect failure of rejection of a false null hypothesis or a false negative.
+- **Type I Error**: The incorrect rejection of a true null hypothesis or a false positive.
+- **Type II Error**: The incorrect failure of rejection of a false null hypothesis or a false negative.
 
 All statistical hypothesis tests have a chance of making either of these types of errors. False findings or false disoveries are more than possible; they are probable.
 
@@ -210,30 +220,30 @@ This section lists some common examples of statistical hypothesis tests and the 
 
 ### Variable Distribution Type Tests (Gaussian)
 
--   Shapiro-Wilk Test
--   D’Agostino’s K^2 Test
--   Anderson-Darling Test
+- Shapiro-Wilk Test
+- D’Agostino’s K^2 Test
+- Anderson-Darling Test
 
 ### Variable Relationship Tests (correlation)
 
--   Pearson’s Correlation Coefficient
--   Spearman’s Rank Correlation
--   Kendall’s Rank Correlation
--   Chi-Squared Test
+- Pearson’s Correlation Coefficient
+- Spearman’s Rank Correlation
+- Kendall’s Rank Correlation
+- Chi-Squared Test
 
 ### Compare Sample Means (parametric)
 
--   Student’s t-test
--   Paired Student’s t-test
--   Analysis of Variance Test (ANOVA)
--   Repeated Measures ANOVA Test
+- Student’s t-test
+- Paired Student’s t-test
+- Analysis of Variance Test (ANOVA)
+- Repeated Measures ANOVA Test
 
 ### Compare Sample Means (nonparametric)
 
--   Mann-Whitney U Test
--   Wilcoxon Signed-Rank Test
--   Kruskal-Wallis H Test
--   Friedman Test
+- Mann-Whitney U Test
+- Wilcoxon Signed-Rank Test
+- Kruskal-Wallis H Test
+- Friedman Test
 
 For example Python code on how to use each of these tests, see the next section.
 
@@ -243,29 +253,29 @@ This section provides links to Python tutorials on statistical hypothesis testin
 
 Examples of many tests:
 
--   [15 Statistical Hypothesis Tests in Python (Cheat Sheet)](https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/)
+- [15 Statistical Hypothesis Tests in Python (Cheat Sheet)](https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/)
 
 Variable distribution tests:
 
--   [A Gentle Introduction to Normality Tests in Python](https://machinelearningmastery.com/a-gentle-introduction-to-normality-tests-in-python/)
+- [A Gentle Introduction to Normality Tests in Python](https://machinelearningmastery.com/a-gentle-introduction-to-normality-tests-in-python/)
 
 Evaluating variable relationships:
 
--   [How to Calculate Correlation Between Variables in Python](https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/)
--   [How to Calculate Nonparametric Rank Correlation in Python](https://machinelearningmastery.com/how-to-calculate-nonparametric-rank-correlation-in-python/)
+- [How to Calculate Correlation Between Variables in Python](https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/)
+- [How to Calculate Nonparametric Rank Correlation in Python](https://machinelearningmastery.com/how-to-calculate-nonparametric-rank-correlation-in-python/)
 
 Comparing sample means:
 
--   [How to Calculate Parametric Statistical Hypothesis Tests in Python](https://machinelearningmastery.com/parametric-statistical-significance-tests-in-python/)
--   [How to Calculate Nonparametric Statistical Hypothesis Tests in Python](https://machinelearningmastery.com/nonparametric-statistical-significance-tests-in-python/)
+- [How to Calculate Parametric Statistical Hypothesis Tests in Python](https://machinelearningmastery.com/parametric-statistical-significance-tests-in-python/)
+- [How to Calculate Nonparametric Statistical Hypothesis Tests in Python](https://machinelearningmastery.com/nonparametric-statistical-significance-tests-in-python/)
 
 ## Extensions
 
 This section lists some ideas for extending the tutorial that you may wish to explore.
 
--   Find an example of a research paper that does not present results using p-values.
--   Find an example of a research paper that presents results with statistical significance, but makes one of the common misinterpretations of p-values.
--   Find an example of a research paper that presents results with statistical significance and correctly interprets and presents the p-value and findings.
+- Find an example of a research paper that does not present results using p-values.
+- Find an example of a research paper that presents results with statistical significance, but makes one of the common misinterpretations of p-values.
+- Find an example of a research paper that presents results with statistical significance and correctly interprets and presents the p-value and findings.
 
 If you explore any of these extensions, I’d love to know.
 
@@ -275,14 +285,14 @@ This section provides more resources on the topic if you are looking to go deepe
 
 ### Articles
 
--   [Statistical hypothesis testing on Wikipedia](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing)
--   [Statistical significance on Wikipedia](https://en.wikipedia.org/wiki/Statistical_significance)
--   [p-value on Wikipedia](https://en.wikipedia.org/wiki/P-value)
--   [Critical value on Wikipedia](https://en.wikipedia.org/wiki/Critical_value)
--   [Type I and type II errors on Wikipedia](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors)
--   [Data dredging on Wikipedia](https://en.wikipedia.org/wiki/Data_dredging)
--   [Misunderstandings of p-values on Wikipedia](https://en.wikipedia.org/wiki/Misunderstandings_of_p-values)
--   [What does the 5 sigma mean?](http://www.physics.org/article-questions.asp?id=103)
+- [Statistical hypothesis testing on Wikipedia](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing)
+- [Statistical significance on Wikipedia](https://en.wikipedia.org/wiki/Statistical_significance)
+- [p-value on Wikipedia](https://en.wikipedia.org/wiki/P-value)
+- [Critical value on Wikipedia](https://en.wikipedia.org/wiki/Critical_value)
+- [Type I and type II errors on Wikipedia](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors)
+- [Data dredging on Wikipedia](https://en.wikipedia.org/wiki/Data_dredging)
+- [Misunderstandings of p-values on Wikipedia](https://en.wikipedia.org/wiki/Misunderstandings_of_p-values)
+- [What does the 5 sigma mean?](http://www.physics.org/article-questions.asp?id=103)
 
 ## Summary
 
@@ -290,29 +300,13 @@ In this tutorial, you discovered statistical hypothesis testing and how to inter
 
 Specifically, you learned:
 
--   Statistical hypothesis tests are important for quantifying answers to questions about samples of data.
--   The interpretation of a statistical hypothesis test requires a correct understanding of p-values.
--   Regardless of the significance level, the finding of hypothesis tests may still contain errors.
+- Statistical hypothesis tests are important for quantifying answers to questions about samples of data.
+- The interpretation of a statistical hypothesis test requires a correct understanding of p-values.
+- Regardless of the significance level, the finding of hypothesis tests may still contain errors.
 
-Do you have any questions?  
+Do you have any questions?
 Ask your questions in the comments below and I will do my best to answer.
 
-## Get a Handle on Statistics for Machine Learning!
+## References
 
-[![Statistical Methods for Machine Learning](https://machinelearningmastery.com/wp-content/uploads/2022/11/SMML-220.png)](https://machinelearningmastery.com/statistics_for_machine_learning/)
-
-#### Develop a working understanding of statistics
-
-...by writing lines of code in python
-
-Discover how in my new Ebook:  
-[Statistical Methods for Machine Learning](https://machinelearningmastery.com/statistics_for_machine_learning/)
-
-It provides **self-study tutorials** on topics like:  
-_Hypothesis Tests, Correlation, Nonparametric Stats, Resampling_, and much more...
-
-#### Discover how to Transform Data into Knowledge
-
-Skip the Academics. Just Results.
-
-[See What's Inside](https://machinelearningmastery.com/statistics_for_machine_learning/)
+https://machinelearningmastery.com/statistical-hypothesis-tests/
