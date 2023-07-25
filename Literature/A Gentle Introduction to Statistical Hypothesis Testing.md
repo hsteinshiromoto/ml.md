@@ -3,12 +3,10 @@ alias:
 tags: 
 title: A Gentle Introduction to Statistical Hypothesis Testing
 date created: 2023-07-24 09:46:20
-date modified: 2023-07-24 09:52:06
+date modified: 2023-07-25 22:35:45
 ---
 
 # A Gentle Introduction to Statistical Hypothesis Testing
-
-Last Updated on April 10, 2020
 
 Data must be interpreted in order to add meaning.
 
@@ -24,19 +22,6 @@ After completing this tutorial, you will know:
 - The interpretation of a statistical hypothesis test requires a correct understanding of p-values and critical values.
 - Regardless of the significance level, the finding of hypothesis tests may still contain errors.
 
-**Kick-start your project** with my new book [Statistics for Machine Learning](https://machinelearningmastery.com/statistics_for_machine_learning/), including _step-by-step tutorials_ and the _Python source code_ files for all examples.
-
-Let’s get started.
-
-- **Update May/2018**: Added note about “reject” vs “failure to reject”, improved language on this issue.
-- **Update Jun/2018**: Fixed typo in the explanation of type I and type II errors.
-- **Update Jun/2019**: Added examples of tests and links to Python tutorials.
-
-![A Gentle Introduction to Statistical Hypothesis Tests](https://machinelearningmastery.com/wp-content/uploads/2018/05/A-Gentle-Introduction-to-Statistical-Hypothesis-Tests.jpg)
-
-A Gentle Introduction to Statistical Hypothesis Tests
-Photo by [Kevin Verbeem](https://www.flickr.com/photos/kevinverbeem/33597498581/), some rights reserved.
-
 ## Tutorial Overview
 
 This tutorial is divided into five parts; they are:
@@ -46,12 +31,6 @@ This tutorial is divided into five parts; they are:
 3. Errors in Statistical Tests
 4. Examples of Hypothesis Tests
 5. Python Tutorials
-
-### Need Help with Statistics for Machine Learning?
-
-Take my free 7-day email crash course now (with sample code).
-
-Click to sign-up and also get a free PDF Ebook version of the course.
 
 ## Statistical Hypothesis Testing
 
@@ -72,8 +51,9 @@ The assumption of a statistical test is called the null hypothesis, or hypothesi
 
 A violation of the test’s assumption is often called the first hypothesis, hypothesis 1 or H1 for short. H1 is really a short hand for “_some other hypothesis_,” as all we know is that the evidence suggests that the H0 can be rejected.
 
-- **Hypothesis 0 (H0)**: Assumption of the test holds and is failed to be rejected at some level of significance.
-- **Hypothesis 1 (H1)**: Assumption of the test does not hold and is rejected at some level of significance.
+> [!note] Null and Alternative Hypotheses
+> **Hypothesis 0 (H0)**: Assumption of the test holds and is failed to be rejected at some level of significance.
+> **Hypothesis 1 (H1)**: Assumption of the test does not hold and is rejected at some level of significance.
 
 Before we can reject or fail to reject the null hypothesis, we must interpret the result of the test.
 
@@ -93,14 +73,15 @@ For example, we may perform a normality test on a data sample and find that it i
 
 A statistical hypothesis test may return a value called p or the [p-value](https://en.wikipedia.org/wiki/P-value). This is a quantity that we can use to interpret or quantify the result of the test and either reject or fail to reject the null hypothesis. This is done by comparing the p-value to a threshold value chosen beforehand called the significance level.
 
-The [significance level](https://en.wikipedia.org/wiki/Statistical_significance) is often referred to by the Greek lower case letter alpha.
+The [significance level](https://en.wikipedia.org/wiki/Statistical_significance) is often referred to by the Greek lower case letter $\alpha$.
 
 A common value used for alpha is 5% or 0.05. A smaller alpha value suggests a more robust interpretation of the null hypothesis, such as 1% or 0.1%.
 
 The p-value is compared to the pre-chosen alpha value. A result is statistically significant when the p-value is less than alpha. This signifies a change was detected: that the default hypothesis can be rejected.
 
-- **If p-value > alpha**: Fail to reject the null hypothesis (i.e. not significant result).
-- **If p-value <= alpha**: Reject the null hypothesis (i.e. significant result).
+> [!note] $p-$value and Significance Level
+> - **If $p$-value $>\alpha$**: Fail to reject the null hypothesis (i.e. not significant result).
+> - **If $p-$value $\leq\alpha$**: Reject the null hypothesis (i.e. significant result).
 
 For example, if we were performing a test of whether a data sample was normal and we calculated a p-value of .07, we could state something like:
 
@@ -108,7 +89,8 @@ For example, if we were performing a test of whether a data sample was normal an
 
 The significance level can be inverted by subtracting it from 1 to give a confidence level of the hypothesis given the observed sample data.
 
-<table><tbody><tr><td data-settings="show"></td><td><div><p>confidence level = 1 - significance level</p></div></td></tr></tbody></table>
+> [!note] Significance Level and Confidence Level
+> `confidence level = 1 - significance level`
 
 Therefore, statements such as the following can also be made:
 
@@ -142,17 +124,20 @@ You are limited to making probabilistic claims, not crisp binary or true/false c
 
 A common misunderstanding is that the p-value is a probability of the null hypothesis being true or false given the data.
 
-In probability, this would be written as follows:
+In probability, this would be written as
+$$P(\textrm{hypothesis}|\textrm{data})$$
 
 This is incorrect.
 
 Instead, the p-value can be thought of as the probability of the data given the pre-specified assumption embedded in the statistical test.
 
 Again, using probability notation, this would be written as:
+$$P(\textrm{data}|\textrm{hypothesis})$$
 
 It allows us to reason about whether or not the data fits the hypothesis. Not the other way around.
 
-The p-value is a measure of how likely the data sample would be observed if the null hypothesis were true.
+> [!info] Interpretation of the $p-$value
+> The p-value is a measure of how likely the data sample would be observed if the null hypothesis were true.
 
 #### Post-Hoc Tuning
 
@@ -174,8 +159,9 @@ The choice of returning a p-value or a list of critical values is really an impl
 
 The results are interpreted in a similar way. Instead of comparing a single p-value to a pre-specified significance level, the test statistic is compared to the critical value at a chosen significance level.
 
-- **If test statistic < critical value**: Fail to reject the null hypothesis.
-- **If test statistic >= critical value**: Reject the null hypothesis.
+> [!info] Test Statistic and Critical Value
+> - **If test statistic < critical value**: Fail to reject the null hypothesis.
+> - **If test statistic $\geq$ critical value**: Reject the null hypothesis.
 
 Again, the meaning of the result is similar in that the chosen significance level is a probabilistic decision on rejection or fail to reject the base assumption of the test given the data.
 
