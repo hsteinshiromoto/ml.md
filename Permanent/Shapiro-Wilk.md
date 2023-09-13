@@ -3,7 +3,7 @@ alias:
 tags: 
 title: Shapiro-Wilk
 date created: 2023-09-13 13:04:56
-date modified: 2023-09-13 13:06:35
+date modified: 2023-09-13 21:21:41
 ---
 
 # Shapiro-Wilk
