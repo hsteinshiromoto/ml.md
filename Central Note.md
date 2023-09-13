@@ -10,4 +10,5 @@ date modified: 2023-09-13 13:29:23
 
 ## Statistics
 
+- [[Statistical Tests]]
 - [[The Statistical Tests Table]]
