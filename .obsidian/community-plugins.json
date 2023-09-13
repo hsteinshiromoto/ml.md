@@ -3,5 +3,10 @@
   "obsidian-latex",
   "mathlinks",
   "map-of-content",
-  "markdown-table-editor"
+  "markdown-table-editor",
+  "templater-obsidian",
+  "auto-note-mover",
+  "dataview",
+  "obsidian-style-settings",
+  "obsidian-auto-link-title"
 ]
