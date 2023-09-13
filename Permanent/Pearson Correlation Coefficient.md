@@ -21,6 +21,8 @@ Tests whether two samples have a linear relationship.
 - H0: the two samples are independent.
 - H1: there is a dependency between the samples.
 
+## Code Implementation
+
 ```python
 # Example of the Pearson's Correlation test
 from scipy.stats import pearsonr

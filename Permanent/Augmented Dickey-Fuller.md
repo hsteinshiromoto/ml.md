@@ -3,7 +3,7 @@ alias:
 tags: 
 title: Augmented Dickey-Fuller
 date created: 2023-09-13 13:20:30
-date modified: 2023-09-13 13:21:05
+date modified: 2023-09-13 13:32:17
 ---
 
 # Augmented Dickey-Fuller
@@ -18,6 +18,8 @@ Tests whether a time series has a unit root, e.g. has a trend or more generally 
 
 - H0: a unit root is present (series is non-stationary).
 - H1: a unit root is not present (series is stationary).
+
+## Code Implementation
 
 ```python
 # Example of the Augmented Dickey-Fuller unit root test

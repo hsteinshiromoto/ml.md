@@ -20,6 +20,8 @@ Tests whether two categorical variables are related or independent.
 - H0: the two samples are independent.
 - H1: there is a dependency between the samples.
 
+## Code Implementation
+
 ```python
 # Example of the Chi-Squared Test
 from scipy.stats import chi2_contingency

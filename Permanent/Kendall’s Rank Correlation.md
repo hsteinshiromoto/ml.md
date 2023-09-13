@@ -20,6 +20,8 @@ Tests whether two samples have a monotonic relationship.
 - H0: the two samples are independent.
 - H1: there is a dependency between the samples.
 
+## Code Implementation
+
 ```python
 # Example of the Kendall's Rank Correlation Test
 from scipy.stats import kendalltau

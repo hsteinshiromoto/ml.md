@@ -19,6 +19,8 @@ Tests whether a data sample has a Gaussian distribution.
 - H0: the sample has a Gaussian distribution.
 - H1: the sample does not have a Gaussian distribution.
 
+## Code Implementation
+
 ```python
 # Example of the D'Agostino's K^2 Normality Test
 from scipy.stats import normaltest

@@ -19,7 +19,7 @@ Tests whether a data sample has a Gaussian distribution.
 - H0: the sample has a Gaussian distribution.
 - H1: the sample does not have a Gaussian distribution.
 
-## Code
+## Code Implementation
 
 ```python
 from scipy.stats import shapiro
