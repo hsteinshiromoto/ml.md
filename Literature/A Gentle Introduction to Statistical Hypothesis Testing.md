@@ -67,7 +67,8 @@ There are two common forms that a result from a statistical hypothesis test may 
 
 ### Interpret the P-value
 
-We describe a finding as statistically significant by interpreting the p-value.
+> [!tip] Interpreting the $p-$value
+> We describe a finding as statistically significant by interpreting the p-value.
 
 For example, we may perform a normality test on a data sample and find that it is unlikely that sample of data deviates from a Gaussian distribution, failing to reject the null hypothesis.
 
