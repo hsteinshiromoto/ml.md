@@ -1,9 +1,10 @@
----
-alias: 
-tags: 
-title: Changelog
-date created: 2023-09-13 21:35:03
-date modified: 2023-09-13 21:35:11
----
-
-# Changelog
+- 2023-09-14 at 22h16 · [[Gaussian distribution]]
+- 2023-09-13 at 21h26 · [[Poisson distribution]]
+- 2023-09-13 at 21h26 · [[Binomial distribution]]
+- 2023-09-13 at 21h26 · [[Probability Theory]]
+- 2023-09-13 at 21h24 · [[Central Note]]
+- 2023-09-13 at 21h21 · [[Shapiro-Wilk]]
+- 2023-09-13 at 21h03 · [[The Statistical Tests Table]]
+- 2023-09-13 at 21h03 · [[Paired Student t]]
+- 2023-09-13 at 21h03 · [[Pearson Correlation Coefficient]]
+- 2023-09-13 at 21h03 · [[Repeated Measures AnOVa]]
