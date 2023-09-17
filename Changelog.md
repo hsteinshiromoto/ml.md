@@ -1,6 +1,6 @@
-- 2023-09-14 at 22h16 · [[Gaussian distribution]]
+- 2023-09-17 at 23h12 · [[Binomial distribution]]
+- 2023-09-17 at 22h18 · [[Gaussian distribution]]
 - 2023-09-13 at 21h26 · [[Poisson distribution]]
-- 2023-09-13 at 21h26 · [[Binomial distribution]]
 - 2023-09-13 at 21h26 · [[Probability Theory]]
 - 2023-09-13 at 21h24 · [[Central Note]]
 - 2023-09-13 at 21h21 · [[Shapiro-Wilk]]
