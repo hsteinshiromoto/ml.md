@@ -5,24 +5,34 @@ aliases:
 tags: 
 title: Binomial Distribution
 date created: 2023-09-13 21:26:44
-date modified: 2023-09-17 23:12:32
+date modified: 2023-09-18 21:54:28
 ---
 
 # Binomial Distribution
 
 ## Definition
 
-Let $X$ be a random variable, $n\in\mathbb{N}$ and $p\in[0,1]$. The probability of getting exactly $k\in\mathbb{N}_{[1,n]}$ successes in $n$ independent Bernoulli trials with parameters $n$ and $p$ is given by the probability mass function:
-$$\begin{array}{rrcl}
-f(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
-&k&\to&\begin{pmatrix}n\\ k\end{pmatrix}p^k(1-p)^{n-k}\;.
-\end{array}$$
+Let $X$ be a discrete random variable with the
 
-## Properties
+> [!info] Parameters
+> - $n$: number of independent Bernoulli trials.
+> - $p$: probability of success.
 
-### Expected Value
+The random variable is said to be Binomially distributed if the probability of getting exactly $k\in\mathbb{N}_{[1,n]}$ successes is described by the following
 
-$$E[X]=np\;.$$
-### Variance
+> [!info] Probability Mass Function
+> $$\begin{array}{rrcl}
+> f(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
+> &k&\to&\begin{pmatrix}n\\ k\end{pmatrix}p^k(1-p)^{n-k}\;.
+> \end{array}$$
 
-$$\text{Var}(X)=np(1-p)\;.$$
+> [!info] Moments
+> - Expected value: $E[X]=np$,
+> - Variance: $\texttt{Var}(X)=np(1-p)$.
+
+> [!info] Uncertainty Estimation
+> - $\alpha$: confidence level
+> - $\hat{p}$: success probability
+> - Confidence interval
+>   $$\hat{p}\pm z\sqrt{\dfrac{\hat{p}(1-\hat{p})}{{n}}}\;,$$
+>   where $z=1-\alpha/2$.

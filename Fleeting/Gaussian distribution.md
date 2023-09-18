@@ -5,16 +5,28 @@ aliases:
 tags: 
 title: Gaussian Distribution
 date created: 2023-09-13 21:26:52
-date modified: 2023-09-17 22:18:07
+date modified: 2023-09-18 21:57:37
 ---
 
 # Gaussian Distribution
 
-## Definition
+Let $X\in\mathbb{R}^n$ be a continuous random vector with the
 
-Let $x\in\mathbb{R}^n$ be a random vector, $\mu\in\mathbb{R}^n$ the be mean vector, and $\Sigma\in\mathbb{R}^{n\times n}$ be the covariance matrix denoted in compact form, for every $i,j\in\mathbb{N}_{[1, n]}$, as $\left|\textrm{Cov}(x_i,x_j)\right|$. The probability density function is given by
-$$\begin{array}{rrcl}
-f:&\mathbb{R}&\mapsto&\mathbb{R}\\
-&x&\to&\dfrac{\exp\left(-\dfrac{(x-\mu)^T\Sigma^{-1}(x-\mu)}{2}\right)}{\sqrt{(2\pi)^k\det(\Sigma)}}\;.
-\end{array}
-$$
+> [!info] Parameters
+> - $\mu\in\mathbb{R}^n$: the mean vector.
+> - The covariance matrix
+  > $$\Sigma=\begin{pmatrix}
+> \texttt{Var}(X_1)&\texttt{Cov}(X_1,X_2)&\cdots&\texttt{Cov}(X_1,X_n)\\
+>  \texttt{Cov}(X_2,X_1)&\texttt{Var}(X_2)&\cdots&\texttt{Cov}(X_2,X_n)\\
+>  \vdots&\vdots&\ddots&\vdots\\
+>  \texttt{Cov}(X_n,X_1)&\cdots&\texttt{Cov}(X_n,X_{n-1})&\texttt{Var}(X_n)\\
+>  \end{pmatrix}\;.$$
+
+The random variable is said to be Gaussian distributed if it described by the following
+
+> [!info] probability density function
+> $$\begin{array}{rrcl}
+> f:&\mathbb{R}&\mapsto&\mathbb{R}\\
+> &x&\to&\dfrac{\exp\left(-\dfrac{(x-\mu)^T\Sigma^{-1}(x-\mu)}{2}\right)}{\sqrt{(2\pi)^k\det(\Sigma)}}\;.
+> \end{array}
+> $$
