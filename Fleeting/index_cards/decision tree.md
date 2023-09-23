@@ -1,0 +1,1 @@
+Splits the data into categories in such a way that maximizes the information gain
