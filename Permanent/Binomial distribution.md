@@ -1,14 +1,16 @@
 ---
 alias: 
-aliases:
-  - binomial
-tags: 
+aliases: 
+tags:
+  - distribution/discrete
 title: Binomial Distribution
 date created: 2023-09-13 21:26:44
-date modified: 2023-09-18 21:54:28
+date modified: 2023-09-23 22:05:37
 ---
 
 # Binomial Distribution
+
+
 
 ## Definition
 
@@ -18,11 +20,11 @@ Let $X$ be a discrete random variable with the
 > - $n$: number of independent Bernoulli trials.
 > - $p$: probability of success.
 
-The random variable is said to be Binomially distributed if the probability of getting exactly $k\in\mathbb{N}_{[1,n]}$ successes is described by the following
+The random variable is said to follow a _binomial_ distribution if the probability of getting exactly $k\in\mathbb{N}_{[1,n]}$ successes is described by the following
 
 > [!info] Probability Mass Function
 > $$\begin{array}{rrcl}
-> f(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
+> \text{Bin}(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
 > &k&\to&\begin{pmatrix}n\\ k\end{pmatrix}p^k(1-p)^{n-k}\;.
 > \end{array}$$
 
@@ -36,3 +38,5 @@ The random variable is said to be Binomially distributed if the probability of g
 > - Confidence interval
 >   $$\hat{p}\pm z\sqrt{\dfrac{\hat{p}(1-\hat{p})}{{n}}}\;,$$
 >   where $z=1-\alpha/2$.
+
+When $n=1$, a binomial distributed random variable is [[Bernoulli distribution|Bernoulli]] distributed.
