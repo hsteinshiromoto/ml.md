@@ -1,3 +1,4 @@
+- 2023-09-25 at 09h37 · [[Variance and Standard Deviation of a Random Variable]]
 - 2023-09-25 at 09h32 · [[Negative Binomial distribution]]
 - 2023-09-25 at 09h28 · [[Statistics]]
 - 2023-09-25 at 09h20 · [[Probability Distributions]]
@@ -7,4 +8,3 @@
 - 2023-09-23 at 22h30 · [[stationary]]
 - 2023-09-23 at 22h30 · [[support vector classifiers]]
 - 2023-09-23 at 22h30 · [[support vectors]]
-- 2023-09-23 at 22h30 · [[text tokenization]]
