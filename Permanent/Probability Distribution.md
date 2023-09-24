@@ -16,11 +16,11 @@ Let $(\Omega,\mathcal{F},P)$ be a [[Probability Space|probability space]], $(\Ga
 
 Intuitively, the notion of randomness in the values $X(\omega)$ of $X$ is captured by this construction as follows:
 
-1. An element $\omega\in\Omega$ is selected according to the [[Probability Measure|probability]] $P(\{\omega\})$ that is allocated to $\omega$ by the [[probability measure]] $P$ on $(\Omega,\mathcal{F})$.
-2. This $\omega$ is mapped onto an element $X(\omega)$ in $\Gamma$, which is also referred to as a realization of the [[random variable]] $X$. Across realizations, the values of $X$ exhibit a [[Probability Measure|probability]] distribution that depends both on the properties of $P$ and $X$ and is denoted by $P_X$. The Figure below visualizes the situation.
+1. An element $\omega\in\Omega$ is selected according to the [[Probability Measure|probability]] $P(\{\omega\})$ that is allocated to $\omega$ by the [[Probability Measure]] $P$ on $(\Omega,\mathcal{F})$.
+2. This $\omega$ is mapped onto an element $X(\omega)$ in $\Gamma$, which is also referred to as a realization of the [[Random Variable]] $X$. Across realizations, the values of $X$ exhibit a [[Probability Measure|probability]] distribution that depends both on the properties of $P$ and $X$ and is denoted by $P_X$. The Figure below visualizes the situation.
    ![[Probability Distribution.png]]
 
-Clearly, if $\mathcal{X}=\Omega$, $\mathcal{S} = \mathcal{F}$ and $X:=$ id, then $P$ and $P_X$ are identical. Importantly, the union of the [[Measure Space|measurable space]] $(\mathcal{X},\mathcal{S})$ and the [[probability measure]] $P_X$ forms the [[probability space]] $(\mathcal{X},\mathcal{S},P_X)$.
+Clearly, if $\mathcal{X}=\Omega$, $\mathcal{S} = \mathcal{F}$ and $X:=$ id, then $P$ and $P_X$ are identical. Importantly, the union of the [[Measure Space|measurable space]] $(\mathcal{X},\mathcal{S})$ and the [[Probability Measure]] $P_X$ forms the [[Probability Space]] $(\mathcal{X},\mathcal{S},P_X)$.
 
 ## Notation
 
@@ -30,7 +30,7 @@ $$ \{X\in S\}=\{\omega\in\Omega |X(\omega)\in S\} $$
 
 $$ \{X\diamond x\}=\{\omega\in\Omega|X(\omega)\diamond x\}, \diamond\in\{>,\geq,=,\leq,<\} $$
 
-for $S\in \mathcal{S}$ and $x\in\mathcal{X}$. The [[Probability Measure|probability]] $P$ is the [[measure]] of the above sets, e.g., $P(\xi\in S)=P(\{\omega\in\Omega|\xi(\omega)\in S\})$
+for $S\in \mathcal{S}$ and $x\in\mathcal{X}$. The [[Probability Measure|probability]] $P$ is the [[Measure]] of the above sets, e.g., $P(\xi\in S)=P(\{\omega\in\Omega|\xi(\omega)\in S\})$
 
 ## Discrete Distribution
 

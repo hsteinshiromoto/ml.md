@@ -12,7 +12,7 @@ date modified: Friday, 30th December 2022, 21:58:31
 
 ## Definition
 
-The _probability density function_ (PDF) of a continuous [[random variable]] is defined as a function $p_X:\mathbb{R}\to\mathbb{R}_{\geq0}$$ with the properties
+The _probability density function_ (PDF) of a continuous [[Random Variable]] is defined as a function $p_X:\mathbb{R}\to\mathbb{R}_{\geq0}$$ with the properties
 
 1. $\displaystyle\int_{\mathbb{R}}p_X(x)\;dx=1$
 2. $\displaystyle p_X(x_1\leq x\leq x_2)=\int_{x_1}^{x_2}p_X(x)\;dx,\forall x_1,x_2\in\mathbb{R}$ with $x_1\leq x_2$.
