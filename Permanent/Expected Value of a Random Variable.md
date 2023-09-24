@@ -1,6 +1,11 @@
 ---
-tags: probability_theory, statistics
-alias: [expectation, expectations]
+tags:
+  - probability_theory
+  - statistics
+aliases:
+  - expectation
+  - expectations
+  - expected value
 title: Expected Value of a Random Variable
 date created: Friday, 30th December 2022, 19:46:24
 date modified: Sunday, 22nd January 2023, 22:20:16
