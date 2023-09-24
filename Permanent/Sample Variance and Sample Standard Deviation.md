@@ -8,7 +8,7 @@ date modified: Saturday, 31st December 2022, 14:43:00
 
 # Sample Variance and Sample Standard Deviation
 
-([@[[D. Ostwald - The general linear model 20_21|Ost20]]], Definition 6.3.1) Let $(X_1, \ldots, X_n)$ be [[Random Variable|random variables]] and let $\bar{X}$ be their [[sample mean]]. Then the _sample variance_ of $(X_1, \ldots, X_n)$ is defined as
+([@[[D. Ostwald - The general linear model 20_21|Ost20]]], Definition 6.3.1) Let $(X_1, \ldots, X_n)$ be [[Random Variable|random variables]] and let $\bar{X}$ be their [[Sample Mean]]. Then the _sample variance_ of $(X_1, \ldots, X_n)$ is defined as
 
 $$S^2(X)=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}(\bar{X}-X_i)^2\;.$$
 
