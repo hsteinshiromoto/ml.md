@@ -1,4 +1,5 @@
 ---
+alias: 
 tags:
   - probability_theory
   - statistics
@@ -7,8 +8,8 @@ aliases:
   - expectations
   - expected value
 title: Expected Value of a Random Variable
-date created: Friday, 30th December 2022, 19:46:24
-date modified: Sunday, 22nd January 2023, 22:20:16
+date created: 2023-09-25 09:48:39
+date modified: 2023-09-25 09:51:49
 ---
 
 # Expected Value of a Random Variable
@@ -26,6 +27,10 @@ $$E(X):=\int_{x\in\mathcal{X}}xP_X(x)\;dx\;,$$
 when $X$ is a continuous [[random variable]] with [[Probability Density Function|PDF]] $P_X$.
 
 The expectation of a [[random variable]] is said to exist, if it is finite
+
+## Estimation
+
+The expectation of a random variable is estimated using the [[sample mean]].
 
 ## References
 
