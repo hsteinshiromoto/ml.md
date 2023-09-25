@@ -1,9 +1,10 @@
 ---
 alias: 
+aliases: []
 tags: 
 title: Variance and Standard Deviation of a Random Variable
 date created: 2023-09-23 22:30:06
-date modified: 2023-09-25 13:59:18
+date modified: 2023-09-25 16:26:06
 ---
 
 # Variance and Standard Deviation of a Random Variable
@@ -17,6 +18,10 @@ $$\texttt{Var}(X)=E((X-E(X))^2)$$
 assuming that this [[Expected Value of a Random Variable|expectation]] exists. The _standard deviation_ of a [[random variable]] is defined as the square root of the variance of a [[random variable]],
 
 $$\texttt{Std}(X)=\sqrt{\texttt{Var}(X)}.$$
+
+## Estimation
+
+The variance of a random variable is estimated using the [[Sample Variance and Sample Standard Deviation|sample variance]].
 
 ## References
 
