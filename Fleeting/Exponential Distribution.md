@@ -1,27 +1,38 @@
 ---
 alias: 
-tags: probability_theory
+aliases: 
+tags:
+  - distribution/continuous
 is_continuous: Y
 category: 
 title: Exponential Distribution
-date created: Saturday, 31st December 2022, 15:08:19
-date modified: Sunday, 22nd January 2023, 22:20:21
+date created: 2023-09-25 09:48:39
+date modified: 2023-09-25 16:56:09
 ---
 
 # Exponential Distribution
 
 ## Definition
 
-Let $X$ be a [[random variable]] with outcome set $\mathbb{R}_{>0}$ and [[Probability Density Function|PDF]] given by
+Let $X$ be a discrete [[random variable]] with the
 
-$$p_X:\mathbb{R}\to\mathbb{R}_{>0}$$
+> [!info] Parameter
+> - $\lambda$: waiting time between two successive events in a [[Poisson distribution|Poisson]] process with the average $\lambda$.
 
-$$\mathbb{R}_{\geq0}\ni x\mapsto p_X(x)=\lambda e^{-\lambda x}\;.$$
+A [[random variable]] is said to follow a _exponential_ distribution if the probability is described by the following
 
-$$\mathbb{R}_{<0}\ni x\mapsto p_X(x)\equiv0\;.$$
+> [!info] [[Probability Density Function]]
+> $$\begin{array}{rrcl}
+> p_X:&\mathbb{R}&\to&\mathbb{R}\\
+> 	&x&\to&\left\{\begin{array}{rcl}
+> 		\lambda e^{-\lambda x},&\text{if}&x>0\\
+> 		0,&\text{if}&x\leq0\;.
+> 		\end{array}\right.
+> \end{array}$$
 
-Then $X$ is called an _exponential random variable_ and said to be distributed according to the parameter $\lambda > 0$.
+> [!info] Moments
+> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=1/\lambda$,
+> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=1/\lambda^2$.
 
-## References
-
-[Exponential distribution - Wikipedia](https://en.wikipedia.org/wiki/Exponential_distribution)
+> [!info] Uncertainty Estimation
+> Todo
