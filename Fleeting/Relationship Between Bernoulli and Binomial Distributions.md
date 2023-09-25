@@ -9,7 +9,7 @@ date modified: Saturday, 31st December 2022, 21:42:52
 
 ## Theorem
 
-Let $X$ be a [[Permanent/Binomial Distribution|Binomial-distributed random variable]] with success proportion $x$ and number of Bernoulli trials $n$. Then, if $n=1$, the random variable $X$ is [[Bernoulli Distribution|Bernoulli distributed]].
+Let $X$ be a [[Binomial distribution|Binomial-distributed random variable]] with success proportion $x$ and number of Bernoulli trials $n$. Then, if $n=1$, the random variable $X$ is [[Bernoulli distribution|Bernoulli distributed]].
 
 ## References
 
