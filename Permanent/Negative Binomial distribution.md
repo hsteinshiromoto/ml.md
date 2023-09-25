@@ -35,4 +35,4 @@ The random variable is said to follow a _negative binomial_ distribution if the 
 > Todo
 
 > [!info] Relationship with other distributions
-> When $r=1$, a negative binomial distributed random variable is [[Geometric|geomtrically]] distributed.
+> When $r=1$, a negative binomial distributed random variable is [[Geometric Distribution|geometrically]] distributed.

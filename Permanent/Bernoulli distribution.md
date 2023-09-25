@@ -6,7 +6,7 @@ tags:
   - distribution/discrete
 title: Bernoulli Distribution
 date created: 2023-09-13 21:26:44
-date modified: 2023-09-25 09:42:16
+date modified: 2023-09-25 13:01:50933:42:16
 ---
 
 # Bernoulli Distribution
