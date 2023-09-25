@@ -1,5 +1,7 @@
 ---
-alias: [The Relationship Between Sample Mean, Sample Variance and Expectation, Variance]
+aliases:
+  - The Relationship Between Sample Mean
+  - Sample Variance and Expectation
 tags: 
 title: The Relationship Between Sample Mean, Sample Variance and Expectation, Variance
 date created: Saturday, 31st December 2022, 09:36:00
