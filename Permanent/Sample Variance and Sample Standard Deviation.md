@@ -1,14 +1,21 @@
 ---
+alias: 
 tags: 
-alias: [variance, variances, standard deviation, standard deviations]
+aliases:
+  - variance
+  - variances
+  - standard deviation
+  - standard deviations
+  - Variance
+  - Standard deviation
 title: Sample Variance and Sample Standard Deviation
-date created: Saturday, 31st December 2022, 09:41:54
-date modified: Saturday, 31st December 2022, 14:43:00
+date created: 2023-09-23 22:30:06
+date modified: 2023-09-25 16:24:37
 ---
 
 # Sample Variance and Sample Standard Deviation
 
-([@[[D. Ostwald - The general linear model 20_21|Ost20]]], Definition 6.3.1) Let $(X_1, \ldots, X_n)$ be [[Random Variable|random variables]] and let $\bar{X}$ be their [[Sample Mean]]. Then the _sample variance_ of $(X_1, \ldots, X_n)$ is defined as
+([@[[D. Ostwald - The general linear model 20_21|Ost20]]], Definition 6.3.1) Let $(X_1, \ldots, X_n)$ be [[Random Variable|random variables]] and let $\bar{X}$ be their [[Sample Mean|sample mean]]. Then the _sample variance_ of $(X_1, \ldots, X_n)$ is defined as
 
 $$S^2(X)=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}(\bar{X}-X_i)^2\;.$$
 

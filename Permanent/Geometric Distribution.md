@@ -7,7 +7,7 @@ tags:
   - distribution/discrete
 title: Geometric Distribution
 date created: 2023-09-13 21:26:44
-date modified: 2023-09-25 14:00:51
+date modified: 2023-09-25 16:20:47
 ---
 
 # Geometric Distribution
@@ -23,7 +23,7 @@ A [[random variable]] is said to follow a _geometric_ distribution if it is the 
 
 > [!info] Probability Mass Function
 > $$\begin{array}{rrcl}
-> \texttt{Geom}(k,p):&\mathbb{N}&\to&\mathbb{R}\\
+> p_X(\cdot,p):&\mathbb{N}&\to&\mathbb{R}\\
 > &k&\to&(1-p)^kp\;.
 > \end{array}$$
 

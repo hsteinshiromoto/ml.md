@@ -5,7 +5,7 @@ tags:
   - distribution/discrete
 title: Binomial Distribution
 date created: 2023-09-13 21:26:44
-date modified: 2023-09-25 09:43:05
+date modified: 2023-09-25 16:28:55
 ---
 
 # Binomial Distribution
@@ -20,15 +20,15 @@ Let $X$ be a discrete [[random variable]] with the
 
 The [[random variable]] is said to follow a _binomial_ distribution if the probability of getting exactly $k\in\mathbb{N}_{[1,n]}$ successes is described by the following
 
-> [!info] Probability Mass Function
+> [!info] [[Probability Mass Function]]
 > $$\begin{array}{rrcl}
-> \text{Bin}(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
+> p_X(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
 > &k&\to&\begin{pmatrix}n\\ k\end{pmatrix}p^k(1-p)^{n-k}\;.
 > \end{array}$$
 
 > [!info] Moments
 > - [[Expected Value of a Random Variable|Expected value]]: $E[X]=np$,
-> - [[Expected Value of a Random Variable|Variance]]: $\texttt{Var}(X)=np(1-p)$.
+> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=np(1-p)$.
 
 > [!info] Uncertainty Estimation
 > - $\alpha$: confidence level

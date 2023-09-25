@@ -6,7 +6,7 @@ tags:
   - distribution/discrete
 title: Poisson Distribution
 date created: 2023-09-13 21:26:49
-date modified: 2023-09-25 14:57:32
+date modified: 2023-09-25 16:28:30
 ---
 
 # Poisson Distribution
@@ -24,7 +24,7 @@ A [[random variable]] is said to be _Poisson_ distributed if the probability of 
 
 > [!info] Moments
 > - [[Expected Value of a Random Variable|Expected value]]: $E[X]=\lambda$,
-> - [[The Relationship Between Sample Mean, Sample Variance and Expectation, Variance|Variance]]: $\texttt{Var}(X)=\lambda$.
+> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=\lambda$.
 
 The Poisson distribution is an appropriate model if the following assumptions are true:
 
