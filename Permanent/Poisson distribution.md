@@ -1,11 +1,11 @@
 ---
 alias: 
-aliases:
-  - Poisson
-tags: 
+aliases: 
+tags:
+  - distribution/discrete
 title: Poisson Distribution
 date created: 2023-09-13 21:26:49
-date modified: 2023-09-25 14:53:15
+date modified: 2023-09-25 14:53:29:15
 ---
 
 # Poisson Distribution
