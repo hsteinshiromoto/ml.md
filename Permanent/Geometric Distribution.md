@@ -1,4 +1,5 @@
 ---
+alias: 
 aliases:
   - geometric
   - geometrically
@@ -6,19 +7,19 @@ tags:
   - distribution/discrete
 title: Geometric Distribution
 date created: 2023-09-13 21:26:44
-date modified: 2023-09-25 13:56:16
+date modified: 2023-09-25 14:00:51
 ---
 
 # Geometric Distribution
 
 ## Definition
 
-Let $X$ be a discrete random variable with
+Let $X$ be a discrete [[random variable]] with
 
 > [!info] Parameters
 > - $p$: probability of success.
 
-A [[random variable]] is said to follow a _geometric_ distribution if it the number of failures between two consecutive successful trials in a [[Bernoulli distribution|Bernoulli]] trials with parameter $p$.
+A [[random variable]] is said to follow a _geometric_ distribution if it is the number of failures between two consecutive successful trials in a [[Bernoulli distribution|Bernoulli]] trials with parameter $p$.
 
 > [!info] Probability Mass Function
 > $$\begin{array}{rrcl}
