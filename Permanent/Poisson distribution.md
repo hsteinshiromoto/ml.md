@@ -1,10 +1,11 @@
 ---
+alias: 
 aliases:
   - Poisson
 tags: 
-title: Poisson distribution
+title: Poisson Distribution
 date created: 2023-09-13 21:26:49
-date modified: 2023-09-13 21:26:49
+date modified: 2023-09-25 14:53:15
 ---
 
 # Poisson Distribution
@@ -12,14 +13,14 @@ date modified: 2023-09-13 21:26:49
 > [!info] Parameters
 > - $\lambda$: rate.
 
-The random variable is said to be Poisson distributed if the probability of getting exactly $k\in\mathbb{N}$ occurrences is described by the following
+A [[random variable]] is said to be _Poisson_ distributed if the probability of getting exactly $k\in\mathbb{N}$ occurrences is described by the following
 
-> [!info] Probability Mass Function
+> [!info] [[Probability Mass Function]]
 > $$\begin{array}{rrcl}
-> f(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
+> p_X(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
 > &k&\to&\dfrac{\lambda^ke^{-\lambda}}{k!}\;.
 > \end{array}$$
 
 > [!info] Moments
-> - Expected value: $E[X]=\lambda$,
-> - Variance: $\texttt{Var}(X)=\lambda$.
+> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=\lambda$,
+> - [[The Relationship Between Sample Mean, Sample Variance and Expectation, Variance|Variance]]: $\texttt{Var}(X)=\lambda$.
