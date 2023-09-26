@@ -1,5 +1,4 @@
 ---
-alias: 
 aliases: 
 tags:
   - distribution/continuous
@@ -8,6 +7,7 @@ category:
 title: Exponential Distribution
 date created: 2023-09-25 09:48:39
 date modified: 2023-09-25 16:56:09
+is_univariate: Y
 ---
 
 # Exponential Distribution

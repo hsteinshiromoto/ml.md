@@ -1,11 +1,12 @@
 ---
-alias: 
 aliases: 
 tags:
   - distribution/discrete
 title: Binomial Distribution
 date created: 2023-09-13 21:26:44
 date modified: 2023-09-25 16:28:55
+is_continuous: N
+is_univariate: Y
 ---
 
 # Binomial Distribution

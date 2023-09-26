@@ -1,12 +1,12 @@
 ---
-alias: 
-aliases:
-  - Bernoulli
+aliases: 
 tags:
   - distribution/discrete
 title: Bernoulli Distribution
 date created: 2023-09-13 21:26:44
 date modified: 2023-09-25 16:26:47
+is_continuous: N
+is_univariate: Y
 ---
 
 # Bernoulli Distribution

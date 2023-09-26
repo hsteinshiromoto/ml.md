@@ -1,12 +1,14 @@
 ---
 alias: 
-aliases:
-  - Poisson
 tags:
   - distribution/discrete
 title: Poisson Distribution
 date created: 2023-09-13 21:26:49
-date modified: 2023-09-25 16:28:30
+date modified: 2023-09-26 21:56:35
+is_continuous: Y
+is_univariate: Y
+aliases:
+  - Poisson
 ---
 
 # Poisson Distribution

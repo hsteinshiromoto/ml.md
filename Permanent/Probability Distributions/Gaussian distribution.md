@@ -1,11 +1,11 @@
 ---
-alias: 
-aliases:
-  - "[normal, normal distribution]"
+aliases: 
 tags: 
 title: Gaussian Distribution
 date created: 2023-09-13 21:26:52
 date modified: 2023-09-18 21:57:37
+is_continuous: Y
+is_univariate: N
 ---
 
 # Gaussian Distribution
