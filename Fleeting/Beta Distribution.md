@@ -1,6 +1,8 @@
 ---
 alias: 
 tags: distributions/continuous
+tags:
+  - distribution/continuous
 is_continuous: Y
 is_univariate: N
 aliases: Beta
