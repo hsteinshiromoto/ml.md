@@ -1,12 +1,13 @@
 ---
-aliases: 
+aliases:
+  - exponential distribution
 tags:
   - distribution/continuous
 is_continuous: Y
 category: 
 title: Exponential Distribution
 date created: 2023-09-25 09:48:39
-date modified: 2023-09-25 16:56:09
+date modified: 2023-10-09 16:59:07
 is_univariate: Y
 ---
 
