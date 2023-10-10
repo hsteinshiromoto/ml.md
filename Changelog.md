@@ -1,5 +1,5 @@
+- 2023-10-10 at 21h50 · [[Gamma, Exponential and Chi-Squared Distributions]]
 - 2023-10-09 at 17h03 · [[Beta Distribution]]
-- 2023-10-09 at 17h02 · [[Gamma, Exponential and Chi-Squared Distributions]]
 - 2023-10-09 at 17h02 · [[Gamma Distribution]]
 - 2023-10-09 at 16h59 · [[Exponential Distribution]]
 - 2023-10-04 at 21h20 · [[Probability Distribution]]
