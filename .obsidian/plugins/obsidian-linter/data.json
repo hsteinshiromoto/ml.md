@@ -12,7 +12,7 @@
       "enabled": false
     },
     "format-yaml-array": {
-      "enabled": false,
+      "enabled": true,
       "alias-key": true,
       "tag-key": true,
       "default-array-style": "single-line",
@@ -43,13 +43,13 @@
       "enabled": true,
       "date-created": true,
       "date-created-key": "date created",
-      "force-retention-of-create-value": false,
-      "date-modified": true,
+      "force-retention-of-create-value": true,
+      "date-modified": false,
       "date-modified-key": "date modified",
       "format": "YYYY-MM-DD HH:mm:ss"
     },
     "yaml-title": {
-      "enabled": true,
+      "enabled": false,
       "title-key": "title",
       "mode": "first-h1-or-filename-if-h1-missing"
     },
@@ -238,13 +238,15 @@
   "lintOnSave": true,
   "recordLintOnSaveLogs": false,
   "displayChanged": true,
+  "lintOnFileChange": false,
+  "displayLintOnFileChangeNotice": false,
   "settingsConvertedToConfigKeyValues": true,
   "foldersToIgnore": [
     "_meta_",
     "_meta_/templates"
   ],
   "linterLocale": "system-default",
-  "logLevel": 4,
+  "logLevel": "ERROR",
   "lintCommands": [],
   "customRegexes": [],
   "commonStyles": {

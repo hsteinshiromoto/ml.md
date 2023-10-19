@@ -8,5 +8,6 @@
   "anuppuccin-theme-settings@@anp-header-color-toggle": true,
   "anuppuccin-theme-settings@@anp-decoration-toggle": true,
   "anuppuccin-theme-settings@@anp-pdf-blend-toggle-dark": true,
-  "anuppuccin-theme-settings@@anp-pdf-blend-toggle-light": true
+  "anuppuccin-theme-settings@@anp-pdf-blend-toggle-light": true,
+  "anuppuccin-theme-settings@@anp-button-metadata-toggle": true
 }
