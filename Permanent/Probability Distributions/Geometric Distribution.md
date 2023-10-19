@@ -1,7 +1,7 @@
 ---
-aliases: 
-tags:
-  - distribution/discrete
+alias: [geometric]
+aliases: []
+tags: [distribution/discrete]
 title: Geometric Distribution
 date created: 2023-09-13 21:26:44
 date modified: 2023-09-25 16:20:47

@@ -1,11 +1,8 @@
 ---
-alias: 
-tags: distributions/continuous
-tags:
-  - distribution/continuous
+alias: [Beta, beta]
+tags: [distribution/discrete]
 is_continuous: Y
 is_univariate: N
-aliases: Beta
 title: Beta Distribution
 date created: 2023-10-04 12:06:30
 date modified: 2023-10-04 12:24:16

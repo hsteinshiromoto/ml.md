@@ -1,8 +1,6 @@
 ---
-aliases:
-  - exponential distribution
-tags:
-  - distribution/continuous
+alias: [exponential distribution, exponential]
+tags: [distribution/continuous]
 is_continuous: Y
 category: 
 title: Exponential Distribution

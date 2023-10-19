@@ -1,9 +1,6 @@
 ---
-alias: 
-aliases:
-  - Gamma
-tags:
-  - probability_theory
+alias: [gamma]
+tags: [probability_theory, distribution/continuous]
 is_continuous: Y
 category: 
 title: Gamma Distribution

@@ -1,6 +1,6 @@
 ---
-aliases: 
-tags: 
+alias: [Gaussian, normal, bell curve, bell shape]
+tags: [distribution/continuous]
 title: Gaussian Distribution
 date created: 2023-09-13 21:26:52
 date modified: 2023-09-18 21:57:37

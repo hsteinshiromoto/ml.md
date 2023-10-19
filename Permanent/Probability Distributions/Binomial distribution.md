@@ -1,7 +1,6 @@
 ---
-aliases: 
-tags:
-  - distribution/discrete
+alias: [binomial]
+tags: [distribution/discrete]
 title: Binomial Distribution
 date created: 2023-09-13 21:26:44
 date modified: 2023-09-25 16:28:55
