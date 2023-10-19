@@ -1,12 +1,15 @@
 ---
+tags: distribution/[continuous, discrete]
 alias: 
-tags:
-is_continuous: [Y, N]
-is_univariate: [Y, N]
-aliases:
+is_continuous:
+  - Y
+  - N
+is_univariate:
+  - Y
+  - N
 ---
 
-# Poisson Distribution
+# Probability Distribution
 
 > [!info] Parameters
 > - $p$: parameter
