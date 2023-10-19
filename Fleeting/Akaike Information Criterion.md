@@ -10,7 +10,7 @@ Used to compare which model is better. AIC rewards goodness of fit (as assessed 
 
 ## Definition
 
-Let $k$ be the number of estimated parameters in the model. Let $\hat{L}$ be the maximum value of the [[likelihood function]]. Then, the _Akaike information criterion_ (AIC) value of the model is the given by the formula
+Let $k$ be the number of estimated parameters in the model. Let $\hat{L}$ be the maximum value of the [[Likelihood Function]]. Then, the _Akaike information criterion_ (AIC) value of the model is the given by the formula
 
 $$\text{AIC}= 2 k − 2 \ln(\hat{L})$$
 
