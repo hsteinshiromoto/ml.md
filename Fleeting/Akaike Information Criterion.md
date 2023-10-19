@@ -22,5 +22,5 @@ $$\begin{align}
 \text{find }&f\\
 \text{s.t. }&\min_{k, l} 2k-2 \ln(\hat{L})
 \end{align}$$
-
+This implies that the AIC is used as [[performance metric]] of regression models.
 
