@@ -8,13 +8,13 @@ date created: 2023-09-25 09:48:39
 
 ## Definition
 
-Let $X$ be a discrete [[random variable]] with [[probability measure|probability mass function]] $p$ depending on a parameters $\theta$. Then, the function
-$$\begin{align}
-L:\mathbb{R}&\to&\mathbb{R}\\
-\theta&\mapsto&L(\theta|x)
-\end{align}$$
-is said to be the *likelihood function* of $\theta$, given the outcome $x$ of the [[random variable]] $X$.
+**Definition**. Let $X$ be [[random variable]] with [[Permanent/Probability Distribution|probability distribution]] $f:\mathbb{R}^n\times\mathbb{R}^m\to\mathbb{R}$ depending on a parameters $\theta$. Then, for a given outcome $x\in\mathbb{R}^n$, the function
+$$\begin{array}{rcll}
+L:&\{x\}\times\mathbb{R}^m&\to    &\mathbb{R}\\
+ &(x,\theta)    &\mapsto&L(\theta|x)=f(x|\theta)
+\end{array}$$
+is said to be the *likelihood function* of $\theta$.
 
-It is calculated as $p_\theta(x)$.
+## Remarks
 
-N.B.: This function must not be confused with $p(\theta|x)$, i.e., $L(\theta|x)\neq p(\theta|x)$.
+Note that, $L(\theta|x)$ does not specify the probability that $\theta$ is true, given the observed outcome $x$.
