@@ -1,6 +1,6 @@
 # Performance Metrics
 
-[[aic]]
+[[Akaike Information Criterion]]
 [[adjusted_r2]]
 [[r2]]
 [[residual sum of squares]]
