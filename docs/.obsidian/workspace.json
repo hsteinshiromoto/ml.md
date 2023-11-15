@@ -1,0 +1,277 @@
+{
+  "main": {
+    "id": "8093da165a0228c3",
+    "type": "split",
+    "children": [
+      {
+        "id": "125e2a3f59daf89b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "63a05c1c7acbace7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Permanent/Probability Distributions/Beta distribution.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bc29f52dd8ab6cc0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Permanent/Probability Distributions/Probability Distributions.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c00833499beedf20",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "46ff0029c925c0f3",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "References/Probability Distributions - Cheat Sheet.pdf"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "da5cd372306da52f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ad5b91bb7ff95fe5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Permanent/Bayesian Information Criterion.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9f0f6f616fd2d3fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Fleeting/A New Way to Predict Probability Distributions  by Harrison Hoffman  Feb, 2023  Towards Data Science.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5d1ac50c56788ecd",
+    "type": "split",
+    "children": [
+      {
+        "id": "309db82ae661b468",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c7a9e1e39c92419",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5b4d07641343048d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a9f83895513bb0b3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "4b7b1d559276257e",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 299.5
+  },
+  "right": {
+    "id": "2caf97166e8cad54",
+    "type": "split",
+    "children": [
+      {
+        "id": "62dde39a59ded50b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f6b6acbda6fa913",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Permanent/Probability Distributions/Beta distribution.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "45acfafb0ca8a70f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Permanent/Probability Distributions/Beta distribution.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f9b7ffc8ed28bc02",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "b106375a8b145d0c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Permanent/Probability Distributions/Beta distribution.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "2ede4ffd75584975",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b07a2029b9b8e91e",
+            "type": "leaf",
+            "state": {
+              "type": "map-of-content",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false,
+      "map-of-content:Update Map of Content": false
+    }
+  },
+  "active": "7c7a9e1e39c92419",
+  "lastOpenFiles": [
+    "Fleeting/Differential Entropy.md",
+    "Fleeting/Chi-Square and Standard Normal Theorem.md",
+    "Fleeting/Chi-Squared Distribution.md",
+    "Fleeting/Composite Hypothesis.md",
+    "Fleeting/Conditional Probability.md",
+    "Fleeting/Confidence Level.md",
+    "Fleeting/index_cards/precision.md",
+    "Fleeting/Test Statistic.md",
+    "Fleeting/t Distribution.md",
+    "Fleeting/Poisson as the Limit of Binomial Distribution.md",
+    "Permanent/Monte Carlo.md",
+    "Fleeting/Correlation — When Pearson’s r Is Not Enough  by Farzad Mahmoodinobar  Feb, 2023  Towards Data Science.md",
+    "Fleeting/Decision Rule.md",
+    "Fleeting/Log-Normal Distribution.md",
+    "Fleeting/Indicator Function.md",
+    "Fleeting/Normal Distribution.md",
+    "Permanent/Probability Distributions/Pareto Distribution.md",
+    "Permanent/Probability Distributions/Geometric Distribution.md",
+    "Permanent/Markov Chain Monte Carlo.md",
+    "Permanent/Akaike Information Criterion.md",
+    "Permanent/Bayesian Information Criterion.md",
+    "Permanent/Likelihood Function.md",
+    "Permanent/Probability Distribution.md",
+    "Fleeting/index_cards/regression.md",
+    "Fleeting/index_cards/bootstrap.md",
+    "Fleeting/index_cards/bootstrap.png",
+    "Fleeting/index_cards/causality test.md",
+    "References/Probability Distributions - Cheat Sheet.pdf",
+    "Permanent/Probability Distributions",
+    "_attachments_/Probability Distribution.png",
+    "Fleeting/Data_Science_Cheatsheet.pdf",
+    "_attachments_/Distances Used in ML.jpg",
+    "_attachments_",
+    "_meta_"
+  ]
+}
