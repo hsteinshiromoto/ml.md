@@ -1,0 +1,4647 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Binomial%20distribution/">
+      
+      
+        <link rel="next" href="../Gamma%20Distribution/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Exponential Distribution - ml.md</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exponential-distribution" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ml.md" class="md-header__button md-logo" aria-label="ml.md" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ml.md
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exponential Distribution
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ml.md" class="md-nav__button md-logo" aria-label="ml.md" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ml.md
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Central%20Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Central Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Probability%20Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Statistics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../The%20Statistical%20Tests%20Table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Statistical Tests Table
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fleeting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Fleeting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/A%20New%20Way%20to%20Predict%20Probability%20Distributions%20%20by%20Harrison%20Hoffman%20%20Feb%2C%202023%20%20Towards%20Data%20Science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A New Way to Predict Probability Distributions  by Harrison Hoffman  Feb, 2023  Towards Data Science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Chi-Square%20and%20Standard%20Normal%20Theorem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chi-Square and Standard Normal Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Chi-Squared%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    $\chi^2$ Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Composite%20Hypothesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple or Composite Hypothesis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Conditional%20Probability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conditional Probability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Confidence%20Level/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confidence Level
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Correlation%20%E2%80%94%20When%20Pearson%E2%80%99s%20r%20Is%20Not%20Enough%20%20by%20Farzad%20Mahmoodinobar%20%20Feb%2C%202023%20%20Towards%20Data%20Science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correlation — When Pearson’s R Is Not Enough by Farzad Mahmoodinobar Feb, 2023 Towards Data Science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Decision%20Rule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision Rule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Differential%20Entropy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differential Entropy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Gamma%2C%20Exponential%20and%20Chi-Squared%20Distributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gamma, Exponential and Chi-Squared Distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Independent%20Random%20Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Independent Random Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Indicator%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indicator Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Log-Normal%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Log-Normal Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Normal%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Normal Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Notions%20of%20Distance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notions of Distance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/P-value/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P-value
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Parametric%20Probabilistic%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    parametric probabilistic model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Poisson%20as%20the%20Limit%20of%20Binomial%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poisson as the Limit of Binomial Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Rejection%20Region/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rejection Region
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Relationship%20Between%20Bernoulli%20and%20Binomial%20Distributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relationship Between Bernoulli and Binomial Distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Significance%20Level/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Significance Level
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Statistical%20Power/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recall Hypothesis Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Statistical%20Test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Test%20Quality%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test Quality Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Test%20Statistic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test Statistic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Type%20II%20Error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type II Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Type-I%20Error%20Rate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type-I Error Rate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Type-I%20Error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type-I Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Type-II%20Error%20Rate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type-II Error Rate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/Understanding%20Noisy%20Data%20and%20Uncertainty%20in%20Machine%20Learning%20%20by%20Harrison%20Hoffman%20%20Jan%2C%202023%20%20Towards%20Data%20Science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding Noisy Data and Uncertainty in Machine Learning  by Harrison Hoffman  Jan, 2023  Towards Data Science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/t%20Distribution%20Theorem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    T Distribution Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/t%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    T Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_34" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_34" id="__nav_7_34_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Index cards
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_34_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_34">
+            <span class="md-nav__icon md-icon"></span>
+            Index cards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/Covariance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Covariance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/Gini%20coefficient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gini coefficient
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/Homoscedasticity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Homoscedasticity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accuracy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/adjusted_r2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adjusted r2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/assumptions%20of%20linear%20discriminant%20analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assumptions of linear discriminant analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/autocorrelation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autocorrelation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/autoregression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autoregression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/bias-variance%20tradeoff/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bias variance tradeoff
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/bias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bias
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/boosting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Boosting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/bootstrap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootstrap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/causality%20test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Causality test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/confusion%20matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confusion matrix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/cross%20valiation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross valiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/decision%20tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/differencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/f1-score/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F1 score
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/k-fold%20cross%20valiation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    K fold cross valiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/kernel%20trick/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kernel trick
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/linear%20discriminant%20analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear discriminant analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/logistic%20regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logistic regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/logloss/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logloss
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/mean%20absolute%20error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mean absolute error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/mean%20squared%20error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mean squared error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/model%20complexity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model complexity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/moving%20average/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/naive%20Bayes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    naive Bayes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/natural%20language%20processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Natural language processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/partial%20autocorrelation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partial autocorrelation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/precision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Precision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/r2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/recall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/residual%20sum%20of%20squares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Residual sum of squares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/root%20mean%20squared%20error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Root mean squared error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/stationary%20test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stationary test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/stationary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stationary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/support%20vector%20classifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support vector classifiers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/support%20vectors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support vectors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/text%20tokenization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Text tokenization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/total%20sum%20of%20squares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Total sum of squares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/index_cards/weak%20models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Weak models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_35" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_35" id="__nav_7_35_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Time series
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_35_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_35">
+            <span class="md-nav__icon md-icon"></span>
+            Time series
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_35_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_35_1" id="__nav_7_35_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Udemy.notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_35_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_35_1">
+            <span class="md-nav__icon md-icon"></span>
+            Udemy.notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/6.%20Time%20Series%20with%20Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Time Series with Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/6.1.%20DateTime%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1. DateTime Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/6.2.%20DateTime%20Index%20Part%20Two/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2. DateTime Index Part Two
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/6.3.%20Time%20Resampling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.3. Time Resampling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/6.4.%20Time%20Shifting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.4. Time Shifting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/6.5.%20Rolling%20and%20Expanding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.5. Rolling and Expanding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/6.6.%20Visualizing%20Time%20Series%20Data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.6. Visualizing Time Series Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/6.7.%20Visualizing%20Time%20Series%20Data%20-%20Part%20Two/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.7. Visualizing Time Series Data   Part Two
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/7.%20Time%20Series%20Analysis%20with%20Statsmodels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Time Series Analysis with Statsmodels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/7.1.%20Introduction%20to%20Statsmodels%20Library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1. Introduction to Statsmodels Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/7.2.%20ETS%20Decomposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2. ETS Decomposition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/7.3.%20EWMA%20Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3. EWMA Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/7.4.%20EWMA%20Exponential%20Weighted%20Moving%20Average/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.4. EWMA Exponential Weighted Moving Average
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/7.5.%20Holt-Winters%20Method%20Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.5. Holt Winters Method Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/7.6.%20Holt-Winters%20Method%20Code%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.6. Holt Winters Method Code   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/7.7.%20Holt-Winters%20Method%20Code%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.7. Holt Winters Method Code   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.%20General%20Forecasting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. General Forecasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.1%20Introduction%20to%20Forecasting%20Models%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.1 Introduction to Forecasting Models Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.10%20Descriptive%20Statistics%20and%20Tests%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.10 Descriptive Statistics and Tests   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.11%20Descriptive%20Statistics%20and%20Tests%20-%20Part%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.11 Descriptive Statistics and Tests   Part 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.12%20Arima%20Theory%20Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.12 Arima Theory Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.13%20Choosing%20ARIMA%20Orders%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.13 Choosing ARIMA Orders   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.13%20Choosing%20ARIMA%20Orders%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.13 Choosing ARIMA Orders   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.14%20ARMA%20and%20ARIMA%20-%20AutoRegressive%20Integrated%20Moving%20Average%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.14 ARMA and ARIMA   AutoRegressive Integrated Moving Average   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.14%20ARMA%20and%20ARIMA%20-%20AutoRegressive%20Integrated%20Moving%20Average%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.14 ARMA and ARIMA   AutoRegressive Integrated Moving Average   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.15.%20SARIMA%20-%20Seasonal%20Autoregressive%20Integrated%20Moving%20Average/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.15. SARIMA   Seasonal Autoregressive Integrated Moving Average
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.16%20SARIMAX%20-%20Seasonal%20Autoregressive%20Integrated%20Moving%20Average%20Exogenous%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.16 SARIMAX   Seasonal Autoregressive Integrated Moving Average Exogenous   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.17%20SARIMAX%20-%20Seasonal%20Autoregressive%20Integrated%20Moving%20Average%20Exogenous%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.17 SARIMAX   Seasonal Autoregressive Integrated Moving Average Exogenous   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.2%20Evaluating%20Forecast%20Predictions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.2 Evaluating Forecast Predictions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.3%20Introduction%20to%20Forecasting%20Models%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.3 Introduction to Forecasting Models Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.4%20ACF%20and%20PACF%20Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.4 ACF and PACF Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.5%20ACF%20and%20PACF%20Code%20Along/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.5 ACF and PACF Code Along
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.6%20ARIMA%20Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.6 ARIMA Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.7%20Autoregression%20-%20AR%20-%20Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.7 Autoregression   AR   Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.8%20Autoregression%20-%20AR%20with%20Statmodels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.8 Autoregression   AR with Statmodels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Fleeting/time_series/udemy.notes/8.9%20Descriptive%20Statistics%20and%20Tests%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.9 Descriptive Statistics and Tests   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Literature
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Literature
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Literature/17%20Statistical%20Hypothesis%20Tests%20in%20Python%20%28Cheat%20Sheet%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17 Statistical Hypothesis Tests in Python (Cheat Sheet)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Literature/A%20Gentle%20Introduction%20to%20Statistical%20Hypothesis%20Testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A Gentle Introduction to Statistical Hypothesis Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Permanent
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Permanent
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Akaike%20Information%20Criterion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Akaike Information Criterion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AnOVa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analysis of Variance Test (ANOVA)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Anderson-Darling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anderson-Darling Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Augmented%20Dickey-Fuller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Augmented Dickey-Fuller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bayesian%20Information%20Criterion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bayesian Information Criterion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chi-Squared%20Test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chi-Squared Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Correlation%20of%20Random%20Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correlation of Random Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Covariance%20of%20Random%20Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Covariance of Random Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Covariance%2C%20correlation%20and%20independence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Covariance, Correlation and Independence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DAgostino/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    D’Agostino’s $K^2$ Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Expected%20Value%20of%20a%20Random%20Variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Expected Value of a Random Variable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Friedman/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Friedman Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gaussian%20is%20the%20limit%20of%20Binomial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian is the Limit of Binomial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gaussian%20is%20the%20limit%20of%20Poisson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian is the Limit of Poisson
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kendall%E2%80%99s%20Rank%20Correlation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kendall’s Rank Correlation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kruskal-Wallis%20H/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kruskal-Wallis H
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kwiatkowski-Phillips-Schmidt-Shin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwiatkowski-Phillips-Schmidt-Shin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Likelihood%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Likelihood Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mann-Whitney%20U/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mann-Whitney U Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Markov%20Chain%20Monte%20Carlo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markov Chain Monte Carlo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Measurable%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measurable Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Measure%20Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measure Space
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Measure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Monte%20Carlo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monte Carlo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Negative%20Binomial%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Negative Binomial Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Paired%20Student%20t/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paired Student’s T-test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Pearson%20Correlation%20Coefficient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pearson’s Correlation Coefficient
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Poisson%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poisson Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Poisson%20is%20the%20limit%20of%20Binomial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poisson is the Limit of Binomial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability%20Density%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Density Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability%20Mass%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Mass Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability%20Measure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Measure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability%20Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Space
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Random%20Variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Variable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Repeated%20Measures%20AnOVa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repeated Measures ANOVA Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Sample%20Mean/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Mean
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Sample%20Variance%20and%20Sample%20Standard%20Deviation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Variance and Sample Standard Deviation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shapiro-Wilk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shapiro-Wilk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Sigma%20Algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sigma Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Spearman%20Rank%20Correlation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spearman’s Rank Correlation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistical%20Tests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical Tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Student%20t%20test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student’s T-test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../The%20Relationship%20Between%20Sample%20Mean%2C%20Sample%20Variance%20and%20Expectation%2C%20Variance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Relationship Between Sample Mean, Sample Variance and Expectation, Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Variance%20and%20Standard%20Deviation%20of%20a%20Random%20Variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variance and Standard Deviation of a Random Variable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Wilcoxon%20Signed-Rank/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wilcoxon Signed-Rank Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_47" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9_47" id="__nav_9_47_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Probability Distributions
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_47_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9_47">
+            <span class="md-nav__icon md-icon"></span>
+            Probability Distributions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bernoulli%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bernoulli Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Beta%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Binomial%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binomial Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Exponential Distribution
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Exponential Distribution
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gamma%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gamma Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Geometric%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geometric Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pareto%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pareto Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Probability%20Distributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/D.%20Ostwald%20-%20The%20general%20linear%20model%2020_21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The general linear model 20/21']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/G.%20James%2C%20D.%20Witten%2C%20T.%20Hastie%2C%20R.%20Tibshirani%20-%20An%20introduction%20to%20statistical%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['An introduction to statistical learning']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/G.%20W.%20Corder%2C%20D.%20I.%20Foreman%20-%20Nonparametric%20statistics%20for%20non-statisticians%20A%20step-by-step%20approach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [{'Nonparametric statistics for non-statisticians': 'A step-by-step approach'}]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/H.%20M.%20DeGroot%2C%20M.%20J.%20Schervish%20-%20Probability%20and%20statistics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['Probability and statistics']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/J.%20Brownlee%20-%20Machine%20Learning%20Mastery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning Mastery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/K.%20B.%20Petersen%2C%20M.%20S.%20Pedersen%20-%20The%20matrix%20cookbook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The matrix cookbook']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/K.%20P.%20Murphy%20-%20Probabilistic%20machine%20learning%20An%20introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [{'Probabilistic machine learning': 'An introduction'}]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/M.%20Kubat%20-%20An%20introduction%20to%20machine%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['An introduction to machine learning']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/R.%20C.%20Hill%2C%20W.%20E.%20Griffiths%2C%20G.%20C.%20Lim%20-%20Principles%20of%20econometrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['Principles of econometrics']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/R.%20H.%20Shumway%2C%20D.%20S.%20Stoffer%20-%20Time%20series%20analysis%20and%20its%20applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['Time series analysis and its applications']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/S.%20S.%20Skiena%20-%20The%20algorithm%20design%20manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The algorithm design manual']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/S.%20S.%20Skiena%20-%20The%20data%20science%20design%20manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The data science design manual']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/T.%20Hastie%2C%20R.%20Tibshirani%2C%20J.%20Friedman%20-%20The%20elements%20of%20statistical%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The elements of statistical learning']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../References/X.-S.%20Yang%20-%20Introduction%20to%20algorithms%20for%20data%20mining%20and%20machine%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['Introduction to algorithms for data mining and machine learning']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+     meta 
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+             meta 
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_meta_/Templates/Probability%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="exponential-distribution">Exponential Distribution<a class="headerlink" href="#exponential-distribution" title="Permanent link">&para;</a></h1>
+<h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(X\)</span> be a discrete <a href="../../Random%20Variable/">random variable</a> with the</p>
+<blockquote>
+<p>[!info] Parameter
+- <span class="arithmatex">\(\lambda\)</span>: waiting time between two successive events in a <a href="../../Poisson%20distribution/">Poisson</a> process with the average <span class="arithmatex">\(\lambda\)</span>.</p>
+</blockquote>
+<p>A <a href="../../Random%20Variable/">random variable</a> is said to follow a <em>exponential</em> distribution if the probability is described by the following</p>
+<blockquote>
+<p>[!info] <a href="../../Probability%20Density%20Function/">Probability Density Function</a>
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{array}{rrcl}
+p_X:&amp;\mathbb{R}&amp;\to&amp;\mathbb{R}\\
+  &amp;x&amp;\to&amp;\left\{\begin{array}{rcl}
+      \lambda e^{-\lambda x},&amp;\text{if}&amp;x&gt;0\\
+      0,&amp;\text{if}&amp;x\leq0\;.
+      \end{array}\right.
+\end{array}\)</span>\)</span></p>
+<p>[!info] Moments
+- <a href="../../Expected%20Value%20of%20a%20Random%20Variable/">Expected value</a>: <span class="arithmatex">\(E[X]=1/\lambda\)</span>,
+- <a href="../../Variance%20and%20Standard%20Deviation%20of%20a%20Random%20Variable/">Variance</a>: <span class="arithmatex">\(\texttt{Var}(X)=1/\lambda^2\)</span>.</p>
+<p>[!info] Uncertainty Estimation
+Todo</p>
+</blockquote>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

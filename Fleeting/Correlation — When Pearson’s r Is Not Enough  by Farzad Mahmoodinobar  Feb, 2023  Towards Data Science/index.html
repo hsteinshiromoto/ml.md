@@ -1,0 +1,5241 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Confidence%20Level/">
+      
+      
+        <link rel="next" href="../Decision%20Rule/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Correlation — When Pearson’s R Is Not Enough by Farzad Mahmoodinobar Feb, 2023 Towards Data Science - ml.md</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#correlation-when-pearsons-r-is-not-enough-by-farzad-mahmoodinobar-feb-2023-towards-data-science" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ml.md" class="md-header__button md-logo" aria-label="ml.md" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ml.md
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Correlation — When Pearson’s R Is Not Enough by Farzad Mahmoodinobar Feb, 2023 Towards Data Science
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ml.md" class="md-nav__button md-logo" aria-label="ml.md" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ml.md
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Central%20Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Central Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability%20Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../The%20Statistical%20Tests%20Table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Statistical Tests Table
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fleeting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Fleeting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20New%20Way%20to%20Predict%20Probability%20Distributions%20%20by%20Harrison%20Hoffman%20%20Feb%2C%202023%20%20Towards%20Data%20Science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A New Way to Predict Probability Distributions  by Harrison Hoffman  Feb, 2023  Towards Data Science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chi-Square%20and%20Standard%20Normal%20Theorem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chi-Square and Standard Normal Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chi-Squared%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    $\chi^2$ Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Composite%20Hypothesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple or Composite Hypothesis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Conditional%20Probability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conditional Probability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Confidence%20Level/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confidence Level
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Correlation — When Pearson’s R Is Not Enough by Farzad Mahmoodinobar Feb, 2023 Towards Data Science
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Correlation — When Pearson’s R Is Not Enough by Farzad Mahmoodinobar Feb, 2023 Towards Data Science
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-of-various-correlation-methodologies" class="md-nav__link">
+    Comparison of Various Correlation Methodologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-correlation" class="md-nav__link">
+    What Is Correlation?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overall-comparison-of-correlation-methodologies" class="md-nav__link">
+    Overall Comparison of Correlation Methodologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-set" class="md-nav__link">
+    Data Set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-calculation-methodologies" class="md-nav__link">
+    Correlation Calculation Methodologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-pearson-correlation-coefficient" class="md-nav__link">
+    1. Pearson Correlation Coefficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-pearsons-correlation-coefficient-implementation" class="md-nav__link">
+    1.1. Pearson’s Correlation Coefficient — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-spearmans-rank-correlation-coefficient" class="md-nav__link">
+    2. Spearman’s Rank Correlation Coefficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-spearmans-rank-correlation-coefficient-implementation" class="md-nav__link">
+    2.1. Spearman’s Rank Correlation Coefficient — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-kendalls-tau" class="md-nav__link">
+    3. Kendall’s Tau
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-kendalls-tau-implementation" class="md-nav__link">
+    3.1. Kendall’s Tau — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-point-biserial" class="md-nav__link">
+    4. Point-Biserial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-point-biserial-implementation" class="md-nav__link">
+    4.1. Point-Biserial — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-phi-coefficient" class="md-nav__link">
+    5. Phi Coefficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-phi-coefficient-implementation-in-pandas" class="md-nav__link">
+    5.1. Phi Coefficient — Implementation In Pandas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-phi-coefficient-implementation-in-scikit-learn" class="md-nav__link">
+    5.2. Phi Coefficient — Implementation In Scikit-learn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cramers-v" class="md-nav__link">
+    6. Cramer’s V
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-cramers-v-implementation" class="md-nav__link">
+    6.1. Cramer’s V — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-polychoric-correlation" class="md-nav__link">
+    7. Polychoric Correlation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-partial-correlation" class="md-nav__link">
+    8. Partial Correlation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-partial-correlation-implementation-in-pandas" class="md-nav__link">
+    8.1. Partial Correlation — Implementation In Pandas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-partial-correlation-implementation-in-pingouin" class="md-nav__link">
+    8.2. Partial Correlation — Implementation In Pingouin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-tetrachoric-correlation-coefficient" class="md-nav__link">
+    9. Tetrachoric Correlation Coefficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thanks-for-reading" class="md-nav__link">
+    Thanks for Reading!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Decision%20Rule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision Rule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Differential%20Entropy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differential Entropy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gamma%2C%20Exponential%20and%20Chi-Squared%20Distributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gamma, Exponential and Chi-Squared Distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Independent%20Random%20Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Independent Random Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Indicator%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indicator Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Log-Normal%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Log-Normal Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Normal%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Normal Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Notions%20of%20Distance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notions of Distance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P-value/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P-value
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Parametric%20Probabilistic%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    parametric probabilistic model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Poisson%20as%20the%20Limit%20of%20Binomial%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poisson as the Limit of Binomial Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rejection%20Region/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rejection Region
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Relationship%20Between%20Bernoulli%20and%20Binomial%20Distributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relationship Between Bernoulli and Binomial Distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Significance%20Level/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Significance Level
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistical%20Power/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recall Hypothesis Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistical%20Test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Test%20Quality%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test Quality Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Test%20Statistic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test Statistic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Type%20II%20Error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type II Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Type-I%20Error%20Rate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type-I Error Rate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Type-I%20Error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type-I Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Type-II%20Error%20Rate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type-II Error Rate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Understanding%20Noisy%20Data%20and%20Uncertainty%20in%20Machine%20Learning%20%20by%20Harrison%20Hoffman%20%20Jan%2C%202023%20%20Towards%20Data%20Science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding Noisy Data and Uncertainty in Machine Learning  by Harrison Hoffman  Jan, 2023  Towards Data Science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t%20Distribution%20Theorem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    T Distribution Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    T Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_34" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_34" id="__nav_7_34_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Index cards
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_34_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_34">
+            <span class="md-nav__icon md-icon"></span>
+            Index cards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/Covariance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Covariance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/Gini%20coefficient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gini coefficient
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/Homoscedasticity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Homoscedasticity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accuracy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/adjusted_r2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adjusted r2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/assumptions%20of%20linear%20discriminant%20analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assumptions of linear discriminant analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/autocorrelation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autocorrelation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/autoregression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autoregression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/bias-variance%20tradeoff/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bias variance tradeoff
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/bias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bias
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/boosting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Boosting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/bootstrap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootstrap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/causality%20test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Causality test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/confusion%20matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confusion matrix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/cross%20valiation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross valiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/decision%20tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/differencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/f1-score/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F1 score
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/k-fold%20cross%20valiation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    K fold cross valiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/kernel%20trick/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kernel trick
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/linear%20discriminant%20analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear discriminant analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/logistic%20regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logistic regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/logloss/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logloss
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/mean%20absolute%20error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mean absolute error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/mean%20squared%20error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mean squared error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/model%20complexity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model complexity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/moving%20average/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/naive%20Bayes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    naive Bayes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/natural%20language%20processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Natural language processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/partial%20autocorrelation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partial autocorrelation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/precision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Precision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/r2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/recall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/residual%20sum%20of%20squares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Residual sum of squares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/root%20mean%20squared%20error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Root mean squared error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/stationary%20test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stationary test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/stationary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stationary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/support%20vector%20classifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support vector classifiers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/support%20vectors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support vectors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/text%20tokenization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Text tokenization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/total%20sum%20of%20squares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Total sum of squares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cards/weak%20models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Weak models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_35" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_35" id="__nav_7_35_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Time series
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_35_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_35">
+            <span class="md-nav__icon md-icon"></span>
+            Time series
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_35_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_35_1" id="__nav_7_35_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Udemy.notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_35_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_35_1">
+            <span class="md-nav__icon md-icon"></span>
+            Udemy.notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/6.%20Time%20Series%20with%20Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Time Series with Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/6.1.%20DateTime%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1. DateTime Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/6.2.%20DateTime%20Index%20Part%20Two/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2. DateTime Index Part Two
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/6.3.%20Time%20Resampling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.3. Time Resampling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/6.4.%20Time%20Shifting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.4. Time Shifting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/6.5.%20Rolling%20and%20Expanding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.5. Rolling and Expanding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/6.6.%20Visualizing%20Time%20Series%20Data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.6. Visualizing Time Series Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/6.7.%20Visualizing%20Time%20Series%20Data%20-%20Part%20Two/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.7. Visualizing Time Series Data   Part Two
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/7.%20Time%20Series%20Analysis%20with%20Statsmodels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Time Series Analysis with Statsmodels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/7.1.%20Introduction%20to%20Statsmodels%20Library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1. Introduction to Statsmodels Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/7.2.%20ETS%20Decomposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2. ETS Decomposition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/7.3.%20EWMA%20Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3. EWMA Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/7.4.%20EWMA%20Exponential%20Weighted%20Moving%20Average/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.4. EWMA Exponential Weighted Moving Average
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/7.5.%20Holt-Winters%20Method%20Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.5. Holt Winters Method Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/7.6.%20Holt-Winters%20Method%20Code%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.6. Holt Winters Method Code   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/7.7.%20Holt-Winters%20Method%20Code%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.7. Holt Winters Method Code   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.%20General%20Forecasting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. General Forecasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.1%20Introduction%20to%20Forecasting%20Models%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.1 Introduction to Forecasting Models Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.10%20Descriptive%20Statistics%20and%20Tests%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.10 Descriptive Statistics and Tests   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.11%20Descriptive%20Statistics%20and%20Tests%20-%20Part%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.11 Descriptive Statistics and Tests   Part 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.12%20Arima%20Theory%20Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.12 Arima Theory Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.13%20Choosing%20ARIMA%20Orders%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.13 Choosing ARIMA Orders   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.13%20Choosing%20ARIMA%20Orders%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.13 Choosing ARIMA Orders   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.14%20ARMA%20and%20ARIMA%20-%20AutoRegressive%20Integrated%20Moving%20Average%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.14 ARMA and ARIMA   AutoRegressive Integrated Moving Average   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.14%20ARMA%20and%20ARIMA%20-%20AutoRegressive%20Integrated%20Moving%20Average%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.14 ARMA and ARIMA   AutoRegressive Integrated Moving Average   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.15.%20SARIMA%20-%20Seasonal%20Autoregressive%20Integrated%20Moving%20Average/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.15. SARIMA   Seasonal Autoregressive Integrated Moving Average
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.16%20SARIMAX%20-%20Seasonal%20Autoregressive%20Integrated%20Moving%20Average%20Exogenous%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.16 SARIMAX   Seasonal Autoregressive Integrated Moving Average Exogenous   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.17%20SARIMAX%20-%20Seasonal%20Autoregressive%20Integrated%20Moving%20Average%20Exogenous%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.17 SARIMAX   Seasonal Autoregressive Integrated Moving Average Exogenous   Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.2%20Evaluating%20Forecast%20Predictions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.2 Evaluating Forecast Predictions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.3%20Introduction%20to%20Forecasting%20Models%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.3 Introduction to Forecasting Models Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.4%20ACF%20and%20PACF%20Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.4 ACF and PACF Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.5%20ACF%20and%20PACF%20Code%20Along/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.5 ACF and PACF Code Along
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.6%20ARIMA%20Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.6 ARIMA Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.7%20Autoregression%20-%20AR%20-%20Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.7 Autoregression   AR   Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.8%20Autoregression%20-%20AR%20with%20Statmodels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.8 Autoregression   AR with Statmodels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/udemy.notes/8.9%20Descriptive%20Statistics%20and%20Tests%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.9 Descriptive Statistics and Tests   Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Literature
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Literature
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Literature/17%20Statistical%20Hypothesis%20Tests%20in%20Python%20%28Cheat%20Sheet%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17 Statistical Hypothesis Tests in Python (Cheat Sheet)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Literature/A%20Gentle%20Introduction%20to%20Statistical%20Hypothesis%20Testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A Gentle Introduction to Statistical Hypothesis Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Permanent
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Permanent
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Akaike%20Information%20Criterion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Akaike Information Criterion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/AnOVa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analysis of Variance Test (ANOVA)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Anderson-Darling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anderson-Darling Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Augmented%20Dickey-Fuller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Augmented Dickey-Fuller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Bayesian%20Information%20Criterion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bayesian Information Criterion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Chi-Squared%20Test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chi-Squared Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Correlation%20of%20Random%20Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correlation of Random Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Covariance%20of%20Random%20Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Covariance of Random Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Covariance%2C%20correlation%20and%20independence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Covariance, Correlation and Independence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/DAgostino/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    D’Agostino’s $K^2$ Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Expected%20Value%20of%20a%20Random%20Variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Expected Value of a Random Variable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Friedman/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Friedman Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Gaussian%20is%20the%20limit%20of%20Binomial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian is the Limit of Binomial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Gaussian%20is%20the%20limit%20of%20Poisson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian is the Limit of Poisson
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Kendall%E2%80%99s%20Rank%20Correlation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kendall’s Rank Correlation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Kruskal-Wallis%20H/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kruskal-Wallis H
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Kwiatkowski-Phillips-Schmidt-Shin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwiatkowski-Phillips-Schmidt-Shin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Likelihood%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Likelihood Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Mann-Whitney%20U/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mann-Whitney U Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Markov%20Chain%20Monte%20Carlo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markov Chain Monte Carlo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Measurable%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measurable Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Measure%20Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measure Space
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Measure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Monte%20Carlo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monte Carlo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Negative%20Binomial%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Negative Binomial Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Paired%20Student%20t/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paired Student’s T-test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Pearson%20Correlation%20Coefficient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pearson’s Correlation Coefficient
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Poisson%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poisson Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Poisson%20is%20the%20limit%20of%20Binomial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poisson is the Limit of Binomial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Density%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Density Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Mass%20Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Mass Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Measure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Measure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Space
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Random%20Variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Variable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Repeated%20Measures%20AnOVa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repeated Measures ANOVA Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Sample%20Mean/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Mean
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Sample%20Variance%20and%20Sample%20Standard%20Deviation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Variance and Sample Standard Deviation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Shapiro-Wilk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shapiro-Wilk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Sigma%20Algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sigma Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Spearman%20Rank%20Correlation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spearman’s Rank Correlation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Statistical%20Tests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical Tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Student%20t%20test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student’s T-test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/The%20Relationship%20Between%20Sample%20Mean%2C%20Sample%20Variance%20and%20Expectation%2C%20Variance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Relationship Between Sample Mean, Sample Variance and Expectation, Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Variance%20and%20Standard%20Deviation%20of%20a%20Random%20Variable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variance and Standard Deviation of a Random Variable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Wilcoxon%20Signed-Rank/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wilcoxon Signed-Rank Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_47" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_47" id="__nav_9_47_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Probability Distributions
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_47_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_47">
+            <span class="md-nav__icon md-icon"></span>
+            Probability Distributions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Bernoulli%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bernoulli Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Beta%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Binomial%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binomial Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Exponential%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exponential Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Gamma%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gamma Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Gaussian%20distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Geometric%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geometric Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Pareto%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pareto Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Permanent/Probability%20Distributions/Probability%20Distributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/D.%20Ostwald%20-%20The%20general%20linear%20model%2020_21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The general linear model 20/21']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/G.%20James%2C%20D.%20Witten%2C%20T.%20Hastie%2C%20R.%20Tibshirani%20-%20An%20introduction%20to%20statistical%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['An introduction to statistical learning']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/G.%20W.%20Corder%2C%20D.%20I.%20Foreman%20-%20Nonparametric%20statistics%20for%20non-statisticians%20A%20step-by-step%20approach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [{'Nonparametric statistics for non-statisticians': 'A step-by-step approach'}]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/H.%20M.%20DeGroot%2C%20M.%20J.%20Schervish%20-%20Probability%20and%20statistics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['Probability and statistics']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/J.%20Brownlee%20-%20Machine%20Learning%20Mastery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning Mastery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/K.%20B.%20Petersen%2C%20M.%20S.%20Pedersen%20-%20The%20matrix%20cookbook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The matrix cookbook']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/K.%20P.%20Murphy%20-%20Probabilistic%20machine%20learning%20An%20introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [{'Probabilistic machine learning': 'An introduction'}]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/M.%20Kubat%20-%20An%20introduction%20to%20machine%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['An introduction to machine learning']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/R.%20C.%20Hill%2C%20W.%20E.%20Griffiths%2C%20G.%20C.%20Lim%20-%20Principles%20of%20econometrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['Principles of econometrics']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/R.%20H.%20Shumway%2C%20D.%20S.%20Stoffer%20-%20Time%20series%20analysis%20and%20its%20applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['Time series analysis and its applications']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/S.%20S.%20Skiena%20-%20The%20algorithm%20design%20manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The algorithm design manual']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/S.%20S.%20Skiena%20-%20The%20data%20science%20design%20manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The data science design manual']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/T.%20Hastie%2C%20R.%20Tibshirani%2C%20J.%20Friedman%20-%20The%20elements%20of%20statistical%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['The elements of statistical learning']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/X.-S.%20Yang%20-%20Introduction%20to%20algorithms%20for%20data%20mining%20and%20machine%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ['Introduction to algorithms for data mining and machine learning']
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+     meta 
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+             meta 
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../_meta_/Templates/Probability%20Distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probability Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-of-various-correlation-methodologies" class="md-nav__link">
+    Comparison of Various Correlation Methodologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-correlation" class="md-nav__link">
+    What Is Correlation?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overall-comparison-of-correlation-methodologies" class="md-nav__link">
+    Overall Comparison of Correlation Methodologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-set" class="md-nav__link">
+    Data Set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-calculation-methodologies" class="md-nav__link">
+    Correlation Calculation Methodologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-pearson-correlation-coefficient" class="md-nav__link">
+    1. Pearson Correlation Coefficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-pearsons-correlation-coefficient-implementation" class="md-nav__link">
+    1.1. Pearson’s Correlation Coefficient — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-spearmans-rank-correlation-coefficient" class="md-nav__link">
+    2. Spearman’s Rank Correlation Coefficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-spearmans-rank-correlation-coefficient-implementation" class="md-nav__link">
+    2.1. Spearman’s Rank Correlation Coefficient — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-kendalls-tau" class="md-nav__link">
+    3. Kendall’s Tau
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-kendalls-tau-implementation" class="md-nav__link">
+    3.1. Kendall’s Tau — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-point-biserial" class="md-nav__link">
+    4. Point-Biserial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-point-biserial-implementation" class="md-nav__link">
+    4.1. Point-Biserial — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-phi-coefficient" class="md-nav__link">
+    5. Phi Coefficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-phi-coefficient-implementation-in-pandas" class="md-nav__link">
+    5.1. Phi Coefficient — Implementation In Pandas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-phi-coefficient-implementation-in-scikit-learn" class="md-nav__link">
+    5.2. Phi Coefficient — Implementation In Scikit-learn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cramers-v" class="md-nav__link">
+    6. Cramer’s V
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-cramers-v-implementation" class="md-nav__link">
+    6.1. Cramer’s V — Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-polychoric-correlation" class="md-nav__link">
+    7. Polychoric Correlation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-partial-correlation" class="md-nav__link">
+    8. Partial Correlation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-partial-correlation-implementation-in-pandas" class="md-nav__link">
+    8.1. Partial Correlation — Implementation In Pandas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-partial-correlation-implementation-in-pingouin" class="md-nav__link">
+    8.2. Partial Correlation — Implementation In Pingouin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-tetrachoric-correlation-coefficient" class="md-nav__link">
+    9. Tetrachoric Correlation Coefficient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thanks-for-reading" class="md-nav__link">
+    Thanks for Reading!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="correlation-when-pearsons-r-is-not-enough-by-farzad-mahmoodinobar-feb-2023-towards-data-science">Correlation — When Pearson’s R Is Not Enough by Farzad Mahmoodinobar Feb, 2023 Towards Data Science<a class="headerlink" href="#correlation-when-pearsons-r-is-not-enough-by-farzad-mahmoodinobar-feb-2023-towards-data-science" title="Permanent link">&para;</a></h1>
+<h2 id="comparison-of-various-correlation-methodologies">Comparison of Various Correlation Methodologies<a class="headerlink" href="#comparison-of-various-correlation-methodologies" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://miro.medium.com/max/700/1*ZoY-OF9fmZk1xX7RwajopA.png" /></p>
+<p>Only One Key Will Unlock, by <a href="https://openai.com/dall-e-2/">DALL.E 2</a></p>
+<p>We are very familiar with the phrase “correlation does not imply causation” but let’s go through a real example to understand what implications confusing correlation with causation can have. In February 1998, a <a href="https://pubmed.ncbi.nlm.nih.gov/9500320/">paper</a> was published claiming a causal association between certain vaccines and autism in children. This paper was later found to be fraudulent and was <a href="https://pubmed.ncbi.nlm.nih.gov/20137807/">retracted in 2010</a>. One can only imagine the implication of such a claim on the lives of those who were not vaccinated based on the findings of this paper where correlation was mistaken for causation.</p>
+<p>In this post, we are going to take a closer look at correlation to better understand what it is. We will learn that based on the type of the variables in study, what would be the recommended correlation methodology to use. Finally, we will implement some of the most common methodologies in a Python environment.</p>
+<h2 id="what-is-correlation">What Is Correlation?<a class="headerlink" href="#what-is-correlation" title="Permanent link">&para;</a></h2>
+<p>Correlation is a statistical measure of the relationship (or association) between two variables of interest. It quantifies the <em>direction</em> and <em>strength</em> of such a relationship using “Correlation Coefficient”. Let’s breakdown what we conceptually need to know about correlation coefficient:</p>
+<ul>
+<li><strong>Range and Direction:</strong> Correlation coefficient ranges (almost always — we’ll talk about the exceptions) from -1 to 1, inclusive of both. Positive and negative is based on the direction of relation between the two.</li>
+<li><strong>Interpretation:</strong> A value of 1 means that there is perfect positive correlation between the two variables (i.e. as one increases, the other one increases the same amount and vice versa). On the other hand a value of -1 means that there is a perfect but negative correlation between the two (i.e. as one increases, the other one decreases the same amount and vice versa). A correlation of 0 means that as one variable changes, the other one remains unchanged.</li>
+<li><strong>Measurement:</strong> There is more than one way to measure correlation. We will look into various measurement methodologies in this post.</li>
+</ul>
+<p>Now that we are familiar with what correlation is, let’s dive into various methodologies of calculating correlation.</p>
+<p><em>(All images, unless otherwise noted, are by the author.)</em></p>
+<h2 id="overall-comparison-of-correlation-methodologies">Overall Comparison of Correlation Methodologies<a class="headerlink" href="#overall-comparison-of-correlation-methodologies" title="Permanent link">&para;</a></h2>
+<p>Table below provides an overview and comparison of various correlation methodologies that we will be discussing in this post. This table makes a great reference for future use.</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*u5Zv_f-up2AFcVRUWW6d6Q.png" /></p>
+<p>Comparison of Correlation Methodologies</p>
+<p>Let’s discuss these methodologies in more detail.</p>
+<h2 id="data-set">Data Set<a class="headerlink" href="#data-set" title="Permanent link">&para;</a></h2>
+<p>In order to implement some of the correlation methodologies, we will be using a data set from <a href="https://archive-beta.ics.uci.edu/dataset/10/automobile">UCI Machine Learning Repository</a> (CC BY 4.0), which includes car prices and a set of car properties associated with each car price. I have cleaned up and filtered the data, which can be downloaded from <a href="https://gist.github.com/fmnobar/c9b4029e08e97978a9a53f4eb034b16f">this link</a>. We will be looking at the correlation between car price and engine size or fuel type of the car for some of the correlation methodolgoies. For the remainder of the methodologies, we will be creating small data sets on the spot for implementation.</p>
+<p>Let’s import the car data into a Pandas dataframe and then visualize price and engine sizes in a scatterplot to get a better sense for the visual relationship between these two variables.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;auto-cleaned.csv&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;engine-size&#39;</span><span class="p">,</span> <span class="n">fit_reg</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Engine Size&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*odJXM2xsS3Ea32APLwnP3A.png" /></p>
+<p>Scatter Plot of Car Prices vs. Engine Size</p>
+<p>Scatterplot demonstrates that as prices increase, engine sizes increase. Therefore, we expect the correlation to be positive. Let’s see if calculation supports this.</p>
+<h2 id="correlation-calculation-methodologies">Correlation Calculation Methodologies<a class="headerlink" href="#correlation-calculation-methodologies" title="Permanent link">&para;</a></h2>
+<h2 id="1-pearson-correlation-coefficient">1. Pearson Correlation Coefficient<a class="headerlink" href="#1-pearson-correlation-coefficient" title="Permanent link">&para;</a></h2>
+<p>This is the most widely-used correlation. Pearson correlation coefficient (PCC), which is also known as Pearson’s <em>r</em>, is a measure of linear correlation between two variables. As the definition suggests, this method assumes a linear relationship between the two variables and therefore is not suitable for non-linear relationships. This correlation further assumes that the variables are approximately normally distributed.</p>
+<p>Mathematically it can be calculated as follows:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*IU_0LmXfc4WMA98G00R7Ig.png" /></p>
+<p>Pearson’s <em>r</em></p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*ZrwBV_5kYepe50YPdQQKLQ.png" /></p>
+<h2 id="11-pearsons-correlation-coefficient-implementation">1.1. Pearson’s Correlation Coefficient — Implementation<a class="headerlink" href="#11-pearsons-correlation-coefficient-implementation" title="Permanent link">&para;</a></h2>
+<p>Luckily for us, we do not have to calculate this mathematically ourselves. Let’s use Python to calculate Pearson’s r between price and engine size in our data set.</p>
+<div class="highlight"><pre><span></span><code><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;engine-size&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*srICcTI55gQb0_GrvqWG3w.png" /></p>
+<p>“statistic” of ~0.89 is the correlation coefficient that we were looking for. As we expected, there is a positive (and relatively strong) correlation between the two. The “pvalue” is the result of the null hypothesis test that the distributions of the provided data are uncorrelated and normally distributed. The p-value is a very small number in this example, meaning we can reject the null hypothesis (i.e. there is a correlation).</p>
+<h2 id="2-spearmans-rank-correlation-coefficient">2. Spearman’s Rank Correlation Coefficient<a class="headerlink" href="#2-spearmans-rank-correlation-coefficient" title="Permanent link">&para;</a></h2>
+<p>Also known as Spearman’s 𝜌 (reads as “rho”) is a measure of rank correlation between two variables, which measures how well the relationship between the two variables can be described by a monotonic function. Conceptually, this is much simpler than it sounds, once we define “rank correlation” and “monotonic function”.</p>
+<ul>
+<li><strong>Rank Correlation:</strong> Rank correlation measures the similarity of the order of two sets of data, relative to each other (recall that PCC did not directly measure the relative rank).</li>
+<li><strong>Monotonic Function:</strong> A function is called monotonic if and only if it preserves the given order of its arguments — in other words, the function always increases or always decreases as the input values increase (which sounds just like correlation as we defined it). There is a distinction between a monotonic relationship and a linear relationship. Linear relationship is a specific type of monotonic relationship where the rate of increase remains constant — in other words, unlike a linear relationship, the amount of change (increase or decrease) in a monotonic relationship can vary.</li>
+</ul>
+<p>Mathematically, and when all n ranks are distinct integers, it calculates as follows:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*uULd-Ka8heWX4yjaYDep_A.png" /></p>
+<p>Spearman’s Rank Correlation Coefficient</p>
+<p>Where:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*_Ym_YjcDhKMV10rL4FqTWQ.png" /></p>
+<h2 id="21-spearmans-rank-correlation-coefficient-implementation">2.1. Spearman’s Rank Correlation Coefficient — Implementation<a class="headerlink" href="#21-spearmans-rank-correlation-coefficient-implementation" title="Permanent link">&para;</a></h2>
+<p>Let’s look at how this can be calculated in Python for the same two variables of price and engine size.</p>
+<div class="highlight"><pre><span></span><code><span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;engine-size&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*W4I2kp0xtG7K_B1Sf6U1fg.png" /></p>
+<p>Results are very similar results to Pearson’s <em>r</em>, as expected.</p>
+<h2 id="3-kendalls-tau">3. Kendall’s Tau<a class="headerlink" href="#3-kendalls-tau" title="Permanent link">&para;</a></h2>
+<p>Kendall’s Tau, denoted by 𝛕, is a non-parametric measure of rank correlation. We know what rank correlation means from the prevous correlation methodology. Non-parametric means it does not rely on the probability distribution of the underlying data. Kendall’s Tau is non-parametric because it only measures the rank correlation based on the relative ordering of the data (and not the specific values of the data).</p>
+<p>Mathematically, Kendall’s Tau can be calculated in two different ways, which only differ in how they are normalized to be limited to the range of -1 to 1. We will define both here for reference:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*pk6h66WyroG6plxhmRI39w.png" /></p>
+<p>Kendall’s Tau — b</p>
+<p>Where:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*GGEKzgJE12JAatmGn7xSsg.png" /></p>
+<p><img alt="" src="https://miro.medium.com/max/666/1*kSTE0SoUHN0UrYfxZJAvIw.png" /></p>
+<p>Kendall’s Tau — c</p>
+<p>Where:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*v6bC6M88oNWtqjl24p6GJg.png" /></p>
+<p>Concordant pair means that both observations are ranked the same way relative to other observations. For example, let’s assume:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*6qx5DV0jZEolqoszp3UCgw.png" /></p>
+<p>and then the two pairs of observations are (x_1, x_2) and (y_1, y_2). Then this pair is considered concordant in a case where if x_1 is ranked higher than x_2, then y_1 is also ranked higher than y_2. The reverse would be discordant.</p>
+<h2 id="31-kendalls-tau-implementation">3.1. Kendall’s Tau — Implementation<a class="headerlink" href="#31-kendalls-tau-implementation" title="Permanent link">&para;</a></h2>
+<p>Let’s look at how these two interpretations of Kendall’s Tau can be calculated in Python for the same two variables of price and engine size.</p>
+<div class="highlight"><pre><span></span><code><span class="n">tau_b</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kendalltau</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;engine-size&#39;</span><span class="p">],</span> <span class="n">variant</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">tau_c</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kendalltau</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;engine-size&#39;</span><span class="p">],</span> <span class="n">variant</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kendall&#39;s Tau (b) is: </span><span class="si">{</span><span class="n">tau_b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kendall&#39;s Tau (c) is: </span><span class="si">{</span><span class="n">tau_c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*-_c0BSYeGxpkF3kyj1AYoA.png" /></p>
+<p>Similar to other correlation measures, there is a positive correlation along with a very small “pvalue”, suggesting the existence of a correlation. And as expected, there is not a large difference between the two implematation of Tau b or c.</p>
+<h2 id="4-point-biserial">4. Point-Biserial<a class="headerlink" href="#4-point-biserial" title="Permanent link">&para;</a></h2>
+<p>Point-Biserial correlation coefficient measures the correlation between a binary (or dichotomous) and a continuous variable. A binary or dichotomous variable is one that only takes two values (e.g. 0 or 1, female or male, etc.). As an example, recall that Pearson’s <em>r</em> measures the correlation between the two <strong>continuous</strong> variables. But there are cases where we deal with one binary and one continuous variable. In such cases, we can use the Point-Biserial correlation coefficient.</p>
+<p>Point-Biserial correlation coefficient can be calculated as follows:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*bD2zDfbdZzZJibj6u3WhEQ.png" /></p>
+<p>Point-Biserial Correlation Coefficient</p>
+<p>Where:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*1ZLNDIlno7sg6Ur4N0TRaQ.png" /></p>
+<h2 id="41-point-biserial-implementation">4.1. Point-Biserial — Implementation<a class="headerlink" href="#41-point-biserial-implementation" title="Permanent link">&para;</a></h2>
+<p>In our data set, fuel type can either be gas or diesel, which we can use as a binary variable. First we will create a new column named “fuel-type-binary” where shows a value of 0 for gas and 1 for diesel. Then we calculate the Point-Biserial correlation coefficient between fuel type and car price.</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fuel-type-binary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fuel-type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;gas&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;diesel&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="n">stats</span><span class="o">.</span><span class="n">pointbiserialr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fuel-type-binary&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*5Z9UqlISF1YiWUiCfgduJA.png" /></p>
+<h2 id="5-phi-coefficient">5. Phi Coefficient<a class="headerlink" href="#5-phi-coefficient" title="Permanent link">&para;</a></h2>
+<p>Phi coefficient (a.k.a. mean square contingency coefficient), denoted by ɸ, is yet another measure of association (or correlation) between two variables but it is only used when both are binary or dichotomous variables. If you are a machine learning practitioner with a focus on classification, you may also know this as the Matthews Correlation Coefficient (MCC). In machine learning, MCC is used as a measure of quality of binary or multiclass classifications.</p>
+<p>Mathematically, ɸ for two binary variables of X and Y is defined as follows:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*1yS9Pryd8WCB9wsWPr92ig.png" /></p>
+<p>Where:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*3kntMVQDkJvUzcRAbEa0Sw.png" /></p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*qhR9EOQCqGWvLpuzEisPJQ.png" /></p>
+<p>The tabular representation above is called a “contingency table”. Next, let’s look at how we can implement Phi Coefficient in Python. We will cover two approaches here for the sake of completeness.</p>
+<h2 id="51-phi-coefficient-implementation-in-pandas">5.1. Phi Coefficient — Implementation In Pandas<a class="headerlink" href="#51-phi-coefficient-implementation-in-pandas" title="Permanent link">&para;</a></h2>
+<p>We will take the following steps in the code block below:</p>
+<ol>
+<li>Import necessary packages
+    2. Create a dataframe from two assumed binary variables of X and Y
+    3. Create a contingency table
+    4. Calculate the Phi Coefficient</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+<span class="n">n11</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n10</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">n01</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n00</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">coef</span> <span class="o">=</span> <span class="p">(</span><span class="n">n11</span><span class="o">*</span><span class="n">n00</span> <span class="o">-</span> <span class="n">n10</span><span class="o">*</span><span class="n">n01</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">n11</span><span class="o">+</span><span class="n">n10</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n11</span><span class="o">+</span><span class="n">n01</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n00</span><span class="o">+</span><span class="n">n10</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n00</span><span class="o">+</span><span class="n">n01</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phi Coefficient: </span><span class="si">{</span><span class="n">coef</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*T_vlQE_XBbbidr-GL46cUw.png" /></p>
+<p>This is not difficult to calculate but still is relatively manual and prone to error. Let’s look at the second approach, which is much more straight forward.</p>
+<h2 id="52-phi-coefficient-implementation-in-scikit-learn">5.2. Phi Coefficient — Implementation In Scikit-learn<a class="headerlink" href="#52-phi-coefficient-implementation-in-scikit-learn" title="Permanent link">&para;</a></h2>
+<p>Remember that Phi Coefficient is also known as the Matthews Correlation Coefficient (MCC)? scikit-learn happens to have that in their library so let’s see how we can implement it, following below steps:</p>
+<ol>
+<li>Import necessary packages
+    2. Create two assumed binary variables
+    3. Calculate MCC</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">matthews_corrcoef</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">mcc</span> <span class="o">=</span> <span class="n">matthews_corrcoef</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matthews Correlation Coefficient: </span><span class="si">{</span><span class="n">mcc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*LzdK_5k2GNEk0LGADlv5_Q.png" /></p>
+<p>As expected, this number is identical to the number we generated in the first approach.</p>
+<blockquote>
+<p><strong>Pro Tip:</strong> This method is intended to measure the quality of binary (and multi-class) classifications and we are using it to calculate the association between the two variables in this example. Typical use cases in machine learning would be to use the MCC to measure the correlation or association of ground truth and predicted values in a classification problem. Our approach here is fine and it generates the correct results but that is an important caveat, in case you decide to use MCC in the future.</p>
+</blockquote>
+<h2 id="6-cramers-v">6. Cramer’s V<a class="headerlink" href="#6-cramers-v" title="Permanent link">&para;</a></h2>
+<p>Cramer’s V (a.k.a. Cramer’s Phi and denoted by V) is a measure of association (or correlation) between two categorical (<strong>nominal</strong>) variables. This is very similar to Phi Coefficient but it is more generalized in that it can be applied to <em>n*n</em> contingency tables (unlike ɸ, which can only be applied to binary variables).</p>
+<blockquote>
+<p><strong>Important Note:</strong> This is the only measure in this post with a range of 0 to 1 (inclusive) (compared to other correlation measures with the range of -1 to 1, inclusive).</p>
+</blockquote>
+<p>Cramer’s V can be calculated as follows:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*zM0HiTE9cwuJXRxTbY5YFg.png" /></p>
+<p>Where:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*zkgQ_f5GZzqElsXxkyIHKA.png" /></p>
+<h2 id="61-cramers-v-implementation">6.1. Cramer’s V — Implementation<a class="headerlink" href="#61-cramers-v-implementation" title="Permanent link">&para;</a></h2>
+<p>Let’s look at an example of how we can implement Cramer’s V. We will be taking the following steps:</p>
+<ol>
+<li>Import necessary libraries
+    2. Create a dataframe of two variables of X and Y, each with two different classes
+    3. Create a contingency table
+    4. Calculate the chi-squared statistic
+    5. Calculate Cramer’s V</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">]})</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+<span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+
+<span class="n">V</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">chi2</span> <span class="o">/</span> <span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">*</span><span class="nb">min</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">table</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cramer&#39;s V: </span><span class="si">{</span><span class="n">V</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*mP9L5AHvrJ1_5nQHbcwiYw.png" /></p>
+<h2 id="7-polychoric-correlation">7. Polychoric Correlation<a class="headerlink" href="#7-polychoric-correlation" title="Permanent link">&para;</a></h2>
+<p>Polychoric correlation is a measure of association (or correlation) between two categorical (<strong>ordinal</strong>) variables. Since these are ordinal variables, the correlation considers the strength and direction of association (and hence the range of -1 to 1, unlike Cramer’s V). A special case of Polychoric Correlation is Tetrachoric Correlation that is only used with binary or dichotomous variables — we will cover that one later in the post.</p>
+<h2 id="8-partial-correlation">8. Partial Correlation<a class="headerlink" href="#8-partial-correlation" title="Permanent link">&para;</a></h2>
+<p>Partial Correlation is a measure of correlation between two variables while controlling for one or more confounding factors. A confounding factor is a variable that is related to both independent and dependent (i.e output) variables. In other words, Partial Correlation measures the association (or correlation) between two variables when the effects of one or more other variables are removed from such a relationship.</p>
+<p>A frequently used example of confounding factor is a study focused on the relationship between smoking (X) and lung cancer (Y). In this study, age (Z) is a confounding factor. Smokers tend to be older and age itself is a risk factor for lung cancer. Therefore, age (Z) can impact both smoking (X) and lung cancer (Y). Then partial correlation can be used to control for the confounding effect of Z (i.e. remove the impact of age from the study) and then the study will focus on the correlation between smoking (X) and lung cancer (Y) in a controlled environment.</p>
+<p>Partial correlation can be calculated as follows:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*mNGNgJ1CoSdg2ekOj0VB9A.png" /></p>
+<p>Partial Correlation</p>
+<p>Where Covariance and Variance are calculated as:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*t1Rbwo3o_H8M4inrQJoMfA.png" /></p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*Bg3IxrjZqIX66SKHHTrEyQ.png" /></p>
+<p>We will look at two methods of implementing Partial Correlation in Python, first by directly calculating such a correlation and second by using a Python library to streamline the process.</p>
+<h2 id="81-partial-correlation-implementation-in-pandas">8.1. Partial Correlation — Implementation In Pandas<a class="headerlink" href="#81-partial-correlation-implementation-in-pandas" title="Permanent link">&para;</a></h2>
+<p>Partial Correlation’s formula looks daunting but it can easily be implemented in Python. Let’s look at an example where we will be taking the following steps:</p>
+<ol>
+<li>Import necessary packages
+    2. Create a dataframe of X, Y and Z variables
+    3. Calculate the Partial Correlation between X and Y, while controlling for Z</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pdd</span>
+
+<span class="n">ata</span> <span class="o">=</span> <span class="p">{</span>    <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>     <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>    <span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="n">x_y_correlation</span> <span class="o">=</span> <span class="n">corr_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">]</span>
+<span class="n">x_z_correlation</span> <span class="o">=</span> <span class="n">corr_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]</span>
+<span class="n">y_z_correlation</span> <span class="o">=</span> <span class="n">corr_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]</span>
+
+<span class="n">partial_correlation_xy_z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_y_correlation</span> <span class="o">-</span> <span class="p">(</span><span class="n">x_z_correlation</span> <span class="o">*</span> <span class="n">y_z_correlation</span><span class="p">))</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">x_z_correlation</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">y_z_correlation</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)))</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Partial Correlation (between X and Y, while controlling for Z): </span><span class="si">{</span><span class="n">partial_correlation_xy_z</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*sDkoZlNdouqaPcope4w-VQ.png" /></p>
+<h2 id="82-partial-correlation-implementation-in-pingouin">8.2. Partial Correlation — Implementation In Pingouin<a class="headerlink" href="#82-partial-correlation-implementation-in-pingouin" title="Permanent link">&para;</a></h2>
+<p>Previous approach helps with understanding the concept of Partial Correlation but it is not very efficient to create each of the correlations and use the formula to calculate the partial correlation — it also increases the opportunity for human error. In the code block below, we will be leveraging the <a href="https://pingouin-stats.org/build/html/index.html">pingouin</a> library to make the process easier, by going through the following steps:</p>
+<ol>
+<li>Import necessary packages
+    2. Create a dataframe of X, Y and Z variables
+    3. Calculate the Partial Correlation between X and Y, while controlling for Z</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pingouin</span> <span class="k">as</span> <span class="nn">pg</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>    <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>     <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>    <span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">partial_correlation_xy_z</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">partial_corr</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">covar</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;pearson&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">partial_correlation_xy_z</span><span class="p">)</span>
+</code></pre></div>
+<p>Results:</p>
+<p><img alt="" src="https://miro.medium.com/max/700/1*jv_BUKBIHmMWAkwIKG8kYQ.png" /></p>
+<p>Results are helpful in that there are additional fields. Let’s look at what these fields convey (<a href="https://pingouin-stats.org/build/html/generated/pingouin.partial_corr.html#pingouin.partial_corr">source</a>):</p>
+<ul>
+<li>n: Sample size</li>
+<li>r: Partial correlation coefficient</li>
+<li>CI95%: 95% parametric confidence intervals around r</li>
+<li>p-val: p-value</li>
+</ul>
+<p>Note that we decided to use Pearson’s <em>r</em> in this specific implementation, using <code>method = ‘pearson’</code>. Another option is to use Spearman 𝜌 by including <code>method = ‘spearman’</code>.</p>
+<h2 id="9-tetrachoric-correlation-coefficient">9. Tetrachoric Correlation Coefficient<a class="headerlink" href="#9-tetrachoric-correlation-coefficient" title="Permanent link">&para;</a></h2>
+<p>Tetrachoric Correlation Coefficient, is a special case of Polychoric Correlation that measures association between two binary (or dichotomous) variables. Recall that Phi Coefficient also measures association between two binary variables. The difference is that Phi Coefficient assumes a normal distribution of the underlying data, while Tetrachoric Correlation assumes a bivariate normal distribution. In other words, Tetrachoric Correlation assumes that the binary variables are generated from a continuous variable that follows a normal distribution, while Phi Correlation assumes that the binary variables themselves follow a normal distribution. Tetrachoric Correlation is useful in cases where the underlying continuous variable are not directly observable but can be assumed normally distributed. Such cases are common in psychological, medical, marketing and/or social sciences research where the underlying behavior is not directly observable (e.g. association between self-reported political views and actual voting behavior).</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>In this post we discussed the importance of understanding what correlation is and how it can be measured. Depending on the type of the variables being investigated for correlation, there are specific types of correlations recommended to use. We then walked through the most common correlation methodologies and how they can be implemented in a Python environment.</p>
+<h2 id="thanks-for-reading">Thanks for Reading!<a class="headerlink" href="#thanks-for-reading" title="Permanent link">&para;</a></h2>
+<p>If you found this post helpful, please <a href="https://towardsdatascience.com/@fmnobar">follow me on Medium</a> and subscribe to receive my latest posts!</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<p><a href="https://towardsdatascience.com/correlation-when-pearsons-r-is-not-enough-aded72308635">Correlation — When Pearson’s r Is Not Enough | by Farzad Mahmoodinobar | Feb, 2023 | Towards Data Science</a></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
