@@ -106,3 +106,8 @@ RUN cd /usr/local \
     && cd quartz \
     && npm i
     # && npx quartz create
+
+RUN cp $HOME/.config/ /usr/local/quartz 
+
+RUN mkdir -p /usr/local/quartz/content && \
+    ln -s $HOME /usr/local/quartz/content
