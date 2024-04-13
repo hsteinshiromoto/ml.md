@@ -1,6 +1,6 @@
 # ML.MD
 
-This repository is a note book developed in [Obsidian](https://www.obsidian.md).
+This repository is a machine learning notebook developed in [Obsidian](https://www.obsidian.md).
 
 # Setting up Quartz
 
