@@ -116,5 +116,5 @@ RUN cd /usr/local/quartz && \
     git remote rm origin && \
     git remote add origin git@github.com:hsteinshiromoto/ml.md.git
     
-RUN npx quartz sync --no-pull
+# RUN npx quartz sync --no-pull
 
