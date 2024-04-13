@@ -15,7 +15,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "hsteinshiromoto.github.io/recipes",
+    baseUrl: "hsteinshiromoto.github.io/ml.md",
     ignorePatterns: ["_meta_", "_attachments_", ".obsidian"],
     defaultDateType: "created",
     theme: {
