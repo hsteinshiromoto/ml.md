@@ -32,3 +32,5 @@ if p > 0.05:
 else:
 	print('Probably not Gaussian')
 ```
+
+## References
