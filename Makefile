@@ -28,7 +28,7 @@ PYTHON_VERSION="3.12"
 # ---
 ## Update Links
 links:
-	ln -sfn $(pwd)/* ${QUARTZ_PATH}/content
+	ln -sfn ${PROJECT_PATH}/* ${QUARTZ_PATH}/content
 
 ## Publish to Webhost
 public: links
