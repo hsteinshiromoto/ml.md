@@ -27,15 +27,12 @@ PYTHON_VERSION="3.12"
 # Commands
 # ---
 ## Update Links
-links:
-	ln -sfn ${PROJECT_PATH}/* ${QUARTZ_PATH}/content
-
 ## Publish to Webhost
-public: links
+public:
 	cd ${QUARTZ_PATH} && npx quartz sync
 
 ## Serve locally
-serve: links
+serve:
 	cd ${QUARTZ_PATH} && npx quartz build --serve
 
 ## Build Docker app image
