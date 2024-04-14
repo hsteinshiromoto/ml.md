@@ -1,0 +1,14 @@
+---
+alias: [ShuSto17]
+authors: R. H. Shumway, D. S. Stoffer
+year: 2017
+DOI: 10.1007/978-3-319-52452-8
+eprint: 
+pages: 
+publisher: Springer
+title: [Time series analysis and its applications]
+---
+
+# Time series analysis and its applications
+
+The fourth edition of this popular graduate textbook, like its predecessors, presents a balanced and comprehensive treatment of both time and frequency domain methods with accompanying theory. Numerous examples using nontrivial data illustrate solutions to problems such as discovering natural and anthropogenic climate change, evaluating pain perception experiments using functional magnetic resonance imaging, and monitoring a nuclear test ban treaty. The book is designed as a textbook for graduate level students in the physical, biological, and social sciences and as a graduate level text in statistics. Some parts may also serve as an undergraduate introductory course. Theory and methodology are separated to allow presentations on different levels. In addition to coverage of classical methods of time series regression, ARIMA models, spectral analysis and state-space models, the text includes modern developments including categorical time series analysis, multivariate spectral methods, long memory series, nonlinear models, resampling techniques, GARCH models, ARMAX models, stochastic volatility, wavelets, and Markov chain Monte Carlo integration methods. This edition includes R code for each numerical example in addition to Appendix R, which provides a reference for the data sets and R scripts used in the text in addition to a tutorial on basic R commands and R time series. An additional file is available on the book's website for download, making all the data sets and scripts easy to load into R. Student-tested and improved Accessible and complete treatment of modern time series analysis Promotes understanding of theoretical concepts by bringing them into a more practical context Comprehensive appendices covering the necessities of understanding the mathematics of time series analysis Instructor's Manual available for adopters New to this edition: Introductions to each chapter replaced with one-page abstracts All graphics and plots redone and made uniform in style Bayesian section completely rewritten, covering linear Gaussian state space models only R code for each example provided directly in the text for ease of data analysis replication Expanded appendices with tutorials containing basic R and R time series commands Data sets and additional R scripts available for download on Springer.com Internal online links to every reference (equations, examples, chapters, etc.) # Table of Contents Characteristics of Time Series Time Series Regression and Exploratory Data Analysis ARIMA Models Spectral Analysis and Filtering Additional Time Domain Topics State Space Models Statistical Methods in the Frequency Domain
