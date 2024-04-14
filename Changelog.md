@@ -1,3 +1,4 @@
+- 2024-04-14 at 22h45 · [[DAgostino]]
 - 2024-04-14 at 14h57 · [[index]]
 - 2024-04-13 at 22h08 · [[README]]
 - 2024-04-13 at 21h22 · [[Probability Distribution]]
@@ -7,4 +8,3 @@
 - 2024-04-13 at 21h22 · [[T. Hastie, R. Tibshirani, J. Friedman - The elements of statistical learning]]
 - 2024-04-13 at 21h22 · [[S. S. Skiena - The data science design manual]]
 - 2024-04-13 at 21h22 · [[S. S. Skiena - The algorithm design manual]]
-- 2024-04-13 at 21h22 · [[R. H. Shumway, D. S. Stoffer - Time series analysis and its applications]]
