@@ -1,6 +1,6 @@
 SHELL:=/bin/bash
 .DEFAULT_GOAL := help
-.PHONY: help docs
+.PHONY: help links
 
 # ---
 # Variables
@@ -26,9 +26,12 @@ PYTHON_VERSION="3.12"
 # ---
 # Commands
 # ---
+## Update Links
+links:
+	ln -sfn $(pwd)/* ${QUARTZ_PATH}/content
 
 ## Publish to Webhost
-public:
+public: links
 	cd ${QUARTZ_PATH} && npx quartz sync
 
 ## Build Docker app image
@@ -49,12 +52,6 @@ pull:
 	$(eval DOCKER_IMAGE_TAG=${DOCKER_IMAGE_NAME}:${DOCKER_TAG})
 
 	docker pull ${DOCKER_IMAGE_TAG}
-
-## Get CI files from template
-ci:
-	@echo "Getting CI files from template"
-	mkdir -p .github/workflows
-	python3 bin/make_ci.py
 
 # ---
 # Self Documenting Commands
