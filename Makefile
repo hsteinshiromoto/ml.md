@@ -34,6 +34,10 @@ links:
 public: links
 	cd ${QUARTZ_PATH} && npx quartz sync
 
+## Serve locally
+serve: links
+	cd ${QUARTZ_PATH} && npx quartz build --serve
+
 ## Build Docker app image
 image:
 	$(eval DOCKER_IMAGE_TAG=${DOCKER_IMAGE_NAME}:${DOCKER_TAG})
