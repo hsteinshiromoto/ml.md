@@ -107,10 +107,10 @@ RUN cd /usr/local \
     && npm i
     # && npx quartz create
 
-RUN cp -r $HOME/.config/quartz/* /usr/local/quartz 
+# RUN cp -r $HOME/.config/quartz/* /usr/local/quartz 
 
-RUN mkdir -p /usr/local/quartz/content && \
-    ln -s $HOME/* /usr/local/quartz/content
+# RUN mkdir -p /usr/local/quartz/content && \
+#     ln -s $HOME/* /usr/local/quartz/content
 
 RUN cd /usr/local/quartz && \
     git remote rm origin && \
