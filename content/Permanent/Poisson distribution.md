@@ -1,7 +1,6 @@
 ---
-alias: 
-tags:
-  - distribution/discrete
+alias: []
+tags: [distribution/discrete]
 title: Poisson Distribution
 date created: 2023-09-13 21:26:49
 date modified: 2023-09-26 21:56:35
@@ -19,10 +18,12 @@ aliases:
 A [[random variable]] is said to be _Poisson_ distributed if the probability of getting exactly $k\in\mathbb{N}$ occurrences is described by the following
 
 > [!info] [[Probability Mass Function]]
-> $$\begin{array}{rrcl}
+> $$
+> \begin{array}{rrcl}
 > p_X(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
 > &k&\to&\dfrac{\lambda^ke^{-\lambda}}{k!}\;.
-> \end{array}$$
+> \end{array}
+> $$
 
 > [!info] Moments
 > - [[Expected Value of a Random Variable|Expected value]]: $E[X]=\lambda$,

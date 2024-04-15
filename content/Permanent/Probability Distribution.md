@@ -1,8 +1,8 @@
 ---
-tags: 
+tags: []
 alias: [probability distribution, probability distributions, distribution, distributions, probability]
 title: Probability Distribution
-date created: Friday, 30th December 2022, 14:49:28
+date created: 2022-12-30 14:49:28
 date modified: Saturday, 31st December 2022, 22:02:27
 ---
 
@@ -26,9 +26,13 @@ Clearly, if $\mathcal{X}=\Omega$, $\mathcal{S} = \mathcal{F}$ and $X:=$ id, then
 
 We first note that random variables of the form $X:\Omega\to\mathcal{X}$ are often written as $X:(\Gamma,\mathcal{F})\to(\mathcal{X},\mathcal{S})$. Second, the following notational conventions for events in $\mathcal{F}$ are commonly employed
 
-$$ \{X\in S\}=\{\omega\in\Omega |X(\omega)\in S\} $$
+$$
+\{X\in S\}=\{\omega\in\Omega |X(\omega)\in S\} 
+$$
 
-$$ \{X\diamond x\}=\{\omega\in\Omega|X(\omega)\diamond x\}, \diamond\in\{>,\geq,=,\leq,<\} $$
+$$
+\{X\diamond x\}=\{\omega\in\Omega|X(\omega)\diamond x\}, \diamond\in\{>,\geq,=,\leq,<\} 
+$$
 
 for $S\in \mathcal{S}$ and $x\in\mathcal{X}$. The [[Probability Measure|probability]] $P$ is the [[Measure]] of the above sets, e.g., $P(\xi\in S)=P(\{\omega\in\Omega|\xi(\omega)\in S\})$
 

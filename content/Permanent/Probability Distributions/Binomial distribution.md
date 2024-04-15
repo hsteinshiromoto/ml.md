@@ -21,10 +21,12 @@ Let $X$ be a discrete [[random variable]] with the
 The [[random variable]] is said to follow a _binomial_ distribution if the probability of getting exactly $k\in\mathbb{N}_{[1,n]}$ successes is described by the following
 
 > [!info] [[Probability Mass Function]]
-> $$\begin{array}{rrcl}
+> $$
+> \begin{array}{rrcl}
 > p_X(\cdot,n,p):&\mathbb{N}&\to&\mathbb{R}\\
 > &k&\to&\begin{pmatrix}n\\ k\end{pmatrix}p^k(1-p)^{n-k}\;.
-> \end{array}$$
+> \end{array}
+> $$
 
 > [!info] Moments
 > - [[Expected Value of a Random Variable|Expected value]]: $E[X]=np$,

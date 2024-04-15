@@ -21,10 +21,12 @@ Let $X$ be a discrete [[random variable]] with
 A [[random variable]] is said to follow a _geometric_ distribution if it is the number of failures between two consecutive successful trials in a [[Bernoulli distribution|Bernoulli]] trials with parameter $p$.
 
 > [!info] Probability Mass Function
-> $$\begin{array}{rrcl}
+> $$
+> \begin{array}{rrcl}
 > p_X(\cdot,p):&\mathbb{N}&\to&\mathbb{R}\\
 > &k&\to&(1-p)^kp\;.
-> \end{array}$$
+> \end{array}
+> $$
 
 > [!info] Moments
 > - [[Sample Mean|Mean]]: $E[X]=(1-p)/p$.
