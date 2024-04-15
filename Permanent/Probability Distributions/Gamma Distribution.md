@@ -17,13 +17,15 @@ date modified: 2023-10-09 17:02:01
 A [[random variable]] is said to be _Gamma_ distributed if it is described by the following
 
 > [!info] [[Probability Density Function]]
-> $$\begin{array}{rrcl}
+> $$
+> \begin{array}{rrcl}
 > p_X(\cdot,\alpha,\beta):&\mathbb{R}&\to&\mathbb{R}\\
 > &x&\to&\left\{\begin{array}{rcl}
 > 			\dfrac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x},&\text{if}&x>0\\
 > 			0,&\text{if}&x\leq0\;.
 > 		\end{array}\right.
-> \end{array}$$
+> \end{array}
+> $$
 
 > [!info] Moments
 > - [[Expected Value of a Random Variable|Expected value]]: $E[X]=\alpha/\beta$,

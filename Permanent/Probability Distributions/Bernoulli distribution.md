@@ -17,10 +17,12 @@ Let $X$ be a discrete [[random variable]] with the
 The [[random variable]] is said to follow a _Bernoulli_ distribution if the probability of getting s success is described by the following
 
 > [!info] [[Probability Mass Function]]
-> $$\begin{array}{rrcl}
+> $$
+> \begin{array}{rrcl}
 > p_X(\cdot,p):&\{0,1\}&\to&\mathbb{R}\\
 > &k&\to&p^k(1-p)^{1-k}\;.
-> \end{array}$$
+> \end{array}
+> $$
 
 > [!info] Moments
 > - [[Expected Value of a Random Variable|Expected value]]: $E[X]=p$,

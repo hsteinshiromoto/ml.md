@@ -17,13 +17,15 @@ date modified: 2023-10-04 12:24:16
 A [[random variable]] is said to be _Beta_ distributed if it is described by the following
 
 > [!info] [[Probability Density Function]]
-> $$\begin{array}{rrcl}
+> $$
+> \begin{array}{rrcl}
 > p_X(\cdot,\alpha,\beta):&[0,1]&\to&\mathbb{R}\\
 > &x&\to&\left\{\begin{array}{rcl}
 > 			\dfrac{1}{B(\alpha,\beta)}x^ {\alpha-1}(1-x)^{\beta-1},&\text{if}&x\in[0,1]\\
 > 			0,&\text{if}&\text{otherwise}\;,
 > 		\end{array}\right.
-> \end{array}$$
+> \end{array}
+> $$
 > where $B(\alpha,\beta)=\Gamma(\alpha+\beta)/(\Gamma(\alpha)\Gamma(\beta))$.
 
 > [!info] Moments

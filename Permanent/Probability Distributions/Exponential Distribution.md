@@ -21,13 +21,15 @@ Let $X$ be a discrete [[random variable]] with the
 A [[random variable]] is said to follow a _exponential_ distribution if the probability is described by the following
 
 > [!info] [[Probability Density Function]]
-> $$\begin{array}{rrcl}
+> $$
+> \begin{array}{rrcl}
 > p_X:&\mathbb{R}&\to&\mathbb{R}\\
 > 	&x&\to&\left\{\begin{array}{rcl}
 > 		\lambda e^{-\lambda x},&\text{if}&x>0\\
 > 		0,&\text{if}&x\leq0\;.
 > 		\end{array}\right.
-> \end{array}$$
+> \end{array}
+> $$
 
 > [!info] Moments
 > - [[Expected Value of a Random Variable|Expected value]]: $E[X]=1/\lambda$,

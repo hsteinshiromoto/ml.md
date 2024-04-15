@@ -14,7 +14,9 @@ date created: 2023-09-23 22:30:06
 ## Definition
 
 The BIC is formally defined as
-$$\text{BIC}=k\ln(n)-2\ln(\hat{L}),$$
+$$
+\text{BIC}=k\ln(n)-2\ln(\hat{L}),
+$$
 where
 - $\hat{L}$ is the maximized value of the [[Likelihood Function|likelihood function]] of the model $M$, i.e. $\hat{L}=p(x|\hat{\theta},M)$ with $\hat{\theta}$ is the parameter value that maximizes the [[Likelihood Function]].
 - $x$ is the observed data.

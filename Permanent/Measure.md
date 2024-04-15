@@ -1,8 +1,8 @@
 ---
-tags: probability_theory
-alias: measure
+tags: [probability_theory]
+alias: [measure]
 title: Measure
-date created: Friday, 30th December 2022, 13:49:56
+date created: 2022-12-30 13:49:56
 date modified: Friday, 30th December 2022, 21:31:04
 ---
 
@@ -15,8 +15,9 @@ Let $\Omega$ be a set and $\mathcal{F}$ a [[Sigma Algebra|σ-algebra]] over $\Om
 1. Non-negativity: For all $F \in \mathcal{F}$ , $P(F)\geq0$
 2. Null empty set: $P(\emptyset) = 0$.
 3. Countable additivity (or [σ-additivity](https://en.wikipedia.org/wiki/Sigma_additivity "Sigma additivity")): For all [countable](https://en.wikipedia.org/wiki/Countable "Countable") collections ${\displaystyle \{F_{i}\}_{i\in\mathbb{N}}}$ of pairwise [disjoint sets](https://en.wikipedia.org/wiki/Disjoint_sets "Disjoint sets") in $F$, the equality
-
-   $$P\left(\bigcup_{i\in\mathbb{N}}\right)=\sum\limits_{i\in\mathbb{N}}^{\infty}P(F_i)$$
+$$
+P\left(\bigcup_{i\in\mathbb{N}}\right)=\sum\limits_{i\in\mathbb{N}}^{\infty}P(F_i)
+$$
 
    holds.
 
