@@ -1,6 +1,6 @@
 ---
-alias: [limit point, limit points, cluster point, cluster points, accumulation points]
-tags: 
+alias: [limit point, limit points, cluster point, cluster points, accumulation point, accumulation points]
+tags: []
 date created: 2023-05-24 22:02:05
 date modified: 2023-05-26 16:31:01
 ---
