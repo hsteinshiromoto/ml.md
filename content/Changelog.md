@@ -1,3 +1,4 @@
+- 2024-04-17 at 08h44 · [[Accumulation Point]]
 - 2024-04-16 at 21h29 · [[MOC - Topology]]
 - 2024-04-16 at 21h28 · [[index]]
 - 2024-04-16 at 08h52 · [[A Gentle Introduction to Statistical Hypothesis Testing]]
@@ -7,4 +8,3 @@
 - 2024-04-15 at 21h19 · [[Geometric Distribution]]
 - 2024-04-15 at 21h19 · [[Gaussian distribution]]
 - 2024-04-15 at 21h19 · [[Gamma Distribution]]
-- 2024-04-15 at 21h19 · [[Exponential Distribution]]
