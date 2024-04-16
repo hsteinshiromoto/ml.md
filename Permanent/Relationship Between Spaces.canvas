@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"type":"text","text":"[[Topological Space]]","id":"3cd09a6412c09ce3","x":-380,"y":-200,"width":780,"height":420},
+		{"type":"text","text":"[[Metric Space]]","id":"36fec18947e69f66","x":-360,"y":-140,"width":740,"height":340},
+		{"type":"text","text":"[[Norm|Normed Vector Space]]","id":"92091d5883dd9909","x":-340,"y":-80,"width":700,"height":260},
+		{"type":"text","text":"[[Permanent/Banach Space|Banach Space]]","id":"9a7e71ca4a12d425","x":-320,"y":-20,"width":660,"height":180},
+		{"id":"4a10409b54d5f327","x":-300,"y":40,"width":620,"height":100,"type":"text","text":"[[Hilbert Space]]"}
+	],
+	"edges":[]
+}
