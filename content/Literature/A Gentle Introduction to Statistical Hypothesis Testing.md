@@ -1,6 +1,6 @@
 ---
-alias: 
-tags: 
+alias: []
+tags: []
 title: A Gentle Introduction to Statistical Hypothesis Testing
 date created: 2023-07-24 09:46:20
 date modified: 2023-07-25 22:35:45
@@ -207,9 +207,9 @@ This section lists some common examples of statistical hypothesis tests and the 
 
 ### Variable Distribution Type Tests (Gaussian)
 
-- Shapiro-Wilk Test
-- D’Agostino’s K^2 Test
-- Anderson-Darling Test
+- [[Shapiro-Wilk|Shapiro-Wilk]]
+- [[DAgostino|D'Agostino K^2]]
+- [[Anderson-Darling]]
 
 ### Variable Relationship Tests (correlation)
 
