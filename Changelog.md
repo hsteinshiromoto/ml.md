@@ -1,3 +1,4 @@
+- 2024-04-16 at 08h52 · [[A Gentle Introduction to Statistical Hypothesis Testing]]
 - 2024-04-15 at 22h21 · [[Entropy]]
 - 2024-04-15 at 21h20 · [[Conditional Probability]]
 - 2024-04-15 at 21h19 · [[Pareto Distribution]]
@@ -7,4 +8,3 @@
 - 2024-04-15 at 21h19 · [[Exponential Distribution]]
 - 2024-04-15 at 21h19 · [[Binomial distribution]]
 - 2024-04-15 at 21h18 · [[Beta distribution]]
-- 2024-04-15 at 21h18 · [[Bernoulli distribution]]
