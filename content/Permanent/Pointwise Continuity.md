@@ -1,6 +1,6 @@
 ---
-alias:
-tags: 
+alias: []
+tags: []
 date created: 2023-05-26 16:45:44
 date modified: 2023-08-06 14:00:35
 title: Pointwise Continuity

@@ -12,4 +12,4 @@ A measure space is a triple ${\displaystyle (\Omega,{\mathcal {F}},P )}$ where
 
 - $\Omega$ is a set.
 - ${\mathcal {F}}$ is a [[Sigma Algebra|σ-algebra]] on the set $\Omega$.
-- $P$ is a [[Measure]] on ${\displaystyle (\Omega,{\mathcal {F}})}$.
+- $P$ is a [[Measure|measure]] on ${\displaystyle (\Omega,{\mathcal {F}})}$.
