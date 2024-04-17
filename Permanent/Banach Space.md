@@ -1,5 +1,5 @@
 ---
-tags: 
+tags: []
 alias: [Banach, Banach spaces]
 date created: 2023-08-06 21:30:11
 date modified: 2023-08-06 21:32:01
@@ -12,7 +12,7 @@ Tags: #definition | #geometry/space
 
 ## Definition
 
-**Definition**. A [[Complete Metric Space|complete]] [[Norm|normed]] [[vector space]] is said to be a _Banach space_.
+**Definition**. A [[Complete Metric Space|complete]] [[Norm|normed]] [[Vector Space|vector space]] is said to be a _Banach space_.
 
 ## References
 

@@ -14,4 +14,4 @@ tags: #result/theorem | #geometry/topology | #set
 
 ## Statements
 
-**Theorem** ([[A Short Introduction to Metric Spaces|@Eck23, Theorem 1.5]]). Let $(X,\tau)$ be a [[metric space]], and $S\subseteq X$. The _closure of_ $S$ is [[Closed Set|closed]].
+**Theorem** ([[A Short Introduction to Metric Spaces|@Eck23, Theorem 1.5]]). Let $(X,\tau)$ be a [[Metric Space|metric space]], and $S\subseteq X$. The _closure of_ $S$ is [[Closed Set|closed]].
