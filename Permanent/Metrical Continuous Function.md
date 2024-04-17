@@ -13,4 +13,4 @@ tags: #definition | #geometry/topology | #analysis/functional
 
 ## Statements
 
-**Definition** ([[Mendelson, B. - Introduction to topology|@Men90, Definition 3.2]]). Let $(X, d_X)$ and $(Y, d_Y)$ be [[Metric Space|metric spaces]]. A mapping $f:X\to Y$ is said to be _continuous at_ $a\in X$ if, for every $\varepsilon>0$, there exists $\delta>0$, such that the inequality $d_Y(f(x),f(a))<\varepsilon$ implies $d_X(x,a)<\delta$.
+**Definition** ([[Mendelson, B. - Introduction to Topology|@Men90, Definition 3.2]]). Let $(X, d_X)$ and $(Y, d_Y)$ be [[Metric Space|metric spaces]]. A mapping $f:X\to Y$ is said to be _continuous at_ $a\in X$ if, for every $\varepsilon>0$, there exists $\delta>0$, such that the inequality $d_Y(f(x),f(a))<\varepsilon$ implies $d_X(x,a)<\delta$.

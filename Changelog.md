@@ -1,5 +1,5 @@
+- 2024-04-17 at 21h53 · [[Metrical Continuous Function]]
 - 2024-04-17 at 21h49 · [[Topological Continuous Function]]
-- 2024-04-17 at 21h48 · [[Metrical Continuous Function]]
 - 2024-04-17 at 21h48 · [[Continuous Function]]
 - 2024-04-17 at 21h42 · [[Cauchy Sequence]]
 - 2024-04-17 at 21h42 · [[Boundary of a Set]]
