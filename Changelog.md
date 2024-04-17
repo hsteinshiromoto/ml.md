@@ -1,3 +1,6 @@
+- 2024-04-17 at 21h16 · [[Closed Set]]
+- 2024-04-17 at 21h13 · [[Metric Space]]
+- 2024-04-17 at 21h13 · [[Metric]]
 - 2024-04-17 at 21h08 · [[Accumulation Points and Closed Sets]]
 - 2024-04-17 at 08h44 · [[Accumulation Point]]
 - 2024-04-16 at 21h29 · [[MOC - Topology]]
@@ -5,6 +8,3 @@
 - 2024-04-16 at 08h52 · [[A Gentle Introduction to Statistical Hypothesis Testing]]
 - 2024-04-15 at 22h21 · [[Entropy]]
 - 2024-04-15 at 21h20 · [[Conditional Probability]]
-- 2024-04-15 at 21h19 · [[Pareto Distribution]]
-- 2024-04-15 at 21h19 · [[Geometric Distribution]]
-- 2024-04-15 at 21h19 · [[Gaussian distribution]]
