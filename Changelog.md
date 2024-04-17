@@ -1,3 +1,5 @@
+- 2024-04-17 at 22h07 · [[Compact Set]]
+- 2024-04-17 at 22h06 · [[Topological Cover]]
 - 2024-04-17 at 21h53 · [[Metrical Continuous Function]]
 - 2024-04-17 at 21h49 · [[Topological Continuous Function]]
 - 2024-04-17 at 21h48 · [[Continuous Function]]
@@ -6,5 +8,3 @@
 - 2024-04-17 at 21h41 · [[Borel Sigma Algebra]]
 - 2024-04-17 at 21h41 · [[Banach Space]]
 - 2024-04-17 at 21h40 · [[Topological Space]]
-- 2024-04-17 at 21h40 · [[Topological Open Set]]
-- 2024-04-17 at 21h39 · [[Set Closure]]
