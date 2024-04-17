@@ -1,3 +1,6 @@
+- 2024-04-17 at 22h25 · [[Metric Spaces are Hausdorff]]
+- 2024-04-17 at 22h18 · [[Hausdorff Space]]
+- 2024-04-17 at 22h11 · [[Compact Topological Space]]
 - 2024-04-17 at 22h07 · [[Compact Set]]
 - 2024-04-17 at 22h06 · [[Topological Cover]]
 - 2024-04-17 at 21h53 · [[Metrical Continuous Function]]
@@ -5,6 +8,3 @@
 - 2024-04-17 at 21h48 · [[Continuous Function]]
 - 2024-04-17 at 21h42 · [[Cauchy Sequence]]
 - 2024-04-17 at 21h42 · [[Boundary of a Set]]
-- 2024-04-17 at 21h41 · [[Borel Sigma Algebra]]
-- 2024-04-17 at 21h41 · [[Banach Space]]
-- 2024-04-17 at 21h40 · [[Topological Space]]
