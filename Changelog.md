@@ -1,3 +1,6 @@
+- 2024-04-18 at 20h55 · [[First Variation]]
+- 2024-04-18 at 20h54 · [[Sequencial Compactness]]
+- 2024-04-18 at 20h54 · [[Local Minimum]]
 - 2024-04-17 at 22h25 · [[Metric Spaces are Hausdorff]]
 - 2024-04-17 at 22h18 · [[Hausdorff Space]]
 - 2024-04-17 at 22h11 · [[Compact Topological Space]]
@@ -5,6 +8,3 @@
 - 2024-04-17 at 22h06 · [[Topological Cover]]
 - 2024-04-17 at 21h53 · [[Metrical Continuous Function]]
 - 2024-04-17 at 21h49 · [[Topological Continuous Function]]
-- 2024-04-17 at 21h48 · [[Continuous Function]]
-- 2024-04-17 at 21h42 · [[Cauchy Sequence]]
-- 2024-04-17 at 21h42 · [[Boundary of a Set]]
