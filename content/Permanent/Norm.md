@@ -1,6 +1,6 @@
 ---
-tags: 
-alias: [normed, normed space]
+tags: []
+alias: [normed, normed space, norm]
 date created: 2023-08-06 21:25:52
 date modified: 2023-08-06 21:26:45
 title: Norm
