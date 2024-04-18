@@ -1,19 +1,16 @@
 ---
+alias: [Banach, Banach spaces, Banach space]
 tags: []
-alias: [Banach, Banach spaces]
-date created: 2023-08-06 21:30:11
-date modified: 2023-08-06 21:32:01
-title: Banach Space
+date created: 2023-07-09 14:26:08
+date modified: 2023-07-09 22:01:59
 ---
 
-Tags: #definition | #geometry/space
+Complete Space
+
+tags: #definition | #geometry/space
 
 # Banach Space
 
-## Definition
+## Statements
 
-**Definition**. A [[Complete Metric Space|complete]] [[Norm|normed]] [[Vector Space|vector space]] is said to be a _Banach space_.
-
-## References
-
-https://en.wikipedia.org/wiki/Banach_space
+**Definition** ([[Salsa S. - Partial Differential Equations in Action|@Sal08, Definition 6.1]]). A [[Complete Space|complete]], [[Norm|normed space]] is said to be a _Banach space_.
