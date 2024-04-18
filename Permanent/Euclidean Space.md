@@ -1,8 +1,8 @@
 ---
-alias: Euclidean spaces
-tags: linear algebra
+alias: [Euclidean spaces, Euclidean space]
+tags: [linear, algebra]
 category: definition
-date created: Thursday, 9th February 2023, 11:44:25 am
+date created: 2023-02-09 11:44:25
 date modified: Monday, 20th March 2023, 4:38:33 pm
 ---
 
@@ -10,7 +10,7 @@ date modified: Monday, 20th March 2023, 4:38:33 pm
 
 ## Definition
 
-**Definition**. A _Euclidean_ [[vector space]] is a finite-dimensional [[Inner Product]] over the real numbers.
+**Definition**. A _Euclidean_ [[Vector Space|vector space]] is a finite-dimensional [[Inner Product|inner product]] over the real numbers.
 
 ## References
 
