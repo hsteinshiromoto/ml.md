@@ -1,8 +1,8 @@
 ---
-alias: 
-tags: analysis
+alias: [differentiable]
+tags: [analysis, definition]
 category: definition
-date created: Thursday, 9th February 2023, 4:05:18 pm
+date created: 2023-02-09 16:05:18
 date modified: Monday, 20th March 2023, 4:38:37 pm
 ---
 %%
@@ -11,15 +11,17 @@ children: [[Partial Derivative]]
 
 # Differentiable
 
-## Definition
+## Statements
 
-**Definition**. Let $M$ and $N$ be two [[Differentiable Manifold|differentiable manifolds]] of dimension $m$ and $n$, respectively. A map $f:M\to N$ is said to be _differentiable_ (or smooth) at a point $p\in M$ if there exists [[Locally Euclidean|parametrizations]] $(U,\varphi)$ of $M$ at $p$ (i.e. $p\in\varphi(U)$) and $(V,\psi)$ of $N$ at $f(p)$ with $f(\varphi(U))\subset\psi(V)$ such that the map
-$$\hat{f}:=\psi^{-1}\circ f\circ \varphi:U\subset\mathbb{R}^m\to\mathbb{R}^n$$
+**Definition**. ([[Citation Needed]]) Let $M$ and $N$ be two [[Differentiable Manifold|differentiable manifolds]] of dimension $m$ and $n$, respectively. A map $f:M\to N$ is said to be _differentiable_ (or smooth) at a point $p\in M$ if there exists [[Locally Euclidean|parametrizations]] $(U,\varphi)$ of $M$ at $p$ (i.e. $p\in\varphi(U)$) and $(V,\psi)$ of $N$ at $f(p)$ with $f(\varphi(U))\subset\psi(V)$ such that the map
+$$
+\hat{f}:=\psi^{-1}\circ f\circ \varphi:U\subset\mathbb{R}^m\to\mathbb{R}^n
+$$
 is smooth.
 
 ## Remarks
 
-When $M$ and $N$ are [[Euclidean Space|Euclidean spaces]], the previous definitions reduces to the following. Let $X\subset\mathbb{R}^n$ be an [[open set]] the [[Functions and Mappings|vector-valued function]] $F:X\to\mathbb{R}^m$ is said to be _differentiable at $a\in X$_ if there exists an $m\times n$ matrix $A$ and an $m-$tuple $R(x,a)=(r^1(x,a),\ldots,r^m(x,a))$ defined on $X\times X$ such that the limit
+When $M$ and $N$ are [[Euclidean Space|Euclidean spaces]], the previous definitions reduces to the following. Let $X\subset\mathbb{R}^n$ be an [[Open Set|open set]] the [[Functions and Mappings|vector-valued function]] $F:X\to\mathbb{R}^m$ is said to be _differentiable at $a\in X$_ if there exists an $m\times n$ matrix $A$ and an $m-$tuple $R(x,a)=(r^1(x,a),\ldots,r^m(x,a))$ defined on $X\times X$ such that the limit
 $$\lim_{x\to a}||R(x,a)||=0$$
 holds and, for every $x\in X$, the equation
 

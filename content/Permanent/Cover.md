@@ -1,8 +1,8 @@
 ---
-alias: subcover, covers
-tags: topology
+alias: [subcover, covers]
+tags: [topology]
 category: definition
-date created: Wednesday, 25th January 2023, 9:30:08 pm
+date created: 2023-01-25 21:30:08
 date modified: Friday, 17th February 2023, 3:43:29 pm
 ---
 
