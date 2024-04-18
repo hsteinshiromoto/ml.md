@@ -8,7 +8,7 @@ date created: 2024-04-17 21:59:10
 
 ## Statement
 
-**Definition.** ([[Citation Needed]]) Let $(X, \tau)$ be a [[Topological Space|topological space]], and let $\{U\}_{i\in\mathbb{N}}\subseteq T$ be a collection of [[Topological Open Set|open subsets]] of $X$. Then, $\{U\}_{i\in\mathbb{N}}$ is said to be an _open cover_ of $X$ if
+**Definition.** ([[Tu, L. W. - An introduction to manifolds|@Tu11 pp. 329]]) Let $(X, \tau)$ be a [[Topological Space|topological space]], and let $\{U\}_{i\in\mathbb{N}}\subseteq T$ be a collection of [[Topological Open Set|open subsets]] of $X$. Then, $\{U\}_{i\in\mathbb{N}}$ is said to be an _open cover_ of $X$ if
 $$
 X=\bigcup_{i\in\mathbb{N}} U_i\;.
 $$
