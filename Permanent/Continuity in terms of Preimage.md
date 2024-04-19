@@ -1,15 +1,16 @@
 ---
-alias:
-tags: topology
+alias: []
+tags: [geometry/topology, result/proposition]
 category: proposition
-date created: Friday, 8th January 2021, 3:16:06 pm
+date created: 2021-01-08 15:16:06
 date modified: Tuesday, 7th February 2023, 10:15:06 pm
 ---
+
 # Continuity in terms of Preimage
 
-## Proposition
+## Statements
 
-**Proposition**. Let $(X, \tau_x)$ and $(Y, \tau_y)$ be [[Topological Space|topological spaces]]. A function $f:X\to Y$ is [[Continuous Function|continuous]] if and only if, for every [[open set]] $V\subset Y$, the [[Preimage]]  of $V$ under $f$ is an [[open set]] of $X$.
+**Proposition**. Let $(X, \tau_x)$ and $(Y, \tau_y)$ be [[Topological Space|topological spaces]]. A function $f:X\to Y$ is [[Continuous Function|continuous]] if and only if, for every [[Topological Open Set|open set]] $V\subset Y$, the [[Preimage|preimage]] of $V$ under $f$ is an [[Topological Open Set|open set]] of $X$.
 
 ## References
 
