@@ -1,11 +1,10 @@
 ---
-tags: []
+tags: [definition, geometry/topology, analysis/functional]
 date created: 2023-05-22 22:58:51
 date modified: 2023-08-06 14:01:09
 alias: [continuous, continuity]
 title: Continuous Function
 ---
-tags: #result/theorem | #geometry/topology | #analysis/functional
 
 # Continuous Function
 

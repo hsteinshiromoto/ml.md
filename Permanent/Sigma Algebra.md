@@ -1,5 +1,5 @@
 ---
-tags: []
+tags: [definition]
 alias: [$\sigma$-algebra, $\sigma$-algebras, σ-algebra, σ-algebras, sigma algebra, sigma algebras]
 title: Sigma Algebra
 date created: 2022-12-30 13:40:10
@@ -8,9 +8,9 @@ date modified: Friday, 30th December 2022, 21:24:06
 
 # Sigma Algebra
 
-## Definition
+## Statements
 
-Let $\Omega$ be some set, and let $P^{*}(\Omega)$ represent its [power set](https://en.wikipedia.org/wiki/Power_set "Power set"). Then a subset $\mathcal{F}\subseteq P^*(\Omega)$ is called a _$\sigma$-algebra_ if it satisfies the following three properties:
+**Definition**. ([[Citation Needed]]) Let $\Omega$ be some set, and let $P^{*}(\Omega)$ represent its [power set](https://en.wikipedia.org/wiki/Power_set "Power set"). Then a subset $\mathcal{F}\subseteq P^*(\Omega)$ is called a _$\sigma$-algebra_ if it satisfies the following three properties:
 
 1. $\Omega$ is in $\mathcal{F}$, and $\Omega$ is considered to be the [universal set](https://en.wikipedia.org/wiki/Universal_set "Universal set") in the following context.
 2. $\mathcal{F}$ is closed under complementation:

@@ -1,8 +1,8 @@
 ---
-alias: 
+alias: []
 aliases:
   - covariance
-tags: 
+tags: [definition]
 title: Covariance
 date created: 2023-09-25 09:48:39
 date modified: 2023-09-25 13:38:30

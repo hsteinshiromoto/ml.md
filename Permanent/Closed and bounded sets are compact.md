@@ -1,18 +1,13 @@
 ---
-alias: Heine-Borel theorem
-tags: topology
+alias: [Heine-Borel theorem]
+tags: [geometry/topology, result/theorem]
 category: theorem
-date created: Wednesday, 15th March 2023, 8:41:07 am
+date created: 2023-03-15 08:41:07
 date modified: Wednesday, 15th March 2023, 8:54:38 am
 ---
 
-# Closed and bounded sets are compact
+# Closed and Bounded Sets Are Compact
 
-## Theorem
+## Statements
 
-**Theorem**. A subset $E$ of $\mathbb{R}^n$ is [[Compact Topological Space|compact]] if and only if it is [[Closed Set|closed]] and bounded
-
-## References
-
-[[Save, K. - Beginning function analysis|@Sav02, Theorem 2.5]]
-
+**Heine-Borel Theorem**. ([[Save, K. - Beginning function analysis|@Sav02, Theorem 2.5]]) A subset $E$ of $\mathbb{R}^n$ is [[Compact Topological Space|compact]] if and only if it is [[Closed Set|closed]] and bounded

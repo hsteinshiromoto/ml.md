@@ -1,5 +1,5 @@
 ---
-tags: []
+tags: [definition]
 alias: [probability distribution, probability distributions, distribution, distributions, probability]
 title: Probability Distribution
 date created: 2022-12-30 14:49:28
@@ -8,7 +8,7 @@ date modified: Saturday, 31st December 2022, 22:02:27
 
 # Probability Distribution
 
-## Definition
+## Statement
 
 Let $(\Omega,\mathcal{F},P)$ be a [[Probability Space|probability space]], $(\Gamma,\mathcal{S})$ be a [[Measure Space|measurable space]] and $X:\Omega\to\Gamma$ be a [[Random Variable|random variable]], then the function $P_X:\mathcal{S}\to[0,1]$ defined as $S\mapsto P(X^{-1})(S)$ is said to be the _probability distribution of the random variable_ $X$.
 

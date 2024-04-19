@@ -1,22 +1,37 @@
 {
-  "collapse-filter": true,
-  "search": "-path:References",
+  "collapse-filter": false,
+  "search": "-path:References -path:MOC -path:changelog",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#definition  ",
+      "color": {
+        "a": 1,
+        "rgb": 6055126
+      }
+    },
+    {
+      "query": "tag:#result  ",
+      "color": {
+        "a": 1,
+        "rgb": 14048348
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": true,
-  "centerStrength": 0.518713248970312,
-  "repelStrength": 10,
+  "collapse-forces": false,
+  "centerStrength": 0.0625,
+  "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.8247505700267709,
-  "close": false
+  "scale": 0.044145137822419696,
+  "close": true
 }

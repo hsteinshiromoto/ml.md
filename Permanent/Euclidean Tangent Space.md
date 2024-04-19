@@ -1,6 +1,6 @@
 ---
 alias: [Euclidean tangent space, Euclidean tangent spaces]
-tags: [linear, algebra]
+tags: [geometry/LinearAlgebra, definition]
 category: definition
 date created: 2021-01-15 13:42:35
 date modified: Tuesday, 21st February 2023, 10:42:53 pm

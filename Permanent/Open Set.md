@@ -1,14 +1,10 @@
 ---
-tags: []
+tags: [definition, geometry/topology]
 alias: [open, open sets, open set]
 date created: 2023-05-26 15:56:46
 date modified: 2023-08-06 13:59:33
 title: Open Set
 ---
-
-Open Set
-
-tags: #result | #geometry/topology
 
 # Open Set
 

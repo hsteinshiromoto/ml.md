@@ -1,6 +1,6 @@
 ---
 alias: [topological manifold, topological manifolds]
-tags: [topology]
+tags: [topology, definition]
 category: definition
 date created: 2023-02-08 22:35:09
 date modified: Monday, 20th March 2023, 9:18:08 am

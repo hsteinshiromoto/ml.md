@@ -1,6 +1,6 @@
 ---
 alias: [partitions of unity]
-tags: [topology]
+tags: [geometry/topology, definition]
 category: definition
 date created: 2023-03-20 09:07:26
 date modified: Monday, 20th March 2023, 9:17:55 am
@@ -8,7 +8,7 @@ date modified: Monday, 20th March 2023, 9:17:55 am
 
 # Partition of Unity
 
-## Definition
+## Statement
 
 **Definition**. Let $(X,\tau)$ be a [[Topological Space|topological space]] and let $\{U_i\}_i$$ be an [[Open Set|open]] [[Topological Cover|topological cover|cover]] of $X$. A _partition of unity_ associated with this cover is a collection of [[Continuous Function|continuous functions]] $\{\varphi_i\}_i$ such that:
 

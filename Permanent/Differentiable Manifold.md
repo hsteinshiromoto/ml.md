@@ -1,18 +1,18 @@
 ---
-alias: manifold, differentiable structure, smooth manifold, smooth manifolds, differentiable manifolds
-tags: differential geometry
+alias: [manifold, differentiable structure, smooth manifold, smooth manifolds, differentiable manifolds]
+tags: [geometry/differential, definition]
 category: definition
-date created: Friday, 17th February 2023, 3:36:43 pm
+date created: 2023-02-17 15:36:43
 date modified: Monday, 20th March 2023, 4:31:01 pm
 ---
 
 # Differentiable Manifold
 
-## Definition
+## Statement
 
 **Definition**. A [[topological manifold]] $M$ is said to be _differentiable_ if there exist a family of [[Locally Euclidean|parametrizations]] $\varphi_\alpha:U_\alpha\to M$ defined on open sets $U_\alpha\subset\mathbb{R}^n$ such that
 1. The [[Coordinate Neighborhood|coordinate neighborhoods]] $\{U_\alpha\}_{\alpha\in\mathbb{N}_{>0}}$ [[Cover|covers]] $M$;
-2. For each pair of indices $\alpha,\beta$ such that 
+2. For each pair of indices $\alpha,\beta$ such that
    $$W:=\varphi_\alpha(U_\alpha)\cap\varphi_\beta(U_\beta)\neq\emptyset\;,$$
    the overlap mapps
    $$\begin{array}{rrcl}
