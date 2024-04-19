@@ -1,15 +1,16 @@
 ---
-alias: 
-tags: topology
+alias: []
+tags: [geometry/topology, result/proposition]
 category: proposition
-date created: Thursday, 26th January 2023, 11:01:58 pm
+date created: 2023-01-26 23:01:58
 date modified: Tuesday, 21st February 2023, 9:58:28 pm
 ---
+
 # Uniqueness of the Limit
 
-## Proposition
+## Statements
 
-**Proposition**. In a [[Hausdorff Topological Space|Hausdorff space]] $X$, if a [[sequence]] $\{x_i\}_{i\in\mathbb{N}}$ [[Convergence of a Sequence in terms of Open Sets|converges]] to $p$ and to $q$, then $p = q$.
+**Proposition**. In a [[Hausdorff Topological Space|Hausdorff space]] $X$, if a [[Sequence|sequence]] $\{x_i\}_{i\in\mathbb{N}}$ [[Convergence of a Sequence in terms of Open Sets|converges]] to $p$ and to $q$, then $p = q$.
 
 ## References
 

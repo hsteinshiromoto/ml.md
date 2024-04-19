@@ -1,5 +1,5 @@
 ---
-alias: [subcover, covers]
+alias: [subcover, covers, cover]
 tags: [topology]
 category: definition
 date created: 2023-01-25 21:30:08

@@ -1,6 +1,6 @@
 ---
 alias: [coordinate, coordinates, coordinate neighborhoods, coordinate system, chart]
-tags: [topology]
+tags: [geometry/topology, geometry/differential, definition]
 category: definition
 date created: 2023-02-09 09:54:06
 date modified: Monday, 20th March 2023, 9:43:39 am

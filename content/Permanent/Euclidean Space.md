@@ -1,6 +1,6 @@
 ---
 alias: [Euclidean spaces, Euclidean space]
-tags: [linear, algebra]
+tags: [geometry/LinearAlgebra, definition]
 category: definition
 date created: 2023-02-09 11:44:25
 date modified: Monday, 20th March 2023, 4:38:33 pm
