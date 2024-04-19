@@ -1,6 +1,6 @@
 ---
 alias: [fixed point theorem, fixed-point theorem, contracting mapping theorem]
-tags: [geometry/topology]
+tags: [geometry/topology, result/theorem]
 category: theorem
 date created: 2023-02-16 17:03:27
 date modified: Thursday, 16th February 2023, 5:08:10 pm

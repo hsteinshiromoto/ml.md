@@ -1,6 +1,6 @@
 ---
 alias: [differentiation of differental forms, differentiation of a differental form]
-tags: [differential_forms]
+tags: [geometry/differential, definition]
 date created: 2021-01-19 14:50:35
 date modified: Monday, 23rd January 2023, 10:31:32 pm
 ---
@@ -9,7 +9,7 @@ date modified: Monday, 23rd January 2023, 10:31:32 pm
 
 ## Statements
 
-**Definition** ([[D. Bachman - A geometric approach to differential forms|Bac12 pp. 74]]). Let $\omega$ be an $n-$[[Differential Forms|differential form]], and $v_1,\ldots,v_{n+1}$ be $n+1$ [[Vector Field|vector fields]]. The operator
+**Definition** ([[Bachman, D. - A geometric approach to differential forms|@Bac12, pp. 74]]). Let $\omega$ be an $n-$[[Differential Forms|differential form]], and $v_1,\ldots,v_{n+1}$ be $n+1$ [[Vector Field|vector fields]]. The operator
  $$
  \begin{array}{rcl}
  d:&\mathbb{R}&\to&\mathbb{R}\\
