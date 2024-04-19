@@ -1,6 +1,6 @@
 ---
-alias: [Cauchy, Cauchy sequence]
-tags: []
+alias: [Cauchy, Cauchy sequence, Cauchy sequences]
+tags: [definition, geometry/topology]
 date created: 2023-07-11 22:10:04
 date modified: 2023-07-13 22:29:41
 ---
@@ -17,4 +17,4 @@ tags: #definition | #geometry/topology
 
 ## Remark
 
-A Cauchy sequence is a [[sequence]] where the terms of the sequence are getting closer and closer to each other.
+A Cauchy sequence is a [[Sequence|sequence]] where the terms of the sequence are getting closer and closer to each other.

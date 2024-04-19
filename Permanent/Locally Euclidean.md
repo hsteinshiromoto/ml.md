@@ -1,6 +1,6 @@
 ---
 alias: [parametrization, parametrizations, parametrized, locally Euclidean]
-tags: [topology, definition]
+tags: [geometry/topology, definition]
 category: definition
 date created: 2023-02-08 22:29:26
 date modified: Monday, 20th March 2023, 9:44:56 am

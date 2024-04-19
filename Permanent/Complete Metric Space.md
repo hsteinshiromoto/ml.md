@@ -1,6 +1,6 @@
 ---
-alias: complete, complete metric space, complete spaces, complete metric spaces
-tags: 
+alias: [complete, complete metric space, complete space, complete spaces, complete metric spaces]
+tags: [definition, geometry/topology, geometry/space]
 date created: 2023-07-11 22:23:14
 date modified: 2023-07-13 22:29:50
 ---

@@ -1,6 +1,6 @@
 ---
 alias: [homeomorphic, homeomorphism, homeomorphisms]
-tags: [topology, definition]
+tags: [geometry/topology, definition]
 category: definition
 date created: 2023-01-26 22:39:44
 date modified: Wednesday, 8th February 2023, 10:34:10 pm
