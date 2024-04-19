@@ -13,5 +13,10 @@ date modified: Monday, 23rd January 2023, 10:14:47 pm
 $$\nu\left(\dfrac{\partial\phi}{\partial x_1}(x_1,\ldots,x_n),\ldots,\dfrac{\partial\phi}{\partial x_n}(x_1,\ldots,x_n)\right)$$
 is negative (resp. positive), where $\phi(x_1,\ldots,x_n)=p$.
 
-"Definition". {[[D. Bachman - A geometric approach to differential forms]] pp. 50}
- An orientation is precisely some piece of information about a [[Manifold]] $M$ which we can use to understand what should be sign of the [[Integration Of Differential Forms]].
+## Remarks
+
+An orientation is precisely some piece of information about a [[Manifold]] $M$ which we can use to understand what should be sign of the [[Integration Of Differential Forms]].
+
+## References
+
+[[Bachman, D. - A geometric approach to differential forms|@Bac12, pp. 50]]

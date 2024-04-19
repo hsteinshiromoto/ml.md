@@ -1,6 +1,6 @@
 ---
 alias: [density, dense]
-tags: [topology]
+tags: [geometry/topology, definition]
 category: definition
 date created: 2023-02-06 21:52:40
 date modified: Monday, 6th February 2023, 10:03:55 pm

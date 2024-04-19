@@ -1,8 +1,8 @@
 ---
-alias: 
-tags: topology
+alias: []
+tags: [geometry/topology, result/lemma]
 category: lemma
-date created: Tuesday, 24th January 2023, 8:10:24 pm
+date created: 2023-01-24 20:10:24
 date modified: Friday, 3rd February 2023, 11:35:59 am
 ---
 
@@ -10,7 +10,7 @@ date modified: Friday, 3rd February 2023, 11:35:59 am
 
 ## Lemma
 
-**Lemma**. Let $(X,\tau)$ be a [[topological space]]. A subset $A$ is open in $X$ if and only if for every $p\in A$, there exists an [[open set]] $V$ such that $p \in V \subset A$.
+**Lemma**. Let $(X,\tau)$ be a [[Topological Space|topological space]]. A subset $A$ is open in $X$ if and only if for every $p\in A$, there exists an [[Topological Open Set|open set]] $V$ such that $p \in V \subset A$.
 
 ## References
 

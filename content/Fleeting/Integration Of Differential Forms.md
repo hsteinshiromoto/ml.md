@@ -26,7 +26,7 @@ $$\int_M\omega=\pm\int_R\omega_{\phi(x_1,\ldots,x_n)}\left(\dfrac{\partial\phi}{
 
 ## Interpretation
 
-The above definition can be viewed in more simple term as shown in [[D. Bachman - A geometric approach to differential forms]] pp. 43. Let $R$ be an [[Open Set]] of $\mathbb{R}^2$  and let $f:R\to \mathbb{R}$ be an differentiable function, for each $x,y\in R$ define the [[Differential Forms]]
+The above definition can be viewed in more simple term as shown in [[Bachman, D. - A geometric approach to differential forms|@Bac12, pp. 43]]. Let $R$ be an [[Open Set]] of $\mathbb{R}^2$  and let $f:R\to \mathbb{R}$ be an differentiable function, for each $x,y\in R$ define the [[Differential Forms]]
 $$\begin{array}{rrcl}
 \omega:&T_xR\times T_yR&\to&\mathbb{R}\\
 &(v_x,v_y)&\mapsto&f(x,y)\;dx\wedge dy\;.
@@ -39,11 +39,11 @@ $$\int_M\omega=\int_R\omega_\phi\left(\dfrac{\partial\phi}{\partial x}(x,y),\dfr
 
 ## Summary
 
-{[[D. Bachman - A geometric approach to differential forms]] Section 4.7} To compute the integral of a [[Differential Forms]] [[N-form]] $\omega$ over a region $S$, the steps are as follows:
+To compute the integral of a [[Differential Forms|differential]] [[N-form|n-form]] $\omega$ over a region $S$, the steps are as follows:
 1. Choose a parametrization $\Phi:R\to S$, where $R\subset\mathbb{R}^n$
 2. Find all the $n$ vectors given by the partial derivatives of $\Phi$. Geometrically, these are the tangent vectors to $S$ which span its tangent space.
 3. Plug the tangent vectors into $\omega$ at the point $\Phi(u_1,\ldots,u_n)$
-4. Integrate the resulting functino over $R$.
+4. Integrate the resulting function over $R$.
 
 ## Examples
 
@@ -57,4 +57,4 @@ The next example illustrates how to calculate the integration with a [[Curve]].
 
 ## References
 
-1. [[D. Bachman - A geometric approach to differential forms]] Section 4.5
+1. [[Bachman, D. - A geometric approach to differential forms|@Bac12, Sections 4.5 and 4.7]]

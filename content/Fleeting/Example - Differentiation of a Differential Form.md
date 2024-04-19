@@ -1,16 +1,17 @@
 ---
-alias: 
-tags: example, differential_forms
-date created: Thursday, 21st January 2021, 8:39:05 am
+alias: []
+tags: [example, differential_forms]
+date created: 2021-01-21 08:39:05
 date modified: Monday, 23rd January 2023, 10:17:54 pm
 ---
+
 # Differentiation of a Differential Form
 
-{[[D. Bachman - A geometric approach to differential forms]] pp. 72} We saw in [[constants_existence_for_1-forms_multiplication]] that, if $d\omega$ is a $2-$form in $\mathbb{R}^3$, then there exists $a,b,c:\mathbb{R}^3\to\mathbb{R}$ such that 
+We saw in [[constants_existence_for_1-forms_multiplication]] that, if $d\omega$ is a $2-$form in $\mathbb{R}^3$, then there exists $a,b,c:\mathbb{R}^3\to\mathbb{R}$ such that
 
 $$d\omega=a(x,y,z)\;dx\wedge dy+b(x,y,z)\;dy\wedge dz+c(x,y,z)\;dx\wedge dz\;.$$
 
-To figure what $a$ is, for example, we need to determine what $d\omega$ does to the vectors $\langle1,0,0\rangle_{(x,y,z)}$ and $\langle0,1,0\rangle_{(x,y,z)}$. Let us compute $d\omega$ assuming that 
+To figure what $a$ is, for example, we need to determine what $d\omega$ does to the vectors $\langle1,0,0\rangle_{(x,y,z)}$ and $\langle0,1,0\rangle_{(x,y,z)}$. Let us compute $d\omega$ assuming that
 
 $$\omega=f(x,y,z)dx+g(x,y,z)dy+h(x,y,z)dz\;.$$
 
@@ -34,3 +35,7 @@ $$
 Hence,
 
 $$d\omega=\left(\dfrac{\partial f}{\partial x}-\dfrac{\partial f}{\partial y}\right)\;dx\wedge dy+\left(\dfrac{\partial h}{\partial y}-\dfrac{\partial g}{\partial z}\right)\;dy\wedge dz+\left(\dfrac{\partial h}{\partial x}-\dfrac{\partial f}{\partial z}\right)\;dx\wedge dz\;.$$
+
+## References
+
+[[Bachman, D. - A geometric approach to differential forms|@Bac12, pp. 72]]

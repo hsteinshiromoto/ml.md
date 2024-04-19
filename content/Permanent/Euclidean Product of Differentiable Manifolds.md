@@ -1,8 +1,8 @@
 ---
-alias: 
-tags: differential geometry
+alias: []
+tags: [geometry/differential, result/theorem]
 category: theorem
-date created: Tuesday, 21st February 2023, 10:10:55 pm
+date created: 2023-02-21 22:10:55
 date modified: Tuesday, 21st February 2023, 10:16:47 pm
 ---
 
@@ -10,7 +10,7 @@ date modified: Tuesday, 21st February 2023, 10:16:47 pm
 
 ## Theorem
 
-**Theorem**. Let $M$ and $N$ be [[Differentiable Manifold|smooth manifolds]] with dimensions $m$ and $n$. THen $M\times N$ is a [[Differentiable Manifold|smooth manifold]] with a $\mathcal{C}^\infty$ structure determined by coordinate neighborhood of the form $\{U\times V,\varphi\times\psi\}$, where $(U,\varphi)$ and $(V,\psi)$ are coordinate neighborhoods on $M$ and $N$, respectively, and $\varphi\times\psi:\mathbb{R}^m\times\mathbb{R}^n\to\mathbb{R}^{m+n}$.
+**Theorem**. Let $M$ and $N$ be [[Differentiable Manifold|smooth manifolds]] with dimensions $m$ and $n$. THen $M\times N$ is a [[Differentiable Manifold|smooth manifold]] with a $\mathcal{C}^\infty$ structure determined by [[Coordinate Neighborhood|coordinate neighborhood]] of the form $\{U\times V,\varphi\times\psi\}$, where $(U,\varphi)$ and $(V,\psi)$ are [[Coordinate Neighborhood|coordinate neighborhoods]] on $M$ and $N$, respectively, and $\varphi\times\psi:\mathbb{R}^m\times\mathbb{R}^n\to\mathbb{R}^{m+n}$.
 
 ## References
 

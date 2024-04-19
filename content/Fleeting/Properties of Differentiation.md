@@ -1,6 +1,6 @@
 ---
 alias: []
-tags: [differential_forms, result]
+tags: [result/proposition, analysis/functional, geometry/differential]
 date created: 2021-02-03 10:00:34
 date modified: Monday, 23rd January 2023, 10:08:09 pm
 ---
@@ -17,4 +17,6 @@ d(f\wedge dx_1\wedge\cdots\wedge dx_n)&=&df\wedge dx_1\wedge\cdots\wedge dx_n\\
 df&=&\dfrac{\partial f}{\partial x_1}dx_1+\cdots+\dfrac{\partial f}{\partial x_x}dx_x
 \end{eqnarray}$$
 
-[[D. Bachman - A geometric approach to differential forms]]
+## References
+
+[[Bachman, D. - A geometric approach to differential forms|@Bac12]]
