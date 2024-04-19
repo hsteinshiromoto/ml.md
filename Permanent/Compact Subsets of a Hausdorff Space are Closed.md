@@ -1,14 +1,14 @@
 ---
-alias: 
-tags: topology
+alias: []
+tags: [geometry/topology, result/proposition]
 category: proposition
-date created: Thursday, 26th January 2023, 10:37:10 pm
+date created: 2023-01-26 22:37:10
 date modified: Saturday, 4th February 2023, 10:02:35 pm
 ---
 
-# Compact Subsets are Closed
+# Compact Subsets Are Closed
 
-## Proposition
+## Statements
 
 **Proposition**. Every [[Compact Topological Space|compact]] subset $K$ of a [[Hausdorff Topological Space|Hausdorff space]] $(X,\tau)$ is [[Closed Set|closed]].
 

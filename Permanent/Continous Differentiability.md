@@ -1,6 +1,6 @@
 ---
 alias: [continously differentiable, smooth, class]
-tags: [analysis]
+tags: [analysis, definition]
 category: definition
 date created: 2023-02-09 17:25:02
 date modified: Thursday, 9th February 2023, 5:32:20 pm

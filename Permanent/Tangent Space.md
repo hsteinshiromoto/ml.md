@@ -1,8 +1,8 @@
 ---
-alias: tangent spaces, tangent vector, tangent vectors
-tags: differential geometry
+alias: [tangent spaces, tangent space, tangent vector, tangent vectors]
+tags: [geometry/differential, definition]
 category: definition
-date created: Tuesday, 21st February 2023, 10:31:12 pm
+date created: 2023-02-21 22:31:12
 date modified: Friday, 24th March 2023, 4:50:49 pm
 ---
 
@@ -10,7 +10,7 @@ date modified: Friday, 24th March 2023, 4:50:49 pm
 
 ## Definition
 
-**Definition**. Let $c:(-\varepsilon,\varepsilon)\to M$ be a [[differentiable]] curve on a smooth [[Differentiable Manifold|manifold]] $M$. Consider the set set $\mathcal{C}^\infty(p)$ of all functions $f:M\to\mathbb{R}$ that are differentiable at $c(0)=p\in M$. The _tangent vector to the curve_ $c$ at $p$ is the operator
+**Definition**. Let $c:(-\varepsilon,\varepsilon)\to M$ be a [[Differentiable|differentiable]] curve on a [[Differentiable Manifold|smooth manifold]] $M$. Consider the set set $\mathcal{C}^\infty(p)$ of all functions $f:M\to\mathbb{R}$ that are differentiable at $c(0)=p\in M$. The _tangent vector to the curve_ $c$ at $p$ is the operator
 $$\begin{array}{rrcl}
 \dot{c}(0):&\mathcal{C}^\infty&\to&\mathbb{R}\\
 &f&\mapsto&\dot{c}(0)(f)=\dfrac{d(f\circ c)}{dt}(0)\;.

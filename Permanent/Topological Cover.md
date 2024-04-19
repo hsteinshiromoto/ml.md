@@ -1,6 +1,6 @@
 ---
 alias: [topological cover, topological subcover]
-tags: []
+tags: [definition, geometry/topology]
 date created: 2024-04-17 21:59:10
 ---
 

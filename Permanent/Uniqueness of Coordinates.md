@@ -1,16 +1,16 @@
 ---
-alias: 
-tags: differential geometry
+alias: []
+tags: [geometry/differential, result/theorem]
 category: theorem
-date created: Tuesday, 21st February 2023, 10:02:44 pm
+date created: 2023-02-21 22:02:44
 date modified: Tuesday, 21st February 2023, 10:53:46 pm
 ---
 
 # Uniqueness of Coordinates
 
-## Theorem
+## Statements
 
-**Theorem**. Let the [[Differentiable Manifold|manifold]] $M$ be a [[Hausdorff Topological Space|hausdorff space]] with a [[countable basis of open sets]]. If $\mathscr{V}=\{V_\beta,\psi_\beta\}_{\beta\in\mathbb{N}}$ is a [[cover]] of $M$ by $\mathcal{C}^\infty$-[[Compatability of Coordinates|compatible coordinate neighborhoods]], then there exists a unique $\mathcal{C}^\infty$ structure on $M$ containing these [[Coordinate Neighborhood|coordinate neighborhoods]].
+**Theorem**. Let the [[Differentiable Manifold|manifold]] $M$ be a [[Hausdorff Topological Space|hausdorff space]] with a [[countable basis]] of [[Open Set|open sets]]. If $\mathscr{V}=\{V_\beta,\psi_\beta\}_{\beta\in\mathbb{N}}$ is a [[Cover|cover]] of $M$ by $\mathcal{C}^\infty$-[[Compatability of Coordinates|compatible coordinate neighborhoods]], then there exists a unique $\mathcal{C}^\infty$ structure on $M$ containing these [[Coordinate Neighborhood|coordinate neighborhoods]].
 
 ## References
 
