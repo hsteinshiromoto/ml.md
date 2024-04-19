@@ -1,24 +1,12 @@
 ---
-alias: 
-tags: []
-title: Probability Measure
+alias: [probability measure, probability measures, probability triple, probability triples, probability space, probability spaces]
+tags: [definition, theory/probability]
 date created: 2022-12-30 14:20:00
 date modified: Friday, 30th December 2022, 21:37:10
 ---
 
 # Probability Measure
 
-## Definition
+## Statements
 
-The requirements for a function $P$ to be a probability measure on a [[Permanent/Probability Space|probability space]] are that:
-
-- $P$ must return results in the [unit interval](https://en.wikipedia.org/wiki/Unit_interval "Unit interval") ${\displaystyle [0,1]}$ returning 0 for the empty set and 1 for the entire space.
-- $P$ must satisfy the _countable additivity_ property that for all [countable](https://en.wikipedia.org/wiki/Countable "Countable") collections $\{E_{i}\}_{i\in\mathbb{N}}$ of pairwise [disjoint sets](https://en.wikipedia.org/wiki/Disjoint_sets "Disjoint sets"):
-
-  $$
-  {\displaystyle P \left(\bigcup _{i\in\mathbb{N}}E_{i}\right)=\sum _{i\in\mathbb{N}}P (E_{i}).}
-  $$
-
-## References
-
-[Probability measure - Wikipedia](https://en.wikipedia.org/wiki/Probability_measure)
+**Definition**. Let ${\displaystyle (\Omega,{\mathcal {F}},P )}$ be a [[Measure Space|measure space]]. The [[Lebesgue Measure|measure]] $P:\mathcal{F}\to[0,1]$ is said to be a _probability measure_ if $P(\emptyset) = 0$ and $P(\Omega)=1$. When $P$ is a probability measure, the triple ${\displaystyle (\Omega,{\mathcal {F}},P )}$ is said to be a _probability triple_ or a _probability space_.

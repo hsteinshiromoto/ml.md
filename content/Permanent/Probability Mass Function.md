@@ -1,5 +1,5 @@
 ---
-tags: []
+tags: [definition, theory/probability]
 alias: [probability mass function, PMF]
 title: Probability Mass Function
 date created: 2022-12-30 14:47:26
@@ -8,11 +8,11 @@ date modified: Friday, 30th December 2022, 21:59:24
 
 # Probability Mass Function
 
-[[Probability Measure|Probability]] mass functions are used to define the [[Probability Distribution|distributions]] of discrete random variables $X:\Omega\to\mathcal{X}$ with discrete and finite (or least countable) outcome set $\mathcal{X}$.
+Probability mass functions are used to define the [[Probability Distribution|distributions]] of discrete random variables $X:\Omega\to\mathcal{X}$ with discrete and finite (or least countable) outcome set $\mathcal{X}$.
 
-## Definition
+## Statements
 
-Let $(\Omega,\mathcal{F},P)$ be a [[Probability Measure|probability]] space. A [[Random Variable]] $X:\Omega\to\mathcal{X}$ is said to be discrete, if its outcome space $\mathcal{X}$ contains countably many elements $x_i, i = 1,2,\ldots$. The _probability mass function_ (PMF) of a discrete [[Random Variable]] $X$ is denoted by $p_X$ and is defined as
+**Definition**. Let $(\Omega,\mathcal{F},P)$ be a [[Probability Measure|probability space]]. A [[Random Variable|random variable]] $X:\Omega\to\mathcal{X}$ is said to be discrete, if its outcome space $\mathcal{X}$ contains countably many elements $x_i, i = 1,2,\ldots$. The _probability mass function_ (PMF) of a discrete [[Random Variable|random variable]] $X$ is denoted by $p_X$ and is defined as
 $$
 p_X:\mathcal{X}\to[0,1]
 $$

@@ -1,6 +1,6 @@
 ---
 alias: [directional derivative, directional derivatives]
-tags: [analysis, linear algebra, definition]
+tags: [analysis, geometry/LinearAlgebra, definition]
 category: definition
 date created: 2021-01-18 16:09:06
 date modified: Friday, 10th February 2023, 5:10:15 pm

@@ -15,7 +15,7 @@ is negative (resp. positive), where $\phi(x_1,\ldots,x_n)=p$.
 
 ## Remarks
 
-An orientation is precisely some piece of information about a [[Manifold]] $M$ which we can use to understand what should be sign of the [[Integration Of Differential Forms]].
+An orientation is precisely some piece of information about a [[Differentiable Manifold|manifold]] $M$ which we can use to understand what should be sign of the [[Integration Of Differential Forms]].
 
 ## References
 

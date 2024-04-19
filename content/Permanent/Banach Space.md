@@ -13,4 +13,4 @@ tags: #definition | #geometry/space
 
 ## Statements
 
-**Definition** ([[Salsa S. - Partial Differential Equations in Action|@Sal08, Definition 6.1]]). A [[Complete Space|complete]], [[Norm|normed space]] is said to be a _Banach space_.
+**Definition** ([[Salsa S. - Partial Differential Equations in Action|@Sal08, Definition 6.1]]). A [[Complete Metric Space|complete spaces]], [[Norm|normed space]] is said to be a _Banach space_.

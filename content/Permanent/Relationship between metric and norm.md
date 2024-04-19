@@ -1,6 +1,6 @@
 ---
 alias: []
-tags: [geometry/topology, geometry/LinearAlgebra, results/proposition, definition]
+tags: [geometry/topology, geometry/LinearAlgebra, result/proposition, definition]
 category: definition
 date created: 2023-02-08 22:09:43
 date modified: Wednesday, 8th February 2023, 10:25:07 pm

@@ -1,6 +1,6 @@
 ---
 alias: [vector space, vector spaces, vector, linear space, linear spaces]
-tags: 
+tags: [definition, geometry/LinearAlgebra, geometry/space, geometry/differential]
 date created: 2023-08-06 21:23:34
 date modified: 2023-08-06 21:28:05
 title: Vector Space

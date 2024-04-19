@@ -1,6 +1,6 @@
 ---
-alias: [measurable function]
-tags: [definition, measure_theory]
+alias: [measurable function, measurable functions]
+tags: [definition, theory/measure]
 category: definition
 date created: 2023-01-29 21:36:30
 date modified: Wednesday, 8th February 2023, 10:41:46 pm
@@ -8,9 +8,9 @@ date modified: Wednesday, 8th February 2023, 10:41:46 pm
 
 # Measurable Function
 
-## Statement
+## Statements
 
-**Definition**. A function $f : X \to Y$ from one [[measurable space]] $(X, \mathcal{X} )$ to another $(Y,\mathcal{Y})$ is said to be _measurable_ if $f^{−1} (E) \in \mathcal{X}$ for all $E \in \mathcal{Y}$.
+**Definition**. A function $f : X \to Y$ from one [[Measure Space|measurable space]] $(X, \mathcal{X} )$ to another $(Y,\mathcal{Y})$ is said to be _measurable_ if $f^{−1} (E) \in \mathcal{X}$ for all $E \in \mathcal{Y}$.
 
 ## References
 

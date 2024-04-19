@@ -1,6 +1,6 @@
 ---
 alias: [neighborhoods, neighborhood]
-tags: [topology, definition]
+tags: [geometry/topology, definition]
 category: definition
 date created: 2021-01-08 16:04:35
 date modified: Saturday, 18th February 2023, 10:53:45 pm
