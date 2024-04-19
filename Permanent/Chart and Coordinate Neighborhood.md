@@ -9,4 +9,4 @@ date modified: Thursday, 9th February 2023, 12:03:27 pm
 
 ## Remark
 
-**Remark**. A [[coordinate neighborhood]] is a [[chart]].
+**Remark**. A [[coordinate neighborhood]] is a [[Coordinate Neighborhood|chart]].
