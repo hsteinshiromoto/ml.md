@@ -1,6 +1,6 @@
 ---
 alias: [$n-$form, $n-$forms, n-form, n-forms]
-tags: [differential_forms]
+tags: [geometry/differential, definition]
 date created: 2021-01-11 16:52:16
 date modified: Monday, 23rd January 2023, 9:51:02 pm
 ---

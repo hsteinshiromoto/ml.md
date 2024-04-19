@@ -1,6 +1,6 @@
 ---
 alias: []
-tags: [geometry/topology, resuts/proposition]
+tags: [geometry/topology, result/proposition]
 category: proposition
 date created: 2023-02-06 21:52:40
 date modified: Tuesday, 7th February 2023, 9:58:14 pm

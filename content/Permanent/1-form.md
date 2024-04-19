@@ -1,6 +1,6 @@
 ---
 alias: [1-forms]
-tags: [differential_forms]
+tags: [geometry/differential, definition]
 date created: 2021-01-11 16:36:45
 date modified: Monday, 23rd January 2023, 9:50:05 pm
 ---

@@ -1,6 +1,6 @@
 ---
 alias: [vector field, vector fields]
-tags: [linear, algebra]
+tags: [geometry/LinearAlgebra, definition]
 category: definition
 date created: 2023-01-27 12:19:00
 date modified: Thursday, 16th February 2023, 9:23:58 pm
@@ -8,7 +8,7 @@ date modified: Thursday, 16th February 2023, 9:23:58 pm
 
 # Vector Field
 
-## Definition
+## Statements
 
 **Definition**. A _vector field_ $X$ on an [[Open Set|open]] subset $U$ of $\mathbb{R}^n$ is a [[Functions and Mappings|vector-valued function]] $X:U\to\mathbb{R}^m$ that assigns to each point $p\in U$ a vector $\mathbb{R}^m$.
 
