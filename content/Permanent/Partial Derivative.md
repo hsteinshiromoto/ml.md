@@ -1,6 +1,6 @@
 ---
 alias: [partial derivatives, derivative, derivatives]
-tags: [analysis]
+tags: [definition, analysis]
 category: definition
 date created: 2023-02-09 16:05:18
 date modified: Friday, 10th February 2023, 5:07:46 pm

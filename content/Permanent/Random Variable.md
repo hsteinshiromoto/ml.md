@@ -1,5 +1,5 @@
 ---
-tags: []
+tags: [definition]
 alias: [random variable, random variables]
 title: Random Variable
 date created: 2022-12-30 14:29:55
@@ -8,7 +8,7 @@ date modified: Saturday, 7th January 2023, 20:57:20
 
 # Random Variable
 
-## Definition
+## Statements
 
 **Definition** (Random Variable). Let ${\displaystyle (\Omega ,{\mathcal {F}},\operatorname {P} )}$ be a [[Probability Space|probability triple]], $(\mathcal{X}, \mathcal{S})$ be a [[Measure Space|measurable space]]. The map ${\displaystyle X\colon \Omega \to \mathcal{X}}$ is said to be a _random variable_, if $X$ is a [[Measurable Function]].
 

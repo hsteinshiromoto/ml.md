@@ -1,11 +1,12 @@
 ---
-alias: 
-tags: topology
-category: lemma
-date created: Thursday, 26th January 2023, 11:01:58 pm
+alias: []
+tags: [topology]
+category: result/lemma
+date created: 2023-01-26 23:01:58
 date modified: Tuesday, 21st February 2023, 9:57:49 pm
 ---
-# The Sequence lemma
+
+# The Sequence Lemma
 
 ## Proposition
 
