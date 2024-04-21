@@ -29,8 +29,8 @@ The [[random variable]] is said to follow a _binomial_ distribution if the proba
 > $$
 
 > [!info] Moments
-> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=np$,
-> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=np(1-p)$.
+> - [[Expected Value|Expected value]]: $E[X]=np$,
+> - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=np(1-p)$.
 
 > [!info] Uncertainty Estimation
 > - $\alpha$: confidence level

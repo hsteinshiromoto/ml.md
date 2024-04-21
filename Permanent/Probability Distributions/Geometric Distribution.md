@@ -29,7 +29,7 @@ A [[random variable]] is said to follow a _geometric_ distribution if it is the 
 > $$
 
 > [!info] Moments
-> - [[Sample Mean|Mean]]: $E[X]=(1-p)/p$.
+> - [[Expected Value|mean]]: $E[X]=(1-p)/p$.
 > - [[The Relationship Between Sample Mean, Sample Variance and Expectation, Variance|Variance]]: $(1-p)/p^2$.
 
 > [!info] Uncertainty Estimation

@@ -32,8 +32,8 @@ A [[random variable]] is said to follow a _exponential_ distribution if the prob
 > $$
 
 > [!info] Moments
-> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=1/\lambda$,
-> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=1/\lambda^2$.
+> - [[Expected Value|Expected value]]: $E[X]=1/\lambda$,
+> - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=1/\lambda^2$.
 
 > [!info] Uncertainty Estimation
 > Todo

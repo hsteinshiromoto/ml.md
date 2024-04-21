@@ -26,8 +26,8 @@ A [[random variable]] is said to be _Poisson_ distributed if the probability of 
 > $$
 
 > [!info] Moments
-> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=\lambda$,
-> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=\lambda$.
+> - [[Expected Value|Expected value]]: $E[X]=\lambda$,
+> - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=\lambda$.
 
 The Poisson distribution is an appropriate model if the following assumptions are true:
 

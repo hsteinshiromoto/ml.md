@@ -10,7 +10,7 @@ date modified: 2023-09-25 13:38:30
 
 # Covariance
 
-Let $X$ and $Y$ be two jointly distributed [[random variable|random variables]], the _covariance_ is defined as the [[Expected Value of a Random Variable]] of the product of their deviations from their individual expected values
+Let $X$ and $Y$ be two jointly distributed [[random variable|random variables]], the _covariance_ is defined as the [[Expected Value]] of the product of their deviations from their individual expected values
 $$\texttt{Cov}(X,Y)=\text{E}[(X-\text{E}[X])(Y-\text{E}[Y])]\;.$$
 
 N.B. 1. The covariance of a variable with itself is equlas to its [[variance]] $\texttt{Cov}(X,X)=\texttt{Car}(X)$.

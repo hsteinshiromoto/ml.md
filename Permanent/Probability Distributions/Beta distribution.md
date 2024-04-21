@@ -29,8 +29,8 @@ A [[random variable]] is said to be _Beta_ distributed if it is described by the
 > where $B(\alpha,\beta)=\Gamma(\alpha+\beta)/(\Gamma(\alpha)\Gamma(\beta))$.
 
 > [!info] Moments
-> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=\alpha/(\alpha+\beta)$.
-> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=\alpha\beta/((\alpha+\beta)^2(\alpha+\beta+1))$.
+> - [[Expected Value|Expected value]]: $E[X]=\alpha/(\alpha+\beta)$.
+> - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=\alpha\beta/((\alpha+\beta)^2(\alpha+\beta+1))$.
 
 The distribution is an appropriate model if the following assumptions are true:
 
