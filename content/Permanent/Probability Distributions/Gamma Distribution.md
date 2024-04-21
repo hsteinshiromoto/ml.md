@@ -28,8 +28,8 @@ A [[random variable]] is said to be _Gamma_ distributed if it is described by th
 > $$
 
 > [!info] Moments
-> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=\alpha/\beta$,
-> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=\alpha/\beta^2$.
+> - [[Expected Value|Expected value]]: $E[X]=\alpha/\beta$,
+> - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=\alpha/\beta^2$.
 
 This random variable represents the waiting time until the $\alpha-$th occurrence of a [[Poisson distribution|Poisson]] event with average rate $\beta$.
 

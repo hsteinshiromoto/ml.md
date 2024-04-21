@@ -29,8 +29,8 @@ The random variable is said to follow a _negative binomial_ distribution if the 
 > $$
 
 > [!info] Moments
-> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=r(1-p)p$.
-> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=r(1-p)/p^2$.
+> - [[Expected Value|Expected value]]: $E[X]=r(1-p)p$.
+> - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=r(1-p)/p^2$.
 
 > [!info] Uncertainty Estimation
 > Todo

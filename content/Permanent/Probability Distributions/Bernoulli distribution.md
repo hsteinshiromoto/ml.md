@@ -25,8 +25,8 @@ The [[random variable]] is said to follow a _Bernoulli_ distribution if the prob
 > $$
 
 > [!info] Moments
-> - [[Expected Value of a Random Variable|Expected value]]: $E[X]=p$,
-> - [[Variance and Standard Deviation of a Random Variable|Variance]]: $\texttt{Var}(X)=p(1-p)$.
+> - [[Expected Value|Expected value]]: $E[X]=p$,
+> - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=p(1-p)$.
 
 > [!info] Uncertainty Estimation
 >
