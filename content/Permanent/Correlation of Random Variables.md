@@ -1,7 +1,7 @@
 ---
-tags: [statistics, probability_theory]
+tags: [statistics, theory/probability, definition]
 title: Correlation of Random Variables
-alias: [correlation, correlated, uncorrelated]
+alias: [correlation, correlations, correlated, uncorrelated]
 date created: 2023-09-23 22:30:06
 date modified: 2023-09-25 13:39:54
 ---
@@ -19,4 +19,4 @@ where $\texttt{Std}$ is the [[Variance and Standard Deviation|standard deviation
 
 ## References
 
-[[D. Ostwald - The general linear model 20_21]]
+[[D. Ostwald - The general linear model 20_21|Ost20, Definition 6.4.1]]

@@ -1,8 +1,6 @@
 ---
-alias: []
-aliases:
-  - negative binomial
-tags: [distribution/discrete]
+alias: [negative binomial, negative binomial distribution]
+tags: [statistics, theory/probability, definition]
 title: Negative Binomial Distribution
 date created: 2023-09-13 21:26:44
 date modified: 2023-09-25 16:27:49
@@ -10,15 +8,15 @@ date modified: 2023-09-25 16:27:49
 
 # Negative Binomial Distribution
 
-## Definition
+## Statements
 
-Let $X$ be a discrete random variable with the
+Let $X$ be a discrete [[random variable]] with the
 
 > [!info] Parameters
 > - $n$: number of independent Bernoulli trials.
 > - $p$: probability of success.
 
-The random variable is said to follow a _negative binomial_ distribution if the probability of getting exactly $k\in\mathbb{N}_{[1,n]}$ failures before $r$ success are occurs.
+The random variable is said to follow a _negative [[Binomial distribution|binomial distribution]]_ if the probability of getting exactly $k\in\mathbb{N}_{[1,n]}$ failures before $r$ success are occurs.
 
 > [!info] [[Probability Mass Function]]
 > $$
@@ -35,5 +33,6 @@ The random variable is said to follow a _negative binomial_ distribution if the 
 > [!info] Uncertainty Estimation
 > Todo
 
-> [!info] Relationship with other distributions
+## Relationship with other Distributions
+
 > When $r=1$, a negative binomial distributed random variable is [[Geometric Distribution|geometrically]] distributed.

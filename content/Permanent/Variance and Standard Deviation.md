@@ -24,7 +24,7 @@ $$
 
 **Remark**. ([[D. Ostwald - The general linear model 20_21|Ost20, Section 6.3]]) The theoretical constructs of [[Expected Value|expectations]], [[Variance and Standard Deviation|variances]], and [[Variance and Standard Deviation|standard deviations]] should not be confused with the concepts of [[Expected Value|sample means]], [[Variance and Standard Deviation|sample variance]], and [[Variance and Standard Deviation|sample standard deviations]]. The former entities are of theoretical nature and can be evaluated once the [[Probability Distribution|distributions]] of [[Random Variable|random variables]] have been specified. The latter entities are of practical nature, can be evaluated numerically based on observed data, and serve as estimators of the former theoretical quantities ^a3bf2c
 
-**Definition**. ([[D. Ostwald - The general linear model 20_21|Ost20, Definition 6.3.1]]) Let $(X_1, \ldots, X_n)$ be [[Random Variable|random variables]] and let $\mu$ be their [[Sample Mean|sample mean]]. Then the _sample variance_ of $(X_1, \ldots, X_n)$ is defined as
+**Definition**. ([[D. Ostwald - The general linear model 20_21|Ost20, Definition 6.3.1]]) Let $(X_1, \ldots, X_n)$ be [[Random Variable|random variables]] and let $\mu$ be their [[Expected Value|sample mean]]. Then the _sample variance_ of $(X_1, \ldots, X_n)$ is defined as
 $$
 \sigma^2(X)=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}(\mu-X_i)^2\;.
 $$

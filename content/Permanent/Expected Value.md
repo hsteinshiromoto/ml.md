@@ -1,5 +1,5 @@
 ---
-alias: [expected value, expected values, Expected values, expectation, expectations, mean, Mean, means, Means, average, Average, averages, Averages, averaged]
+alias: [expected value, expected values, Expected values, expectation, expectations, mean, sample mean, Mean, means, Means, average, Average, averages, Averages, averaged]
 tags: [definition, theory/probability, statistics]
 title: Expected Value of a Random Variable
 date created: 2023-09-25 09:48:39
