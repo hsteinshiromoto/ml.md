@@ -30,7 +30,7 @@ A [[random variable]] is said to follow a _geometric_ distribution if it is the 
 
 > [!info] Moments
 > - [[Expected Value|mean]]: $E[X]=(1-p)/p$.
-> - [[The Relationship Between Sample Mean, Sample Variance and Expectation, Variance|Variance]]: $(1-p)/p^2$.
+> - [[Variance and Standard Deviation|variance]]: $(1-p)/p^2$.
 
 > [!info] Uncertainty Estimation
 > Todo

@@ -1,6 +1,6 @@
 {
   "collapse-filter": true,
-  "search": "-path:References -path:MOC -path:changelog",
+  "search": "-path:References -path:MOC -path:changelog -path:_meta_  ",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -34,11 +34,11 @@
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": false,
+  "collapse-forces": true,
   "centerStrength": 0.0625,
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.9499909384065967,
+  "scale": 0.056312981829552605,
   "close": true
 }

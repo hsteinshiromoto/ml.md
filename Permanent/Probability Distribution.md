@@ -10,17 +10,17 @@ date modified: Saturday, 31st December 2022, 22:02:27
 
 ## Statements
 
-**Definition**. Let $(\Omega,\mathcal{F},P)$ be a [[Probability Space|probability space]], $(\Gamma,\mathcal{S})$ be a [[Measure Space|measurable space]] and $X:\Omega\to\Gamma$ be a [[Random Variable|random variable]], then the function $P_X:\mathcal{S}\to[0,1]$ defined as $S\mapsto P(X^{-1})(S)$ is said to be the _probability distribution of the random variable_ $X$.
+**Definition**. Let $(\Omega,\mathcal{F},P)$ be a [[Probability Measure|probability space]], $(\Gamma,\mathcal{S})$ be a [[Measure Space|measurable space]] and $X:\Omega\to\Gamma$ be a [[Random Variable|random variable]], then the function $P_X:\mathcal{S}\to[0,1]$ defined as $S\mapsto P(X^{-1})(S)$ is said to be the _probability distribution of the random variable_ $X$.
 
 ## Interpretation
 
 Intuitively, the notion of randomness in the values $X(\omega)$ of $X$ is captured by this construction as follows:
 
-1. An element $\omega\in\Omega$ is selected according to the [[Probability Measure|probability]] $P(\{\omega\})$ that is allocated to $\omega$ by the [[Probability Measure]] $P$ on $(\Omega,\mathcal{F})$.
-2. This $\omega$ is mapped onto an element $X(\omega)$ in $\Gamma$, which is also referred to as a realization of the [[Random Variable]] $X$. Across realizations, the values of $X$ exhibit a [[Probability Measure|probability]] distribution that depends both on the properties of $P$ and $X$ and is denoted by $P_X$. The Figure below visualizes the situation.
+1. An element $\omega\in\Omega$ is selected according to the [[Probability Measure|probability]] $P(\{\omega\})$ that is allocated to $\omega$ by the [[Probability Measure|probability measure]] $P$ on $(\Omega,\mathcal{F})$.
+2. This $\omega$ is mapped onto an element $X(\omega)$ in $\Gamma$, which is also referred to as a realization of the [[Random Variable|random variable]] $X$. Across realizations, the values of $X$ exhibit a [[Probability Measure|probability]] distribution that depends both on the properties of $P$ and $X$ and is denoted by $P_X$. The Figure below visualizes the situation.
    ![[Probability Distribution.png]]
 
-Clearly, if $\mathcal{X}=\Omega$, $\mathcal{S} = \mathcal{F}$ and $X:=$ id, then $P$ and $P_X$ are identical. Importantly, the union of the [[Measure Space|measurable space]] $(\mathcal{X},\mathcal{S})$ and the [[Probability Measure]] $P_X$ forms the [[Probability Space]] $(\mathcal{X},\mathcal{S},P_X)$.
+Clearly, if $\mathcal{X}=\Omega$, $\mathcal{S} = \mathcal{F}$ and $X:=$ id, then $P$ and $P_X$ are identical. Importantly, the union of the [[Measure Space|measurable space]] $(\mathcal{X},\mathcal{S})$ and the [[Probability Measure|probability measure]] $P_X$ forms the [[Probability Measure|probability space]] $(\mathcal{X},\mathcal{S},P_X)$.
 
 ## Notation
 

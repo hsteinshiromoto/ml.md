@@ -1,6 +1,6 @@
 ---
-alias: [binomial]
-tags: [distribution/discrete]
+alias: [binomial distribution, binomial distributions]
+tags: [definition, theory/probability, statistics]
 title: Binomial Distribution
 date created: 2023-09-13 21:26:44
 date modified: 2023-09-25 16:28:55
@@ -38,5 +38,7 @@ The [[random variable]] is said to follow a _binomial_ distribution if the proba
 > - Confidence interval
 >   $$\hat{p}\pm z\sqrt{\dfrac{\hat{p}(1-\hat{p})}{{n}}}\;,$$
 >   where $z=1-\alpha/2$.
+
+## Relationship with Other Probability Distributions
 
 When $n=1$, a binomial distributed random variable is [[Bernoulli distribution|Bernoulli]] distributed.

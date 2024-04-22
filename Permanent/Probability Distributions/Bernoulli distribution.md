@@ -1,6 +1,6 @@
 ---
-alias: [binary, Bernoulli]
-tags: [distribution/discrete]
+alias: [Bernoulli distribution, Bernoulli distributions]
+tags: [definition, theory/probability, statistics]
 title: Bernoulli Distribution
 date created: 2023-09-25 09:48:39
 ---
