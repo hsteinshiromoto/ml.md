@@ -10,7 +10,7 @@ is_univariate: Y
 
 # Binomial Distribution
 
-## Definition
+## Statements
 
 Let $X$ be a discrete [[random variable]] with the
 
@@ -40,5 +40,7 @@ The [[random variable]] is said to follow a _binomial_ distribution if the proba
 >   where $z=1-\alpha/2$.
 
 ## Relationship with Other Probability Distributions
+
+### Bernoulli Distribution
 
 When $n=1$, a binomial distributed random variable is [[Bernoulli distribution|Bernoulli]] distributed.
