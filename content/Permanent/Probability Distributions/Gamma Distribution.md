@@ -1,6 +1,6 @@
 ---
 alias: [gamma]
-tags: [probability_theory, distribution/continuous]
+tags: [definition, theory/probability, statistics]
 is_continuous: Y
 category: 
 title: Gamma Distribution
@@ -10,9 +10,11 @@ date modified: 2023-10-09 17:02:01
 
 # Gamma Distribution
 
+## Statements
+
 > [!info] Parameters
-> - $\alpha>0$: parameter
-> - $\beta>0$: parameter
+> - $\alpha>0$: Number of occurrence of a [[Poisson distribution]] event.
+> - $\beta>0$: Average rate of occurrence.
 
 A [[random variable]] is said to be _Gamma_ distributed if it is described by the following
 
@@ -31,8 +33,12 @@ A [[random variable]] is said to be _Gamma_ distributed if it is described by th
 > - [[Expected Value|Expected value]]: $E[X]=\alpha/\beta$,
 > - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=\alpha/\beta^2$.
 
-This random variable represents the waiting time until the $\alpha-$th occurrence of a [[Poisson distribution|Poisson]] event with average rate $\beta$.
+## Relationship with Other Distributions
 
-Related distributions:
-- If $\alpha=1$, the Gamma distribution is a generalisation of the [[Exponential Distribution|exponential distribution]] with parameter $\beta=\lambda$.
-- Let $m>0$, if $\alpha=m/2$ and $\beta=1/2$. Then, $X$ has a [[Chi-Squared Distribution|chi-square]] distribution with $m$ degrees of freedom.
+### Exponential Distribution
+
+When $\alpha=1$, the Gamma distribution reduces to the [[Exponential Distribution|exponential distribution]] with parameter $\beta=\lambda$. ^6ff921
+
+### Chi-Square
+
+For a value $m>0$, let $\alpha=m/2$ and $\beta=1/2$. Then, $X$ has a [[Chi-Squared Distribution|chi-square]] distribution with $m$ degrees of freedom. ^c14c0f

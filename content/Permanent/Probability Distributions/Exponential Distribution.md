@@ -1,6 +1,6 @@
 ---
 alias: [exponential distribution, exponential]
-tags: [distribution/continuous]
+tags: [definition, theory/probability, statistics]
 is_continuous: Y
 category: 
 title: Exponential Distribution
@@ -13,9 +13,9 @@ is_univariate: Y
 
 ## Definition
 
-Let $X$ be a discrete [[random variable]] with the
+Let $X$ be a discrete [[random variable]] with
 
-> [!info] Parameter
+> [!info] Parameters
 > - $\lambda$: waiting time between two successive events in a [[Poisson distribution|Poisson]] process with the average $\lambda$.
 
 A [[random variable]] is said to follow a _exponential_ distribution if the probability is described by the following
@@ -37,3 +37,9 @@ A [[random variable]] is said to follow a _exponential_ distribution if the prob
 
 > [!info] Uncertainty Estimation
 > Todo
+
+## Relationship with Other Distributions
+
+### Gamma Distribution
+
+![[Gamma Distribution#^6ff921]]

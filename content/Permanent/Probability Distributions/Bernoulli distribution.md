@@ -29,4 +29,7 @@ The [[random variable]] is said to follow a _Bernoulli_ distribution if the prob
 > - [[Variance and Standard Deviation|Variance]]: $\texttt{Var}(X)=p(1-p)$.
 
 > [!info] Uncertainty Estimation
->
+
+## Relationship with other Distributions
+
+### Binomial Distribution

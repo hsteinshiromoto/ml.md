@@ -1,6 +1,6 @@
 ---
 alias: [Lebesgue integral, Lebesgue integrals, Lebesgue Integrals]
-tags: []
+tags: [definition, theory/measure]
 date created: 2024-04-19 22:14:13
 ---
 

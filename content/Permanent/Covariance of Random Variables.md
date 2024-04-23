@@ -10,10 +10,13 @@ date modified: 2023-09-25 13:41:17
 
 ## Statements
 
-**Definition**. The _covariance_ of two [[Random Variable|random variables]] $X_1$ and $X_2$ with finite [[Expected Value|expectations]] is defined as
+**Definition**. The _covariance_ of two [[Random Variable|random variables]] $X$ and $Y$ with finite [[Expected Value|expectations]] is defined as
 $$
-\texttt{Cov}(X_{1},X_2)= E ((X_1 − E(X_1))(X_2 − E(X_2)))\;.
+\texttt{Cov}(X,Y)= E ((X − E(X))(Y − E(Y)))\;.
 $$
+
+The following figure shows the covariance of two [[random variables]].
+![The sign of covariance of two random variables $X$ and $Y$.](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Covariance_trends.svg/170px-Covariance_trends.svg.png)
 
 ## References
 
